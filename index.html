@@ -82,9 +82,9 @@
         <div class="relative z-10 container mx-auto px-4 flex flex-col h-full justify-between py-8 md:py-12">
             
             <div class="flex justify-between items-start text-[10px] md:text-xs uppercase tracking-widest font-bold opacity-70">
-                <div class="text-right">
-                    СТАТУС:ОТКРЫТА РЕГИСТРАЦИЯ
-                </div>
+<div class="text-right text-acid-lime font-bold drop-shadow-[0_0_8px_rgba(204,255,0,0.8)] animate-pulse">
+    СТАТУС: ОТКРЫТА РЕГИСТРАЦИЯ
+</div>
                 <div class="flex gap-1 text-[10px] md:text-xs font-bold">
                 <span class="bg-acid-lime text-black px-2 py-1 cursor-default">[ RU ]</span>
                 <a href="#" class="text-white/50 border border-white/20 px-2 py-1 hover:text-white hover:border-white transition-colors">[ EN ]</a>
@@ -129,11 +129,12 @@
             </a>
 
             <div class="hidden md:flex gap-8 text-xs font-bold uppercase tracking-widest text-white/60">
-                <a href="#about" class="hover:text-acid-lime transition-colors">О соревновании</a>
-                <a href="#disciplines" class="hover:text-acid-lime transition-colors">Режимы</a>
-                <a href="#classes" class="hover:text-acid-lime transition-colors">Классы</a>
-                <a href="#algorithm" class="hover:text-acid-lime transition-colors">Принять участие</a>
-            </div>
+    <a href="#about" class="hover:text-acid-lime transition-colors">Миссия</a>
+    <a href="#disciplines" class="hover:text-acid-lime transition-colors">Режимы</a>
+    <a href="#classes" class="hover:text-acid-lime transition-colors">Классы</a>
+    <a href="#algorithm" class="hover:text-acid-lime transition-colors">Алгоритм</a>
+    <a href="#rules" class="hover:text-acid-lime transition-colors">Регламент</a>
+</div>
         </div>
     </nav>
 
@@ -341,22 +342,16 @@
             <div class="relative">
                 <div class="hidden md:block absolute top-6 left-0 w-full h-px bg-white/10"></div>
                 
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-12 relative">
+                <div class="grid grid-cols-1 md:grid-cols-5 gap-8 relative">
                     
                     <div class="relative pt-6 md:pt-12 group">
                         <div class="hidden md:block absolute top-4 left-0 w-4 h-4 bg-acid-lime border-4 border-black rounded-full z-10 shadow-[0_0_15px_rgba(204,255,0,0.8)] animate-pulse"></div>
                         
                         <div class="text-acid-lime text-sm font-bold mb-2">ЭТАП_01 // КОННЕКТ</div>
+                        <h4 class="text-xl text-white font-bold mb-4">TELEGRAM BOT</h4>
+                        <p class="text-white/60 text-sm mb-6 h-10 leading-relaxed text-xs">Заригестрируйтесь через телеграм-бота.</p>
                         
-                        <h4 class="text-xl text-white font-bold mb-4">
-                            TELEGRAM BOT
-                        </h4>
-                        
-                        <p class="text-white/60 text-sm mb-6 h-10 leading-relaxed">
-                            Заригестрируйтесь через телеграм-бота.
-                        </p>
-                        
-                        <a href="http://t.me/LordOfTheWinds_bot" target="_blank" class="flex items-center justify-center w-full py-4 border border-acid-lime text-acid-lime font-bold uppercase tracking-widest hover:bg-acid-lime hover:text-black transition-all duration-300 shadow-[0_0_20px_rgba(204,255,0,0.1)] hover:shadow-[0_0_30px_rgba(204,255,0,0.4)]">
+                        <a href="http://t.me/LordOfTheWinds_bot" target="_blank" class="flex items-center justify-center w-full py-4 border border-acid-lime text-acid-lime font-bold uppercase tracking-widest hover:bg-acid-lime hover:text-black transition-all duration-300 shadow-[0_0_20px_rgba(204,255,0,0.1)] hover:shadow-[0_0_30px_rgba(204,255,0,0.4)] text-xs">
                             <span class="mr-2">></span> ПЕРЕЙТИ
                         </a>
                     </div>
@@ -365,9 +360,9 @@
                         <div class="hidden md:block absolute top-4 left-0 w-4 h-4 bg-[#1a1a1a] border border-white/30 rounded-full z-10"></div>
                         <div class="text-white/50 text-sm font-bold mb-2">ЭТАП_02 // СИНХРО</div>
                         <h4 class="text-xl text-white/80 font-bold mb-4">GARMIN / STRAVA</h4>
-                        <p class="text-white/40 text-sm mb-6 h-10 leading-relaxed">Привяжи свой аккаунт Гармин или Страва к системе гонок.</p>
-                        
-                        <div class="font-mono text-xs text-acid-lime/70 mt-8 pt-4 border-t border-white/10">
+                        <p class="text-white/40 text-sm mb-6 h-10 leading-relaxed text-xs">Привяжи свой аккаунт Гармин или Страва к системе гонок.</p>
+                        <div class="font-mono text-[10px] text-acid-lime/70 mt-8 pt-4 border-t border-white/10">
+                            // ЖДЕМ ДАННЫЕ
                         </div>
                     </div>
 
@@ -375,9 +370,9 @@
                         <div class="hidden md:block absolute top-4 left-0 w-4 h-4 bg-[#1a1a1a] border border-white/30 rounded-full z-10"></div>
                         <div class="text-white/50 text-sm font-bold mb-2">ЭТАП_03 // ЗАЯВКА</div>
                         <h4 class="text-xl text-white/80 font-bold mb-4">ВЫБОР КЛАССА</h4>
-                        <p class="text-white/40 text-sm mb-6 h-10 leading-relaxed">Подайте заявку на участие в гонке “Lord of the Winds” с выбором гоночного класса.</p>
-                        
-                        <div class="font-mono text-xs text-acid-lime/70 mt-8 pt-4 border-t border-white/10">
+                        <p class="text-white/40 text-sm mb-6 h-10 leading-relaxed text-xs">Подайте заявку на участие в гонке с выбором класса.</p>
+                        <div class="font-mono text-[10px] text-acid-lime/70 mt-8 pt-4 border-t border-white/10">
+                            // ЖДЕМ ЗАЯВКУ
                         </div>
                     </div>
 
@@ -385,9 +380,19 @@
                         <div class="hidden md:block absolute top-4 left-0 w-4 h-4 bg-[#1a1a1a] border border-white/30 rounded-full z-10"></div>
                         <div class="text-white/50 text-sm font-bold mb-2">ЭТАП_04 // ГОНКА</div>
                         <h4 class="text-xl text-white/80 font-bold mb-4">ЗАЕЗД</h4>
-                        <p class="text-white/40 text-sm mb-6 h-10 leading-relaxed">Выполните заезд по снегу или льду в одном из 7-ми гоночных классов.</p>
-                        
-                        <div class="font-mono text-xs text-acid-lime/70 mt-8 pt-4 border-t border-white/10">
+                        <p class="text-white/40 text-sm mb-6 h-10 leading-relaxed text-xs">Выполните заезд по снегу или льду в одном из классов.</p>
+                        <div class="font-mono text-[10px] text-acid-lime/70 mt-8 pt-4 border-t border-white/10">
+                            // СИСТЕМА ГОТОВА
+                        </div>
+                    </div>
+
+                    <div class="relative pt-6 md:pt-12">
+                        <div class="hidden md:block absolute top-4 left-0 w-4 h-4 bg-[#1a1a1a] border border-white/30 rounded-full z-10"></div>
+                        <div class="text-white/50 text-sm font-bold mb-2">ЭТАП_05 // ФИНАЛ</div>
+                        <h4 class="text-xl text-acid-lime font-bold mb-4">НАГРАЖДЕНИЕ</h4>
+                        <p class="text-white/40 text-sm mb-6 h-10 leading-relaxed text-xs">Получение статуса WINDLORD и ценных призов.</p>
+                        <div class="font-mono text-[10px] text-acid-lime/70 mt-8 pt-4 border-t border-white/10">
+                            // DATE: 15.03
                         </div>
                     </div>
 
