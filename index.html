@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -38,12 +38,13 @@
             background-color: #0F0F0F;
             color: #F0F0F0;
             overflow-x: hidden;
+            padding-top: 60px; /* Отступ, чтобы контент не прятался под меню */
         }
         
         /* Шум */
         .noise-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            pointer-events: none; z-index: 50; opacity: 0.07;
+            pointer-events: none; z-index: 40; opacity: 0.07;
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
         }
 
@@ -70,7 +71,28 @@
 
     <div class="noise-overlay"></div>
 
-    <section class="relative h-screen w-full flex flex-col justify-center items-center overflow-hidden border-b border-white/10">
+    <nav class="fixed top-0 left-0 w-full z-50 bg-graphite/90 backdrop-blur-md border-b border-white/10 h-16">
+        <div class="container mx-auto px-4 h-full flex items-center justify-between">
+            
+            <a href="#" class="text-white hover:text-acid-lime transition-colors font-bold uppercase tracking-widest text-xs md:text-sm">
+                // ВЛАДЫКА_ВЕТРА
+            </a>
+
+            <div class="hidden md:flex gap-8 text-xs font-bold uppercase tracking-widest text-white/60">
+                <a href="#disciplines" class="hover:text-acid-lime transition-colors hover:scale-105 transform duration-200">Режимы</a>
+                <a href="#classes" class="hover:text-acid-lime transition-colors hover:scale-105 transform duration-200">Классы</a>
+                <a href="#algorithm" class="hover:text-acid-lime transition-colors hover:scale-105 transform duration-200">Алгоритм</a>
+                <a href="#rules" class="hover:text-acid-lime transition-colors hover:scale-105 transform duration-200">Правила</a>
+            </div>
+
+            <div class="flex gap-1 text-[10px] md:text-xs font-bold">
+                <span class="bg-acid-lime text-black px-2 py-1 cursor-default">[ RU ]</span>
+                <a href="#" class="text-white/50 border border-white/20 px-2 py-1 hover:text-white hover:border-white transition-colors">[ EN ]</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="relative h-[calc(100vh-60px)] w-full flex flex-col justify-center items-center overflow-hidden border-b border-white/10">
         
         <div class="absolute inset-0 z-0 bg-black">
              <video autoplay muted loop playsinline class="video-bg">
@@ -81,21 +103,16 @@
 
         <div class="relative z-10 container mx-auto px-4 flex flex-col h-full justify-between py-8 md:py-12">
             
-            <div class="flex justify-between items-start text-[10px] md:text-sm uppercase tracking-widest font-bold">
-                <div class="text-acid-lime/80">
-                    // ПРОТОКОЛ ЗИМНИХ ГОНОК_V.2026
+            <div class="flex justify-between items-start text-[10px] md:text-xs uppercase tracking-widest font-bold opacity-70">
+                <div class="text-acid-lime">
+                    // ПРОТОКОЛ_V.2025
                 </div>
-
-                <div class="flex flex-col items-end gap-2">
-                    <div class="flex gap-1">
-                        <span class="bg-acid-lime text-black px-2 py-0.5 cursor-default">[ RU ]</span>
-                        <a href="#" class="text-white/50 border border-white/20 px-2 py-0.5 hover:text-white hover:border-white transition-colors">[ EN ]</a>
-                    </div>
-                    <span class="hidden md:block text-right text-acid-lime/80 mt-1">СТАТУС: ОТКРЫТА РЕГИСТРАЦИЯ</span>
+                <div class="text-right">
+                    СТАТУС: ОТКРЫТА РЕГИСТРАЦИЯ
                 </div>
             </div>
 
-            <div class="flex flex-col items-center text-center mt-10 md:mt-0">
+            <div class="flex flex-col items-center text-center mt-4">
                 <h1 class="font-display font-black text-5xl md:text-8xl lg:text-[10rem] leading-[0.85] tracking-tighter text-white mix-blend-difference">
                     ВЛАДЫКА<br>
                     <span class="text-transparent stroke-text" style="-webkit-text-stroke: 1px white;">ВЕТРА</span>
@@ -104,26 +121,32 @@
                 <div class="mt-8 mb-12 max-w-2xl border-l-2 border-acid-lime pl-6 text-left backdrop-blur-sm">
                     <p class="text-acid-lime font-bold uppercase tracking-wider mb-2 text-xs md:text-base">17.02 — 15.03 • ВЕСЬ МИР • ЛЮБОЙ ЛЁД</p>
                     <p class="text-white/80 text-sm md:text-base">
-                        Глобальная гонка без границ
+                        Глобальная гонка без границ. Твой спот. Твой трек. Наш алгоритм.
                     </p>
                 </div>
 
-                <a href="#" class="group relative inline-flex items-center justify-center px-6 py-4 md:px-8 overflow-hidden font-bold text-acid-lime transition-all duration-300 bg-transparent border-2 border-acid-lime hover:bg-acid-lime hover:text-black focus:outline-none">
+                <a href="#algorithm" class="group relative inline-flex items-center justify-center px-6 py-4 md:px-8 overflow-hidden font-bold text-acid-lime transition-all duration-300 bg-transparent border-2 border-acid-lime hover:bg-acid-lime hover:text-black focus:outline-none">
                     <span class="absolute top-0 left-0 w-2 h-2 bg-acid-lime transition-all duration-300 group-hover:bg-black"></span>
                     <span class="absolute bottom-0 right-0 w-2 h-2 bg-acid-lime transition-all duration-300 group-hover:bg-black"></span>
                     <span class="relative uppercase tracking-widest text-sm md:text-base">
-                        [ ЗАРЕГИСТРИРОВАТЬСЯ ]
+                        [ ИНИЦИАЛИЗИРОВАТЬ УЧАСТИЕ ]
                     </span>
                 </a>
             </div>
-                <div class="animate-pulse text-acid-lime">
+
+            <div class="w-full border-t border-white/20 pt-4 flex justify-between items-end text-[10px] md:text-xs text-white/50">
+                <div>
+                    ТРЕБ: СНЕГ/ЛЁД<br>
+                    МАКС ΔH < 2M
+                </div>
+                <div class="animate-pulse text-acid-lime hidden md:block">
                     ЛИСТАЙ ВНИЗ ↓
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-20 bg-graphite relative border-b border-white/10">
+    <section id="disciplines" class="py-20 bg-graphite relative border-b border-white/10 scroll-mt-16">
         <div class="container mx-auto px-4">
             <h2 class="font-display text-4xl md:text-6xl text-white mb-12 uppercase">
                 ВЫБЕРИ <span class="text-acid-lime">РЕЖИМ</span>
@@ -138,7 +161,7 @@
                             <span class="text-xs border border-white/20 px-2 py-1 rounded text-white/50">РЕЖИМ_01</span>
                         </div>
                         <p class="text-white/70 text-sm mb-4">
-                            Определение максимальной скорости на участке 50 метров. Рассчитывается внутренним алгоритмом гоночной системы по формуле <span class="text-acid-lime bg-white/10 px-1">V = 50 / t</span>, где t=t2-t1, время t1 и t2 берется из всех загруженных файлов активности участника, подходящих по типу заявки участника. 
+                            Чистая физика. Алгоритм рассчитывает V-max на отрезке 50 метров по формуле <span class="text-acid-lime bg-white/10 px-1">V = 50 / t</span>. Система парсит твои логи и находит идеальный момент.
                         </p>
                     </div>
                     <div class="mt-8 font-mono text-xs text-acid-lime">
@@ -153,7 +176,7 @@
                             <span class="text-xs border border-white/20 px-2 py-1 rounded text-white/50">РЕЖИМ_02</span>
                         </div>
                         <p class="text-white/70 text-sm mb-4">
-                            Вызов выносливости. Определение минимального времени преодоления дистанции 42 километра. Количество разворотов и траектория не имеют значения. Время и расстояние (длина пути) определяются от начала активности. Расстояние активности может быть больше 42 км, в зачет гоночной системы будет автоматически записано время преодоления дистанции 42 км. Активность с дистанцией менее 42.000 км не будет принята в зачет. 
+                            Вызов выносливости. Дистанция 42 км. Траектория свободная, количество разворотов не имеет значения. Фиксируем минимальное время.
                         </p>
                     </div>
                     <div class="mt-8 font-mono text-xs text-acid-lime">
@@ -168,7 +191,7 @@
                             <span class="text-xs border border-white/20 px-2 py-1 rounded text-white/50">РЕЖИМ_03</span>
                         </div>
                         <p class="text-white/70 text-sm mb-4">
-                            Определение максимальной пройденной дистанции (длина пути) за один заезд. Траектория не имеет значения. Активность не должна прерываться паузами на запись, а время без движения не должно превышать 25% активности. 
+                            Режим для одержимых. Максимальная дистанция за один заезд (one ride). Паузы запрещены (<25% idle time). Только движение.
                         </p>
                     </div>
                     <div class="mt-8 font-mono text-xs text-acid-lime">
@@ -183,8 +206,7 @@
                             <span class="text-xs border border-white/20 px-2 py-1 rounded text-white/50">РЕЖИМ_04</span>
                         </div>
                         <p class="text-white/70 text-sm mb-4">
-                            Определение максимальной суммарной пройденной дистанции за время проведения соревнования. Рассчитывается как сумма дистанций (длины пути) активностей участника с момента подачи заявки до 15 марта включительно.
-
+                            Накопительный итог. Побеждает тот, кто не останавливается. Суммируем все валидные треки до дедлайна 15 марта.
                         </p>
                     </div>
                     <div class="mt-8 font-mono text-xs text-acid-lime">
@@ -196,7 +218,7 @@
         </div>
     </section>
 
-    <section class="py-20 bg-graphite border-b border-white/10">
+    <section id="classes" class="py-20 bg-graphite border-b border-white/10 scroll-mt-16">
         <div class="container mx-auto px-4">
             <h2 class="font-display text-4xl md:text-6xl text-white mb-12 uppercase text-center md:text-left">
                 ГОНОЧНЫЕ КЛАССЫ
@@ -250,7 +272,7 @@
         </div>
     </section>
 
-    <section class="py-20 bg-[#0a0a0a] border-b border-white/10 overflow-hidden">
+    <section id="algorithm" class="py-20 bg-[#0a0a0a] border-b border-white/10 overflow-hidden scroll-mt-16">
         <div class="container mx-auto px-4">
             <h2 class="font-display text-4xl md:text-5xl text-white mb-16 uppercase text-right">
                 АЛГОРИТМ <span class="text-transparent stroke-text" style="-webkit-text-stroke: 1px white;">ДЕЙСТВИЙ</span>
@@ -298,7 +320,7 @@
         </div>
     </section>
 
-    <section class="py-20 bg-black">
+    <section id="rules" class="py-20 bg-black scroll-mt-16">
         <div class="container mx-auto px-4 flex justify-center">
             <div class="border border-red-600/50 bg-red-900/10 p-8 md:p-12 max-w-4xl w-full relative overflow-hidden">
                 <div class="absolute top-0 right-0 p-4">
