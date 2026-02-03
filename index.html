@@ -6,7 +6,6 @@
     <title>ВЛАДЫКА ВЕТРА | FROZEN HAWAII</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
-    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
@@ -16,24 +15,22 @@
             theme: {
                 extend: {
                     colors: {
-                        'deep-indigo': '#0F0524',   /* Глубокий фиолетовый фон */
-                        'tropical-pink': '#FF00FF', /* Кислотный розовый */
-                        'sunset-orange': '#FF4500', /* Закатный оранжевый */
-                        'ice-aqua': '#00FFFF',      /* Ледяной голубой */
+                        'deep-indigo': '#0F0524',
+                        'tropical-pink': '#FF00FF',
+                        'sunset-orange': '#FF4500',
+                        'ice-aqua': '#00FFFF',
                     },
                     fontFamily: {
                         'display': ['"Dela Gothic One"', 'cursive'],
                         'sans': ['"Montserrat"', 'sans-serif'],
                     },
                     animation: {
-                        'drift': 'drift 20s infinite alternate',
-                        'drift-slow': 'drift 30s infinite alternate-reverse',
-                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 6s ease-in-out infinite',
                     },
                     keyframes: {
-                        drift: {
-                            '0%': { transform: 'translate(0, 0) rotate(0deg)' },
-                            '100%': { transform: 'translate(15%, 10%) rotate(10deg)' },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
                         }
                     }
                 }
@@ -49,40 +46,25 @@
             overflow-x: hidden;
         }
 
-        /* --- АНИМАЦИЯ ФОНА (ТРОПИЧЕСКИЙ ЛЕД) --- */
-        .ice-background {
+        /* --- ФОНОВАЯ КАРТИНКА (ТЕПЕРЬ НАСТОЯЩАЯ) --- */
+        .real-bg {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            z-index: -1; background: #0F0524; overflow: hidden;
-        }
-        .blob {
-            position: absolute; border-radius: 50%;
-            filter: blur(90px); opacity: 0.5; mix-blend-mode: screen;
-        }
-        /* Яркие пятна: Розовый, Оранжевый, Голубой */
-        .blob-1 {
-            top: -20%; left: -20%; width: 60vw; height: 60vw;
-            background: #FF00FF; animation: drift 25s infinite alternate;
-        }
-        .blob-2 {
-            bottom: -20%; right: -20%; width: 70vw; height: 70vw;
-            background: #FF4500; animation: drift 30s infinite alternate-reverse;
-        }
-        .blob-3 {
-            top: 40%; left: 30%; width: 50vw; height: 50vw;
-            background: #00FFFF; animation: drift 22s infinite alternate;
+            z-index: -2;
+            /* Ставим красивое фото замерзшей воды/неона */
+            background-image: url('https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            /* Затемняем фото, чтобы текст читался */
+            filter: brightness(0.6) contrast(1.2);
         }
 
-        /* Шум + Текстура инея */
-        .frost-overlay {
+        /* Градиент поверх фото для цвета */
+        .color-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
-            pointer-events: none; z-index: 50; mix-blend-mode: overlay;
+            z-index: -1;
+            background: linear-gradient(to bottom, rgba(15, 5, 36, 0.8), rgba(60, 20, 100, 0.6));
+            mix-blend-mode: multiply;
         }
-
-        /* Скроллбар */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #0F0524; }
-        ::-webkit-scrollbar-thumb { background: linear-gradient(to bottom, #FF00FF, #FF4500); border-radius: 4px;}
 
         /* Градиентный текст */
         .gradient-text {
@@ -90,136 +72,128 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-size: 200% auto;
-            animation: gradientMove 5s linear infinite alternate;
         }
-        @keyframes gradientMove { to { background-position: 200% center; } }
 
-        /* Карточки с яркой обводкой */
+        /* Карточки стекло */
         .neon-card {
-            background: rgba(15, 5, 36, 0.6);
-            backdrop-filter: blur(16px);
-            border: 2px solid transparent;
-            background-image: linear-gradient(rgba(15, 5, 36, 0.6), rgba(15, 5, 36, 0.6)), linear-gradient(to bottom right, #FF00FF, #00FFFF);
-            background-origin: border-box;
-            background-clip: content-box, border-box;
-            transition: transform 0.3s ease;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
         }
         .neon-card:hover {
-            transform: translateY(-5px) scale(1.02);
+            background: rgba(255, 255, 255, 0.1);
+            border-color: #FF00FF;
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
         }
 
-        /* Градиентная кнопка */
+        /* Кнопка */
         .btn-tropical {
             background: linear-gradient(45deg, #FF00FF, #FF4500);
-            box-shadow: 0 4px 15px rgba(255, 0, 255, 0.4);
+            box-shadow: 0 0 30px rgba(255, 0, 255, 0.5);
         }
-        .btn-tropical:hover { filter: brightness(1.2); }
+        
+        /* Декоративные элементы (пальмы и снежинки) */
+        .deco-item {
+            position: absolute;
+            opacity: 0.8;
+            z-index: -1;
+            filter: drop-shadow(0 0 10px rgba(255,255,255,0.5));
+        }
     </style>
 </head>
 <body class="selection:bg-tropical-pink selection:text-white">
 
-    <div class="ice-background">
-        <div class="blob blob-1"></div>
-        <div class="blob blob-2"></div>
-        <div class="blob blob-3"></div>
-    </div>
-    <div class="frost-overlay"></div>
+    <div class="real-bg"></div>
+    <div class="color-overlay"></div>
 
-    <section class="relative h-screen w-full flex flex-col justify-center items-center overflow-hidden">
+    <section class="relative min-h-screen w-full flex flex-col justify-center items-center overflow-hidden py-20">
         
-        <div class="relative z-10 container mx-auto px-4 flex flex-col h-full justify-center items-center py-12 text-center">
+        <div class="absolute top-20 left-10 text-6xl animate-float opacity-30 blur-[2px]">❄️</div>
+        <div class="absolute bottom-40 right-10 text-8xl animate-float opacity-30 blur-[1px]" style="animation-delay: 2s;">🌴</div>
+        <div class="absolute top-40 right-20 text-4xl animate-float opacity-50" style="animation-delay: 1s;">🌊</div>
+
+        <div class="relative z-10 container mx-auto px-4 text-center">
             
-            <p class="text-ice-aqua font-bold tracking-[0.2em] uppercase mb-6 animate-pulse-slow">
+            <p class="text-ice-aqua font-bold tracking-[0.3em] uppercase mb-6 text-sm md:text-base drop-shadow-lg">
                 // SURF THE FROZEN WAVE
             </p>
 
-            <h1 class="font-display text-6xl md:text-8xl lg:text-9xl uppercase mb-4 leading-none relative z-20 drop-shadow-[0_5px_15px_rgba(0,0,0,0.5)]">
+            <h1 class="font-display text-5xl md:text-8xl lg:text-[10rem] uppercase mb-6 leading-[0.85] drop-shadow-2xl">
                 ВЛАДЫКА<br>
                 <span class="gradient-text">ВЕТРА</span>
             </h1>
             
-            <div class="mt-6 mb-12 max-w-2xl mx-auto bg-deep-indigo/50 backdrop-blur-md p-4 rounded-2xl border border-white/10">
-                <p class="text-white font-bold text-lg uppercase mb-2">17.02 — 15.03 • WORLDWIDE</p>
-                <p class="text-white/80 text-sm md:text-base">
-                    Глобальный зимний челлендж. Твой спот. Твой лёд. Твой вайб.
+            <div class="mt-8 mb-12 inline-block bg-black/40 backdrop-blur-md px-8 py-4 rounded-full border border-white/10">
+                <p class="text-white font-bold text-sm md:text-xl uppercase tracking-widest">
+                    17.02 — 15.03 • WORLDWIDE
                 </p>
             </div>
 
-            <a href="#" class="btn-tropical text-white font-display uppercase tracking-wider text-xl px-12 py-5 rounded-full transition-all duration-300 hover:scale-105 relative z-20">
+            <a href="#" class="btn-tropical text-white font-display uppercase tracking-wider text-lg md:text-xl px-12 py-6 rounded-full transition-all duration-300 hover:scale-105 inline-block">
                 ВОРВАТЬСЯ В ГОНКУ
             </a>
 
-            <div class="absolute bottom-10 left-0 w-full flex justify-center text-xs font-bold text-tropical-pink/80 uppercase tracking-widest">
-                REQ: СНЕГ/ЛЁД | MAX ΔH < 2M | PURE FUN
+            <div class="mt-12 text-xs font-bold text-tropical-pink/80 uppercase tracking-widest">
+                REQ: СНЕГ/ЛЁД | PURE FUN
             </div>
         </div>
     </section>
 
     <section class="py-24 relative z-10">
         <div class="container mx-auto px-4">
-            <h2 class="font-display text-4xl md:text-5xl text-white mb-16 text-center uppercase stroke-text relative z-10">
-                ВЫБЕРИ СВОЙ <span class="text-tropical-pink">РЕЖИМ</span>
+            <h2 class="font-display text-3xl md:text-5xl text-white mb-16 text-center uppercase stroke-text">
+                ВЫБЕРИ СВОЙ <span class="text-tropical-pink">ВАЙБ</span>
             </h2>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 
-                <div class="neon-card p-10 rounded-3xl flex flex-col justify-between min-h-[320px]">
-                    <div>
-                        <div class="flex justify-between items-start mb-6">
-                            <h3 class="font-display text-3xl gradient-text">GPS-SPEED</h3>
-                            <span class="text-2xl">🚀</span>
-                        </div>
-                        <p class="text-white/70 font-sans text-base leading-relaxed">
-                            Чистый адреналин. Алгоритм ловит твой V-max на 50 метрах. Покажи им, что такое скорость.
+                <div class="neon-card p-8 rounded-3xl relative overflow-hidden group">
+                    <div class="absolute -right-10 -bottom-10 text-[10rem] opacity-10 group-hover:opacity-20 transition-opacity grayscale group-hover:grayscale-0">🚀</div>
+                    
+                    <div class="relative z-10">
+                        <h3 class="font-display text-3xl gradient-text mb-4">GPS-SPEED</h3>
+                        <p class="text-white/80 font-sans leading-relaxed mb-6">
+                            Максимальная скорость на отрезке 50м. <br>Включи форсаж.
                         </p>
-                    </div>
-                    <div class="mt-8 text-sm text-ice-aqua font-bold tracking-widest uppercase border-t border-white/10 pt-4">
-                        #UNLOCKED #SPEEDRUN
+                        <span class="text-ice-aqua font-bold text-sm border border-ice-aqua px-3 py-1 rounded-full">#SPEED</span>
                     </div>
                 </div>
 
-                <div class="neon-card p-10 rounded-3xl flex flex-col justify-between min-h-[320px]">
-                    <div>
-                        <div class="flex justify-between items-start mb-6">
-                            <h3 class="font-display text-3xl gradient-text">MARATHON</h3>
-                            <span class="text-2xl">🏝️</span>
-                        </div>
-                        <p class="text-white/70 font-sans text-base leading-relaxed">
-                            42 км свободы. Траектория любая. Представь, что это долгий серф-трип, только на льду.
+                <div class="neon-card p-8 rounded-3xl relative overflow-hidden group">
+                    <div class="absolute -right-10 -bottom-10 text-[10rem] opacity-10 group-hover:opacity-20 transition-opacity grayscale group-hover:grayscale-0">🏝️</div>
+                    
+                    <div class="relative z-10">
+                        <h3 class="font-display text-3xl gradient-text mb-4">MARATHON</h3>
+                        <p class="text-white/80 font-sans leading-relaxed mb-6">
+                            42 км ледяной свободы. <br>Долгая дорога в дюнах.
                         </p>
-                    </div>
-                    <div class="mt-8 text-sm text-sunset-orange font-bold tracking-widest uppercase border-t border-white/10 pt-4">
-                        #ENDURANCE #LONGHAUL
+                        <span class="text-sunset-orange font-bold text-sm border border-sunset-orange px-3 py-1 rounded-full">#ENDURANCE</span>
                     </div>
                 </div>
 
-                <div class="neon-card p-10 rounded-3xl flex flex-col justify-between min-h-[320px]">
-                    <div>
-                        <div class="flex justify-between items-start mb-6">
-                            <h3 class="font-display text-3xl gradient-text">FEDOR KONYUHOV</h3>
-                            <span class="text-2xl">🌊</span>
-                        </div>
-                        <p class="text-white/70 font-sans text-base leading-relaxed">
-                            Режим для психов (в хорошем смысле). Максимальная дальность за один выход. Без остановок.
+                <div class="neon-card p-8 rounded-3xl relative overflow-hidden group">
+                    <div class="absolute -right-10 -bottom-10 text-[10rem] opacity-10 group-hover:opacity-20 transition-opacity grayscale group-hover:grayscale-0">💀</div>
+                    
+                    <div class="relative z-10">
+                        <h3 class="font-display text-3xl gradient-text mb-4">F. KONYUHOV</h3>
+                        <p class="text-white/80 font-sans leading-relaxed mb-6">
+                            Один заезд. Максимальная дистанция. <br>Только для сумасшедших.
                         </p>
-                    </div>
-                    <div class="mt-8 text-sm text-tropical-pink font-bold tracking-widest uppercase border-t border-white/10 pt-4">
-                        #SURVIVAL #ONERIDE
+                        <span class="text-tropical-pink font-bold text-sm border border-tropical-pink px-3 py-1 rounded-full">#SURVIVAL</span>
                     </div>
                 </div>
 
-                <div class="neon-card p-10 rounded-3xl flex flex-col justify-between min-h-[320px]">
-                    <div>
-                        <div class="flex justify-between items-start mb-6">
-                            <h3 class="font-display text-3xl gradient-text">FORREST GAMP</h3>
-                            <span class="text-2xl">👟</span>
-                        </div>
-                        <p class="text-white/70 font-sans text-base leading-relaxed">
-                            Накопительный итог. Катайся каждый день, копи километры, стань легендой спота.
+                <div class="neon-card p-8 rounded-3xl relative overflow-hidden group">
+                    <div class="absolute -right-10 -bottom-10 text-[10rem] opacity-10 group-hover:opacity-20 transition-opacity grayscale group-hover:grayscale-0">👟</div>
+                    
+                    <div class="relative z-10">
+                        <h3 class="font-display text-3xl gradient-text mb-4">FORREST GAMP</h3>
+                        <p class="text-white/80 font-sans leading-relaxed mb-6">
+                            Копи километры каждый день. <br>Беги, Форрест, беги.
                         </p>
-                    </div>
-                    <div class="mt-8 text-sm text-ice-aqua font-bold tracking-widest uppercase border-t border-white/10 pt-4">
-                        #NEVERSTOP #TOTALDISTANCE
+                        <span class="text-ice-aqua font-bold text-sm border border-ice-aqua px-3 py-1 rounded-full">#TOTAL</span>
                     </div>
                 </div>
 
@@ -227,65 +201,27 @@
         </div>
     </section>
 
-    <section class="py-24 relative z-10 border-t border-white/10 bg-deep-indigo/80 backdrop-blur-lg">
+    <section class="py-24 bg-black/30 backdrop-blur-lg border-t border-white/10">
         <div class="container mx-auto px-4">
-            <h2 class="font-display text-4xl md:text-5xl text-white mb-16 text-center uppercase">
+            <h2 class="font-display text-3xl md:text-4xl text-white mb-12 text-center uppercase">
                 КАК ВОРВАТЬСЯ?
             </h2>
-
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 text-center">
-                <div class="bg-white/5 p-8 rounded-2xl border border-tropical-pink/30 hover:border-tropical-pink transition-colors">
-                    <div class="text-4xl mb-4">📱</div>
-                    <h4 class="text-tropical-pink font-display text-xl mb-2">TELEGRAM BOT</h4>
-                    <p class="text-white/60 text-sm">Залетай в бот. Это твой базовый лагерь.</p>
+            <div class="flex flex-col md:flex-row justify-center gap-4 text-center">
+                <div class="p-6 bg-white/5 rounded-2xl border border-white/5 w-full">
+                    <div class="text-4xl mb-2">📱</div>
+                    <div class="font-bold text-tropical-pink">TELEGRAM BOT</div>
                 </div>
-                <div class="bg-white/5 p-8 rounded-2xl border border-sunset-orange/30 hover:border-sunset-orange transition-colors">
-                    <div class="text-4xl mb-4">⌚</div>
-                    <h4 class="text-sunset-orange font-display text-xl mb-2">SYNC</h4>
-                    <p class="text-white/60 text-sm">Коннекти Garmin или Strava. Данные летят автоматом.</p>
+                <div class="p-6 bg-white/5 rounded-2xl border border-white/5 w-full">
+                    <div class="text-4xl mb-2">⌚</div>
+                    <div class="font-bold text-sunset-orange">GARMIN / STRAVA</div>
                 </div>
-                <div class="bg-white/5 p-8 rounded-2xl border border-ice-aqua/30 hover:border-ice-aqua transition-colors">
-                    <div class="text-4xl mb-4">🤙</div>
-                    <h4 class="text-ice-aqua font-display text-xl mb-2">RIDE</h4>
-                    <p class="text-white/60 text-sm">Выходи на лёд и покажи свой лучший стиль.</p>
-                </div>
-                <div class="bg-white/5 p-8 rounded-2xl border border-tropical-pink/30 hover:border-tropical-pink transition-colors">
-                    <div class="text-4xl mb-4">🏆</div>
-                    <h4 class="text-tropical-pink font-display text-xl mb-2">RESULT</h4>
-                    <p class="text-white/60 text-sm">Чекай лидерборд каждое утро в 06:00.</p>
+                <div class="p-6 bg-white/5 rounded-2xl border border-white/5 w-full">
+                    <div class="text-4xl mb-2">🏂</div>
+                    <div class="font-bold text-ice-aqua">RIDE HARD</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-24 relative z-10 border-t border-white/10">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="font-display text-3xl md:text-4xl text-white mb-12 uppercase">
-                Гоночные классы
-            </h2>
-
-            <div class="flex flex-wrap justify-center gap-4">
-                <span class="px-8 py-4 bg-white/5 border-2 border-white/10 rounded-full text-white font-bold font-sans text-sm hover:border-tropical-pink hover:bg-tropical-pink/20 hover:scale-105 transition-all cursor-default">KITE SNOWBOARD</span>
-                <span class="px-8 py-4 bg-white/5 border-2 border-white/10 rounded-full text-white font-bold font-sans text-sm hover:border-ice-aqua hover:bg-ice-aqua/20 hover:scale-105 transition-all cursor-default">KITE SKI</span>
-                <span class="px-8 py-4 bg-white/5 border-2 border-white/10 rounded-full text-white font-bold font-sans text-sm hover:border-sunset-orange hover:bg-sunset-orange/20 hover:scale-105 transition-all cursor-default">WING SNOWBOARD</span>
-                <span class="px-8 py-4 bg-white/5 border-2 border-white/10 rounded-full text-white font-bold font-sans text-sm hover:border-tropical-pink hover:bg-tropical-pink/20 hover:scale-105 transition-all cursor-default">WING SKI</span>
-                <span class="px-8 py-4 bg-white/5 border-2 border-white/10 rounded-full text-white font-bold font-sans text-sm hover:border-ice-aqua hover:bg-ice-aqua/20 hover:scale-105 transition-all cursor-default">WING BLADES</span>
-                <span class="px-8 py-4 bg-white/5 border-2 border-white/10 rounded-full text-white font-bold font-sans text-sm hover:border-sunset-orange hover:bg-sunset-orange/20 hover:scale-105 transition-all cursor-default">WINTER WINDSURFING</span>
-            </div>
-        </div>
-    </section>
-
-    <footer class="py-12 border-t border-white/10 text-center relative z-10 bg-deep-indigo">
-        <div class="container mx-auto px-4">
-            <a href="#" class="inline-block bg-white/10 px-6 py-3 rounded-full text-white font-bold hover:bg-white/20 transition-colors font-sans text-sm mb-8">
-                📄 СКАЧАТЬ ПОЛОЖЕНИЕ (PDF)
-            </a>
-            <p class="text-white/40 text-xs font-sans">
-                © 2025 Lord of the Winds.<br>
-                Saint-Petersburg / Worldwide. <span class="text-tropical-pink">❄️🌴</span>
-            </p>
-        </div>
-    </footer>
- 
 </body>
 </html>
