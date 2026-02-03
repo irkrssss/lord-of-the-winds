@@ -1,360 +1,360 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ВЛАДЫКА ВЕТРА | LORD OF THE WINDS</title>
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100..800&family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ВЛАДЫКА ВЕТРА | LORD OF THE WINDS</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100..800&family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
 
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'graphite': '#0F0F0F',
-                        'acid-lime': '#CCFF00',
-                        'ice-white': '#F0F0F0',
-                    },
-                    fontFamily: {
-                        'display': ['"Unbounded"', 'sans-serif'],
-                        'mono': ['"JetBrains Mono"', 'monospace'],
-                    },
-                    backgroundImage: {
-                        'grain': "url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22 opacity=%221%22/%3E%3C/svg%3E')",
-                    }
-                }
-            }
-        }
-    </script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'graphite': '#0F0F0F',
+                        'acid-lime': '#CCFF00',
+                        'ice-white': '#F0F0F0',
+                    },
+                    fontFamily: {
+                        'display': ['"Unbounded"', 'sans-serif'],
+                        'mono': ['"JetBrains Mono"', 'monospace'],
+                    },
+                    backgroundImage: {
+                        'grain': "url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22 opacity=%221%22/%3E%3C/svg%3E')",
+                    }
+                }
+            }
+        }
+    </script>
 
-    <style>
-        /* Глобальные стили для скроллбара и базы */
-        body {
-            background-color: #0F0F0F;
-            color: #F0F0F0;
-            overflow-x: hidden;
-        }
-        
-        /* Эффект шума (Grain) */
-        .noise-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 50;
-            opacity: 0.07;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-        }
+    <style>
+        /* Глобальные стили для скроллбара и базы */
+        body {
+            background-color: #0F0F0F;
+            color: #F0F0F0;
+            overflow-x: hidden;
+        }
+        
+        /* Эффект шума (Grain) */
+        .noise-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 50;
+            opacity: 0.07;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
 
-        /* Кастомный скроллбар */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #0F0F0F;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #333;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #CCFF00;
-        }
+        /* Кастомный скроллбар */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0F0F0F;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #333;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #CCFF00;
+        }
 
-        /* Анимация мигания курсора */
-        .cursor-blink {
-            animation: blink 1s step-end infinite;
-        }
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
+        /* Анимация мигания курсора */
+        .cursor-blink {
+            animation: blink 1s step-end infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
 
-        /* Утилита для скрытия видео на слабых устройствах если нужно */
-        .video-bg {
-            position: absolute;
-            right: 0;
-            bottom: 0;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            z-index: -1;
-            object-fit: cover;
-            filter: grayscale(100%) contrast(1.2) brightness(0.6);
-        }
-    </style>
+        /* Утилита для скрытия видео на слабых устройствах если нужно */
+        .video-bg {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1;
+            object-fit: cover;
+            filter: grayscale(100%) contrast(1.2) brightness(0.6);
+        }
+    </style>
 </head>
 <body class="font-mono selection:bg-acid-lime selection:text-black">
 
-    <div class="noise-overlay"></div>
+    <div class="noise-overlay"></div>
 
-    <section class="relative h-screen w-full flex flex-col justify-center items-center overflow-hidden border-b border-white/10">
-        
-        <div class="absolute inset-0 z-0 bg-black">
-             <video autoplay muted loop playsinline class="video-bg">
-                <source src="https://videos.pexels.com/video-files/856973/856973-hd_1920_1080_25fps.mp4" type="video/mp4">
-            </video>
-            <div class="absolute inset-0 bg-gradient-to-t from-[#0F0F0F] via-black/40 to-black/20"></div>
-        </div>
+    <section class="relative h-screen w-full flex flex-col justify-center items-center overflow-hidden border-b border-white/10">
+        
+        <div class="absolute inset-0 z-0 bg-black">
+             <video autoplay muted loop playsinline class="video-bg">
+                <source src="https://videos.pexels.com/video-files/856973/856973-hd_1920_1080_25fps.mp4" type="video/mp4">
+            </video>
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0F0F0F] via-black/40 to-black/20"></div>
+        </div>
 
-        <div class="relative z-10 container mx-auto px-4 flex flex-col h-full justify-between py-12">
-            
-            <div class="flex justify-between items-start text-xs md:text-sm text-acid-lime/80 uppercase tracking-widest">
-                <span>// GLOBAL WINTER SAILING PROTOCOL_V.2025</span>
-                <span class="hidden md:block text-right">STATUS: REGISTRATION OPEN<br>SYSTEM: ONLINE</span>
-            </div>
+        <div class="relative z-10 container mx-auto px-4 flex flex-col h-full justify-between py-12">
+            
+            <div class="flex justify-between items-start text-xs md:text-sm text-acid-lime/80 uppercase tracking-widest">
+                <span>// GLOBAL WINTER SAILING PROTOCOL_V.2025</span>
+                <span class="hidden md:block text-right">STATUS: REGISTRATION OPEN<br>SYSTEM: ONLINE</span>
+            </div>
 
-            <div class="flex flex-col items-center text-center">
-                <h1 class="font-display font-black text-6xl md:text-8xl lg:text-[10rem] leading-[0.85] tracking-tighter text-white mix-blend-difference">
-                    ВЛАДЫКА<br>
-                    <span class="text-transparent stroke-text" style="-webkit-text-stroke: 2px white;">ВЕТРА</span>
-                </h1>
-                
-                <div class="mt-8 mb-12 max-w-2xl border-l-2 border-acid-lime pl-6 text-left">
-                    <p class="text-acid-lime font-bold uppercase tracking-wider mb-2">17.02 — 15.03 • WORLDWIDE • ЛЮБОЙ ЛЁД</p>
-                    <p class="text-white/80 text-sm md:text-base">
-                        Глобальная гонка без границ. Твой спот. Твой трек. Наш алгоритм.
-                    </p>
-                </div>
+            <div class="flex flex-col items-center text-center">
+                <h1 class="font-display font-black text-6xl md:text-8xl lg:text-[10rem] leading-[0.85] tracking-tighter text-white mix-blend-difference">
+                    ВЛАДЫКА<br>
+                    <span class="text-transparent stroke-text" style="-webkit-text-stroke: 2px white;">ВЕТРА</span>
+                </h1>
+                
+                <div class="mt-8 mb-12 max-w-2xl border-l-2 border-acid-lime pl-6 text-left">
+                    <p class="text-acid-lime font-bold uppercase tracking-wider mb-2">17.02 — 15.03 • WORLDWIDE • ЛЮБОЙ ЛЁД</p>
+                    <p class="text-white/80 text-sm md:text-base">
+                        Глобальная гонка без границ. Твой спот. Твой трек. Наш алгоритм.
+                    </p>
+                </div>
 
-                <a href="#" class="group relative inline-flex items-center justify-center px-8 py-4 overflow-hidden font-bold text-acid-lime transition-all duration-300 bg-transparent border-2 border-acid-lime hover:bg-acid-lime hover:text-black focus:outline-none">
-                    <span class="absolute top-0 left-0 w-2 h-2 bg-acid-lime transition-all duration-300 group-hover:bg-black"></span>
-                    <span class="absolute bottom-0 right-0 w-2 h-2 bg-acid-lime transition-all duration-300 group-hover:bg-black"></span>
-                    <span class="relative uppercase tracking-widest">
-                        [ ИНИЦИАЛИЗИРОВАТЬ УЧАСТИЕ ]
-                    </span>
-                </a>
-            </div>
+                <a href="#" class="group relative inline-flex items-center justify-center px-8 py-4 overflow-hidden font-bold text-acid-lime transition-all duration-300 bg-transparent border-2 border-acid-lime hover:bg-acid-lime hover:text-black focus:outline-none">
+                    <span class="absolute top-0 left-0 w-2 h-2 bg-acid-lime transition-all duration-300 group-hover:bg-black"></span>
+                    <span class="absolute bottom-0 right-0 w-2 h-2 bg-acid-lime transition-all duration-300 group-hover:bg-black"></span>
+                    <span class="relative uppercase tracking-widest">
+                        [ ИНИЦИАЛИЗИРОВАТЬ УЧАСТИЕ ]
+                    </span>
+                </a>
+            </div>
 
-            <div class="w-full border-t border-white/20 pt-4 flex justify-between items-end text-xs text-white/50">
-                <div>
-                    REQ: СНЕГ/ЛЁД<br>
-                    MAX ΔH < 2M
-                </div>
-                <div class="animate-pulse text-acid-lime">
-                    SCROLL DOWN ↓
-                </div>
-            </div>
-        </div>
-    </section>
+            <div class="w-full border-t border-white/20 pt-4 flex justify-between items-end text-xs text-white/50">
+                <div>
+                    REQ: СНЕГ/ЛЁД<br>
+                    MAX ΔH < 2M
+                </div>
+                <div class="animate-pulse text-acid-lime">
+                    SCROLL DOWN ↓
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <section class="py-20 bg-graphite relative border-b border-white/10">
-        <div class="container mx-auto px-4">
-            <h2 class="font-display text-4xl md:text-6xl text-white mb-12 uppercase">
-                ВЫБЕРИ <span class="text-acid-lime">РЕЖИМ</span>
-            </h2>
+    <section class="py-20 bg-graphite relative border-b border-white/10">
+        <div class="container mx-auto px-4">
+            <h2 class="font-display text-4xl md:text-6xl text-white mb-12 uppercase">
+                ВЫБЕРИ <span class="text-acid-lime">РЕЖИМ</span>
+            </h2>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/10 border border-white/10">
-                
-                <div class="group relative bg-graphite p-8 md:p-12 transition-colors hover:bg-white/5 border border-transparent hover:border-acid-lime/50 h-full flex flex-col justify-between">
-                    <div>
-                        <div class="flex justify-between items-start mb-6">
-                            <h3 class="font-display text-2xl md:text-3xl text-white group-hover:text-acid-lime transition-colors">GPS-SPEED</h3>
-                            <span class="text-xs border border-white/20 px-2 py-1 rounded text-white/50">MOD_01</span>
-                        </div>
-                        <p class="text-white/70 text-sm mb-4">
-                            Чистая физика. Алгоритм рассчитывает V-max на отрезке 50 метров по формуле <span class="text-acid-lime bg-white/10 px-1">V = 50 / t</span>. Система парсит твои логи и находит идеальный момент.
-                        </p>
-                    </div>
-                    <div class="mt-8 font-mono text-xs text-acid-lime">
-                        > SPEED_LIMIT: UNLOCKED<span class="cursor-blink">_</span>
-                    </div>
-                </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/10 border border-white/10">
+                
+                <div class="group relative bg-graphite p-8 md:p-12 transition-colors hover:bg-white/5 border border-transparent hover:border-acid-lime/50 h-full flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-6">
+                            <h3 class="font-display text-2xl md:text-3xl text-white group-hover:text-acid-lime transition-colors">GPS-SPEED</h3>
+                            <span class="text-xs border border-white/20 px-2 py-1 rounded text-white/50">MOD_01</span>
+                        </div>
+                        <p class="text-white/70 text-sm mb-4">
+                            Чистая физика. Алгоритм рассчитывает V-max на отрезке 50 метров по формуле <span class="text-acid-lime bg-white/10 px-1">V = 50 / t</span>. Система парсит твои логи и находит идеальный момент.
+                        </p>
+                    </div>
+                    <div class="mt-8 font-mono text-xs text-acid-lime">
+                        > SPEED_LIMIT: UNLOCKED<span class="cursor-blink">_</span>
+                    </div>
+                </div>
 
-                <div class="group relative bg-graphite p-8 md:p-12 transition-colors hover:bg-white/5 border border-transparent hover:border-acid-lime/50 h-full flex flex-col justify-between">
-                    <div>
-                        <div class="flex justify-between items-start mb-6">
-                            <h3 class="font-display text-2xl md:text-3xl text-white group-hover:text-acid-lime transition-colors">MARATHON</h3>
-                            <span class="text-xs border border-white/20 px-2 py-1 rounded text-white/50">MOD_02</span>
-                        </div>
-                        <p class="text-white/70 text-sm mb-4">
-                            Вызов выносливости. Дистанция 42 км. Траектория свободная, количество разворотов не имеет значения. Фиксируем минимальное время.
-                        </p>
-                    </div>
-                    <div class="mt-8 font-mono text-xs text-acid-lime">
-                        > DISTANCE: 42.0 KM
-                    </div>
-                </div>
+                <div class="group relative bg-graphite p-8 md:p-12 transition-colors hover:bg-white/5 border border-transparent hover:border-acid-lime/50 h-full flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-6">
+                            <h3 class="font-display text-2xl md:text-3xl text-white group-hover:text-acid-lime transition-colors">MARATHON</h3>
+                            <span class="text-xs border border-white/20 px-2 py-1 rounded text-white/50">MOD_02</span>
+                        </div>
+                        <p class="text-white/70 text-sm mb-4">
+                            Вызов выносливости. Дистанция 42 км. Траектория свободная, количество разворотов не имеет значения. Фиксируем минимальное время.
+                        </p>
+                    </div>
+                    <div class="mt-8 font-mono text-xs text-acid-lime">
+                        > DISTANCE: 42.0 KM
+                    </div>
+                </div>
 
-                <div class="group relative bg-graphite p-8 md:p-12 transition-colors hover:bg-white/5 border border-transparent hover:border-acid-lime/50 h-full flex flex-col justify-between">
-                    <div>
-                        <div class="flex justify-between items-start mb-6">
-                            <h3 class="font-display text-2xl md:text-3xl text-white group-hover:text-acid-lime transition-colors">FEDOR KONYUHOV</h3>
-                            <span class="text-xs border border-white/20 px-2 py-1 rounded text-white/50">MOD_03</span>
-                        </div>
-                        <p class="text-white/70 text-sm mb-4">
-                            Режим для одержимых. Максимальная дистанция за один заезд (one ride). Паузы запрещены (<25% idle time). Только движение.
-                        </p>
-                    </div>
-                    <div class="mt-8 font-mono text-xs text-acid-lime">
-                        > MODE: SURVIVAL
-                    </div>
-                </div>
+                <div class="group relative bg-graphite p-8 md:p-12 transition-colors hover:bg-white/5 border border-transparent hover:border-acid-lime/50 h-full flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-6">
+                            <h3 class="font-display text-2xl md:text-3xl text-white group-hover:text-acid-lime transition-colors">FEDOR KONYUHOV</h3>
+                            <span class="text-xs border border-white/20 px-2 py-1 rounded text-white/50">MOD_03</span>
+                        </div>
+                        <p class="text-white/70 text-sm mb-4">
+                            Режим для одержимых. Максимальная дистанция за один заезд (one ride). Паузы запрещены (<25% idle time). Только движение.
+                        </p>
+                    </div>
+                    <div class="mt-8 font-mono text-xs text-acid-lime">
+                        > MODE: SURVIVAL
+                    </div>
+                </div>
 
-                <div class="group relative bg-graphite p-8 md:p-12 transition-colors hover:bg-white/5 border border-transparent hover:border-acid-lime/50 h-full flex flex-col justify-between">
-                    <div>
-                        <div class="flex justify-between items-start mb-6">
-                            <h3 class="font-display text-2xl md:text-3xl text-white group-hover:text-acid-lime transition-colors">FORREST GAMP</h3>
-                            <span class="text-xs border border-white/20 px-2 py-1 rounded text-white/50">MOD_04</span>
-                        </div>
-                        <p class="text-white/70 text-sm mb-4">
-                            Накопительный итог. Побеждает тот, кто не останавливается. Суммируем все валидные треки до дедлайна 15 марта.
-                        </p>
-                    </div>
-                    <div class="mt-8 font-mono text-xs text-acid-lime">
-                        > SUM: INFINITY
-                    </div>
-                </div>
+                <div class="group relative bg-graphite p-8 md:p-12 transition-colors hover:bg-white/5 border border-transparent hover:border-acid-lime/50 h-full flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-6">
+                            <h3 class="font-display text-2xl md:text-3xl text-white group-hover:text-acid-lime transition-colors">FORREST GAMP</h3>
+                            <span class="text-xs border border-white/20 px-2 py-1 rounded text-white/50">MOD_04</span>
+                        </div>
+                        <p class="text-white/70 text-sm mb-4">
+                            Накопительный итог. Побеждает тот, кто не останавливается. Суммируем все валидные треки до дедлайна 15 марта.
+                        </p>
+                    </div>
+                    <div class="mt-8 font-mono text-xs text-acid-lime">
+                        > SUM: INFINITY
+                    </div>
+                </div>
 
-            </div>
-        </div>
-    </section>
+            </div>
+        </div>
+    </section>
 
-    <section class="py-20 bg-[#0a0a0a] border-b border-white/10 overflow-hidden">
-        <div class="container mx-auto px-4">
-            <h2 class="font-display text-4xl md:text-5xl text-white mb-16 uppercase text-right">
-                АЛГОРИТМ <span class="text-transparent stroke-text" style="-webkit-text-stroke: 1px white;">ДЕЙСТВИЙ</span>
-            </h2>
+    <section class="py-20 bg-[#0a0a0a] border-b border-white/10 overflow-hidden">
+        <div class="container mx-auto px-4">
+            <h2 class="font-display text-4xl md:text-5xl text-white mb-16 uppercase text-right">
+                АЛГОРИТМ <span class="text-transparent stroke-text" style="-webkit-text-stroke: 1px white;">ДЕЙСТВИЙ</span>
+            </h2>
 
-            <div class="relative">
-                <div class="hidden md:block absolute top-6 left-0 w-full h-px bg-white/20"></div>
-                
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-12 relative">
-                    
-                    <div class="relative pt-6 md:pt-12">
-                        <div class="hidden md:block absolute top-4 left-0 w-4 h-4 bg-acid-lime border-4 border-black rounded-full z-10"></div>
-                        <div class="text-acid-lime text-sm font-bold mb-2">STEP_01 // CONNECT</div>
-                        <h4 class="text-xl text-white font-bold mb-4">TELEGRAM BOT</h4>
-                        <p class="text-white/60 text-sm mb-4">Переходи в бот и авторизуйся. Это твой командный центр.</p>
-                        <code class="block bg-white/5 p-2 text-xs text-acid-lime border border-white/10">> START_BOT</code>
-                    </div>
+            <div class="relative">
+                <div class="hidden md:block absolute top-6 left-0 w-full h-px bg-white/20"></div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-12 relative">
+                    
+                    <div class="relative pt-6 md:pt-12">
+                        <div class="hidden md:block absolute top-4 left-0 w-4 h-4 bg-acid-lime border-4 border-black rounded-full z-10"></div>
+                        <div class="text-acid-lime text-sm font-bold mb-2">STEP_01 // CONNECT</div>
+                        <h4 class="text-xl text-white font-bold mb-4">TELEGRAM BOT</h4>
+                        <p class="text-white/60 text-sm mb-4">Переходи в бот и авторизуйся. Это твой командный центр.</p>
+                        <code class="block bg-white/5 p-2 text-xs text-acid-lime border border-white/10">> START_BOT</code>
+                    </div>
 
-                    <div class="relative pt-6 md:pt-12">
-                        <div class="hidden md:block absolute top-4 left-0 w-4 h-4 bg-graphite border border-white/50 rounded-full z-10"></div>
-                        <div class="text-acid-lime text-sm font-bold mb-2">STEP_02 // SYNC</div>
-                        <h4 class="text-xl text-white font-bold mb-4">GARMIN / STRAVA</h4>
-                        <p class="text-white/60 text-sm mb-4">Привяжи профиль. Мы забираем данные напрямую из API.</p>
-                        <code class="block bg-white/5 p-2 text-xs text-acid-lime border border-white/10">> LINK_DEVICE</code>
-                    </div>
+                    <div class="relative pt-6 md:pt-12">
+                        <div class="hidden md:block absolute top-4 left-0 w-4 h-4 bg-graphite border border-white/50 rounded-full z-10"></div>
+                        <div class="text-acid-lime text-sm font-bold mb-2">STEP_02 // SYNC</div>
+                        <h4 class="text-xl text-white font-bold mb-4">GARMIN / STRAVA</h4>
+                        <p class="text-white/60 text-sm mb-4">Привяжи профиль. Мы забираем данные напрямую из API.</p>
+                        <code class="block bg-white/5 p-2 text-xs text-acid-lime border border-white/10">> LINK_DEVICE</code>
+                    </div>
 
-                    <div class="relative pt-6 md:pt-12">
-                        <div class="hidden md:block absolute top-4 left-0 w-4 h-4 bg-graphite border border-white/50 rounded-full z-10"></div>
-                        <div class="text-acid-lime text-sm font-bold mb-2">STEP_03 // SETUP</div>
-                        <h4 class="text-xl text-white font-bold mb-4">CHOOSE CLASS</h4>
-                        <p class="text-white/60 text-sm mb-4">Выбери класс и подай заявку. Система готова к приему.</p>
-                        <code class="block bg-white/5 p-2 text-xs text-acid-lime border border-white/10">> SELECT_CLASS</code>
-                    </div>
+                    <div class="relative pt-6 md:pt-12">
+                        <div class="hidden md:block absolute top-4 left-0 w-4 h-4 bg-graphite border border-white/50 rounded-full z-10"></div>
+                        <div class="text-acid-lime text-sm font-bold mb-2">STEP_03 // SETUP</div>
+                        <h4 class="text-xl text-white font-bold mb-4">CHOOSE CLASS</h4>
+                        <p class="text-white/60 text-sm mb-4">Выбери класс и подай заявку. Система готова к приему.</p>
+                        <code class="block bg-white/5 p-2 text-xs text-acid-lime border border-white/10">> SELECT_CLASS</code>
+                    </div>
 
-                    <div class="relative pt-6 md:pt-12">
-                        <div class="hidden md:block absolute top-4 left-0 w-4 h-4 bg-graphite border border-white/50 rounded-full z-10"></div>
-                        <div class="text-acid-lime text-sm font-bold mb-2">STEP_04 // RIDE</div>
-                        <h4 class="text-xl text-white font-bold mb-4">UPLOAD</h4>
-                        <p class="text-white/60 text-sm mb-4">Результаты синхронизируются автоматически каждые 24ч.</p>
-                        <code class="block bg-white/5 p-2 text-xs text-acid-lime border border-white/10">> UPLOAD_SUCCESS</code>
-                    </div>
+                    <div class="relative pt-6 md:pt-12">
+                        <div class="hidden md:block absolute top-4 left-0 w-4 h-4 bg-graphite border border-white/50 rounded-full z-10"></div>
+                        <div class="text-acid-lime text-sm font-bold mb-2">STEP_04 // RIDE</div>
+                        <h4 class="text-xl text-white font-bold mb-4">UPLOAD</h4>
+                        <p class="text-white/60 text-sm mb-4">Результаты синхронизируются автоматически каждые 24ч.</p>
+                        <code class="block bg-white/5 p-2 text-xs text-acid-lime border border-white/10">> UPLOAD_SUCCESS</code>
+                    </div>
 
-                </div>
-            </div>
-        </div>
-    </section>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <section class="py-20 bg-graphite border-b border-white/10">
-        <div class="container mx-auto px-4">
-            <h2 class="font-display text-4xl md:text-6xl text-white mb-12 uppercase text-center md:text-left">
-                ГОНОЧНЫЕ КЛАССЫ
-            </h2>
+    <section class="py-20 bg-graphite border-b border-white/10">
+        <div class="container mx-auto px-4">
+            <h2 class="font-display text-4xl md:text-6xl text-white mb-12 uppercase text-center md:text-left">
+                ГОНОЧНЫЕ КЛАССЫ
+            </h2>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                
-                <div class="group bg-white/5 border border-white/10 p-6 flex flex-col justify-between h-48 hover:bg-acid-lime hover:text-black transition-all duration-300 cursor-pointer">
-                    <div class="text-xs font-bold opacity-50">CLASS_01</div>
-                    <div class="font-display text-xl uppercase leading-none">LOW KITE<br>SNOWBOARD</div>
-                    <div class="text-right opacity-0 group-hover:opacity-100 transition-opacity">↗</div>
-                </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                
+                <div class="group bg-white/5 border border-white/10 p-6 flex flex-col justify-between h-48 hover:bg-acid-lime hover:text-black transition-all duration-300 cursor-pointer">
+                    <div class="text-xs font-bold opacity-50">CLASS_01</div>
+                    <div class="font-display text-xl uppercase leading-none">LOW KITE<br>SNOWBOARD</div>
+                    <div class="text-right opacity-0 group-hover:opacity-100 transition-opacity">↗</div>
+                </div>
 
-                <div class="group bg-white/5 border border-white/10 p-6 flex flex-col justify-between h-48 hover:bg-acid-lime hover:text-black transition-all duration-300 cursor-pointer">
-                    <div class="text-xs font-bold opacity-50">CLASS_02</div>
-                    <div class="font-display text-xl uppercase leading-none">LOW KITE<br>SKI</div>
-                    <div class="text-right opacity-0 group-hover:opacity-100 transition-opacity">↗</div>
-                </div>
+                <div class="group bg-white/5 border border-white/10 p-6 flex flex-col justify-between h-48 hover:bg-acid-lime hover:text-black transition-all duration-300 cursor-pointer">
+                    <div class="text-xs font-bold opacity-50">CLASS_02</div>
+                    <div class="font-display text-xl uppercase leading-none">LOW KITE<br>SKI</div>
+                    <div class="text-right opacity-0 group-hover:opacity-100 transition-opacity">↗</div>
+                </div>
 
-                <div class="group bg-white/5 border border-white/10 p-6 flex flex-col justify-between h-48 hover:bg-acid-lime hover:text-black transition-all duration-300 cursor-pointer">
-                    <div class="text-xs font-bold opacity-50">CLASS_03</div>
-                    <div class="font-display text-xl uppercase leading-none">LOW WING<br>SNOWBOARD</div>
-                    <div class="text-right opacity-0 group-hover:opacity-100 transition-opacity">↗</div>
-                </div>
+                <div class="group bg-white/5 border border-white/10 p-6 flex flex-col justify-between h-48 hover:bg-acid-lime hover:text-black transition-all duration-300 cursor-pointer">
+                    <div class="text-xs font-bold opacity-50">CLASS_03</div>
+                    <div class="font-display text-xl uppercase leading-none">LOW WING<br>SNOWBOARD</div>
+                    <div class="text-right opacity-0 group-hover:opacity-100 transition-opacity">↗</div>
+                </div>
 
-                <div class="group bg-white/5 border border-white/10 p-6 flex flex-col justify-between h-48 hover:bg-acid-lime hover:text-black transition-all duration-300 cursor-pointer">
-                    <div class="text-xs font-bold opacity-50">CLASS_04</div>
-                    <div class="font-display text-xl uppercase leading-none">LOW WING<br>SKI</div>
-                    <div class="text-right opacity-0 group-hover:opacity-100 transition-opacity">↗</div>
-                </div>
+                <div class="group bg-white/5 border border-white/10 p-6 flex flex-col justify-between h-48 hover:bg-acid-lime hover:text-black transition-all duration-300 cursor-pointer">
+                    <div class="text-xs font-bold opacity-50">CLASS_04</div>
+                    <div class="font-display text-xl uppercase leading-none">LOW WING<br>SKI</div>
+                    <div class="text-right opacity-0 group-hover:opacity-100 transition-opacity">↗</div>
+                </div>
 
-                <div class="group bg-white/5 border border-white/10 p-6 flex flex-col justify-between h-48 hover:bg-acid-lime hover:text-black transition-all duration-300 cursor-pointer">
-                    <div class="text-xs font-bold opacity-50">CLASS_05</div>
-                    <div class="font-display text-xl uppercase leading-none">LOW WING<br>BLADES</div>
-                    <div class="text-right opacity-0 group-hover:opacity-100 transition-opacity">↗</div>
-                </div>
+                <div class="group bg-white/5 border border-white/10 p-6 flex flex-col justify-between h-48 hover:bg-acid-lime hover:text-black transition-all duration-300 cursor-pointer">
+                    <div class="text-xs font-bold opacity-50">CLASS_05</div>
+                    <div class="font-display text-xl uppercase leading-none">LOW WING<br>BLADES</div>
+                    <div class="text-right opacity-0 group-hover:opacity-100 transition-opacity">↗</div>
+                </div>
 
-                 <div class="group bg-white/5 border border-white/10 p-6 flex flex-col justify-between h-48 hover:bg-acid-lime hover:text-black transition-all duration-300 cursor-pointer">
-                    <div class="text-xs font-bold opacity-50">CLASS_06</div>
-                    <div class="font-display text-xl uppercase leading-none">LOW WING<br>SNOWSKATE</div>
-                    <div class="text-right opacity-0 group-hover:opacity-100 transition-opacity">↗</div>
-                </div>
+                 <div class="group bg-white/5 border border-white/10 p-6 flex flex-col justify-between h-48 hover:bg-acid-lime hover:text-black transition-all duration-300 cursor-pointer">
+                    <div class="text-xs font-bold opacity-50">CLASS_06</div>
+                    <div class="font-display text-xl uppercase leading-none">LOW WING<br>SNOWSKATE</div>
+                    <div class="text-right opacity-0 group-hover:opacity-100 transition-opacity">↗</div>
+                </div>
 
-                <div class="md:col-span-2 group bg-white/5 border border-white/10 p-6 flex flex-col justify-between h-48 hover:bg-acid-lime hover:text-black transition-all duration-300 cursor-pointer">
-                    <div class="text-xs font-bold opacity-50">CLASS_07</div>
-                    <div class="font-display text-xl uppercase leading-none">LOW WINTER<br>WINDSURFING</div>
-                    <div class="text-right opacity-0 group-hover:opacity-100 transition-opacity">↗</div>
-                </div>
+                <div class="md:col-span-2 group bg-white/5 border border-white/10 p-6 flex flex-col justify-between h-48 hover:bg-acid-lime hover:text-black transition-all duration-300 cursor-pointer">
+                    <div class="text-xs font-bold opacity-50">CLASS_07</div>
+                    <div class="font-display text-xl uppercase leading-none">LOW WINTER<br>WINDSURFING</div>
+                    <div class="text-right opacity-0 group-hover:opacity-100 transition-opacity">↗</div>
+                </div>
 
-            </div>
-        </div>
-    </section>
+            </div>
+        </div>
+    </section>
 
-    <section class="py-20 bg-black">
-        <div class="container mx-auto px-4 flex justify-center">
-            <div class="border border-red-600/50 bg-red-900/10 p-8 md:p-12 max-w-4xl w-full relative overflow-hidden">
-                <div class="absolute top-0 right-0 p-4">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#DC2626" stroke-width="2" class="animate-pulse"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
-                </div>
+    <section class="py-20 bg-black">
+        <div class="container mx-auto px-4 flex justify-center">
+            <div class="border border-red-600/50 bg-red-900/10 p-8 md:p-12 max-w-4xl w-full relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-4">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#DC2626" stroke-width="2" class="animate-pulse"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                </div>
 
-                <h3 class="font-bold text-red-500 mb-4 tracking-widest uppercase text-sm">CRITICAL_WARNING</h3>
-                <h2 class="font-display text-2xl md:text-3xl text-white mb-6 uppercase">ТРЕБОВАНИЯ К ПОВЕРХНОСТИ</h2>
-                
-                <ul class="space-y-4 text-white/80 font-mono text-sm md:text-base border-l border-red-500/30 pl-6">
-                    <li>[1] Допускается только замерзшая акватория или снежная равнина.</li>
-                    <li>[2] Перепад высот: <span class="text-white font-bold">не более 2 метров на 100 метров дистанции</span>.</li>
-                    <li>[3] Треки с горнолыжных склонов будут <span class="text-red-500">ОТКЛОНЕНЫ</span> алгоритмом.</li>
-                </ul>
-            </div>
-        </div>
-    </section>
+                <h3 class="font-bold text-red-500 mb-4 tracking-widest uppercase text-sm">CRITICAL_WARNING</h3>
+                <h2 class="font-display text-2xl md:text-3xl text-white mb-6 uppercase">ТРЕБОВАНИЯ К ПОВЕРХНОСТИ</h2>
+                
+                <ul class="space-y-4 text-white/80 font-mono text-sm md:text-base border-l border-red-500/30 pl-6">
+                    <li>[1] Допускается только замерзшая акватория или снежная равнина.</li>
+                    <li>[2] Перепад высот: <span class="text-white font-bold">не более 2 метров на 100 метров дистанции</span>.</li>
+                    <li>[3] Треки с горнолыжных склонов будут <span class="text-red-500">ОТКЛОНЕНЫ</span> алгоритмом.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
 
-    <footer class="bg-graphite border-t border-white/10 py-12 text-xs md:text-sm">
-        <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6 text-white/40">
-            
-            <a href="#" class="flex items-center gap-2 hover:text-acid-lime transition-colors border border-white/20 px-4 py-2 uppercase">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                [ DOWNLOAD_PDF ] Положение
-            </a>
+    <footer class="bg-graphite border-t border-white/10 py-12 text-xs md:text-sm">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6 text-white/40">
+            
+            <a href="#" class="flex items-center gap-2 hover:text-acid-lime transition-colors border border-white/20 px-4 py-2 uppercase">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                [ DOWNLOAD_PDF ] Положение
+            </a>
 
-            <div class="uppercase tracking-wider">
-                Telegram Support: <a href="#" class="text-white hover:text-acid-lime">@LowRaceSupport</a>
-            </div>
+            <div class="uppercase tracking-wider">
+                Telegram Support: <a href="#" class="text-white hover:text-acid-lime">@LowRaceSupport</a>
+            </div>
 
-            <div class="text-center md:text-right">
-                © 2025 Lord of the Winds.<br>Saint-Petersburg / Worldwide.
-            </div>
-        </div>
-    </footer>
+            <div class="text-center md:text-right">
+                © 2025 Lord of the Winds.<br>Saint-Petersburg / Worldwide.
+            </div>
+        </div>
+    </footer>
 
 </body>
 </html>
