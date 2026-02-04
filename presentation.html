@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ВЛАДЫКА ВЕТРА | ПАРТНЕРСКАЯ ПРЕЗЕНТАЦИЯ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100..800&family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { 'graphite': '#0F0F0F', 'acid-lime': '#00F3FF', 'ice-white': '#F0F0F0' },
+                    fontFamily: { 'display': ['"Unbounded"', 'sans-serif'], 'mono': ['"JetBrains Mono"', 'monospace'] }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #0F0F0F; color: #F0F0F0; }
+        .video-bg { position: absolute; right: 0; bottom: 0; min-width: 100%; min-height: 100%; width: auto; height: auto; z-index: -1; object-fit: cover; filter: grayscale(100%) contrast(1.2) brightness(0.6); }
+        /* Убираем хедер и футер при печати в PDF */
+        @media print { .no-print { display: none; } body { background-color: #0F0F0F; -webkit-print-color-adjust: exact; } }
+    </style>
+</head>
+<body class="font-mono selection:bg-acid-lime selection:text-black">
+
+    <section class="relative h-screen w-full flex flex-col justify-center items-center overflow-hidden border-b border-white/10">
+        <div class="absolute inset-0 z-0 bg-black">
+             <video autoplay muted loop playsinline class="video-bg">
+                <source src="Snowkiter-Video.mp4" type="video/mp4">
+            </video>
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0F0F0F] via-black/40 to-black/20"></div>
+        </div>
+        <div class="relative z-10 text-center">
+            <div class="text-acid-lime font-bold tracking-[0.3em] text-sm mb-4 animate-pulse">ПАРТНЕРСКОЕ ПРЕДЛОЖЕНИЕ</div>
+            <h1 class="font-display font-black text-5xl md:text-9xl text-white mix-blend-difference leading-none">
+                ВЛАДЫКА<br><span class="text-transparent" style="-webkit-text-stroke: 1px white;">ВЕТРА</span>
+            </h1>
+            <p class="mt-6 text-xl md:text-2xl text-white/80 font-display uppercase tracking-widest">Lord of the Winds</p>
+            <p class="mt-2 text-white/50 text-sm font-mono">GLOBAL CHALLENGE 2026</p>
+        </div>
+        <div class="absolute bottom-10 animate-bounce text-acid-lime no-print">
+            ↓ ЛИСТАТЬ ВНИЗ
+        </div>
+    </section>
+
+    <section class="py-20 bg-graphite border-b border-white/10">
+        <div class="container mx-auto px-4">
+            <h2 class="font-display text-4xl text-white mb-12 uppercase">О <span class="text-acid-lime">СОРЕВНОВАНИИ</span></h2>
+            <p class="text-xl text-white/80 mb-12 max-w-4xl font-light">
+                Это соревнования по сноукайтингу, айсвингу и зимнему виндсерфингу в формате <span class="text-acid-lime font-bold">онлайн-гонок</span>. Участники соревнуются по всему миру, находясь на своих домашних спотах.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="group bg-white/5 p-6 border border-white/10 hover:border-acid-lime transition-colors">
+                    <div class="h-48 bg-black/50 mb-4 flex items-center justify-center text-white/20 border border-white/5">
+                        [ ФОТО: СНОУКАЙТИНГ ]
+                    </div>
+                    <h3 class="font-display text-xl text-white mb-2">СНОУКАЙТИНГ</h3>
+                    <p class="text-sm text-white/60">Движение под куполом (кайтом) на стропах.</p>
+                </div>
+                <div class="group bg-white/5 p-6 border border-white/10 hover:border-acid-lime transition-colors">
+                    <div class="h-48 bg-black/50 mb-4 flex items-center justify-center text-white/20 border border-white/5">
+                        [ ФОТО: АЙСВИНГ ]
+                    </div>
+                    <h3 class="font-display text-xl text-white mb-2">АЙСВИНГ</h3>
+                    <p class="text-sm text-white/60">Движение с надувным крылом (вингом) в руках.</p>
+                </div>
+                <div class="group bg-white/5 p-6 border border-white/10 hover:border-acid-lime transition-colors">
+                    <div class="h-48 bg-black/50 mb-4 flex items-center justify-center text-white/20 border border-white/5">
+                        [ ФОТО: ЗИМНИЙ ВИНДСЕРФ ]
+                    </div>
+                    <h3 class="font-display text-xl text-white mb-2">ЗИМНИЙ ВИНДСЕРФ</h3>
+                    <p class="text-sm text-white/60">Парус на мачте, закрепленный на доске/коньках.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-[#0a0a0a] border-b border-white/10">
+        <div class="container mx-auto px-4">
+            <h2 class="font-display text-4xl text-white mb-12 uppercase text-right">МЕХАНИКА <span class="text-acid-lime">УЧАСТИЯ</span></h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-8">
+                    <div class="flex gap-6">
+                        <div class="text-acid-lime font-display text-4xl font-bold">01</div>
+                        <div>
+                            <h4 class="text-white font-bold text-xl mb-2">РЕГИСТРАЦИЯ</h4>
+                            <p class="text-white/60 text-sm leading-relaxed">Участник регистрируется, привязывает трекер (Garmin/Strava) и выбирает один из 7 классов. Классы делятся по типу паруса и снаряду (лыжи/сноуборд/коньки).</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-6">
+                        <div class="text-acid-lime font-display text-4xl font-bold">02</div>
+                        <div>
+                            <h4 class="text-white font-bold text-xl mb-2">ЗАЕЗД</h4>
+                            <p class="text-white/60 text-sm leading-relaxed">Спортсмен катается на любом снежном или ледовом покрытии (без перепада высот). Записывает трек на часы или смартфон. Фото с геофиксацией подтверждает локацию.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-6">
+                        <div class="text-acid-lime font-display text-4xl font-bold">03</div>
+                        <div>
+                            <h4 class="text-white font-bold text-xl mb-2">ПРОТОКОЛ</h4>
+                            <p class="text-white/60 text-sm leading-relaxed">Система раз в сутки автоматически выгружает активности, проверяет их и обновляет глобальный рейтинг сразу во всех 4-х дисциплинах.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="border border-white/10 p-8 bg-white/5 relative">
+                    <div class="absolute top-0 right-0 p-2 text-acid-lime text-xs border border-acid-lime bg-black">СИСТЕМА</div>
+                    <p class="font-mono text-sm text-white/80 leading-loose">
+                        > SCANNING ACTIVITIES...<br>
+                        > VALIDATING GPS DATA...<br>
+                        > CHECKING ELEVATION < 2M...<br>
+                        > STATUS: <span class="text-acid-lime">APPROVED</span><br>
+                        > UPDATING LEADERBOARD...
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-graphite border-b border-white/10">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+                <h2 class="font-display text-4xl text-white uppercase">ГОНОЧНЫЕ <span class="text-acid-lime">ДИСЦИПЛИНЫ</span></h2>
+                <div class="text-right mt-4 md:mt-0">
+                    <div class="text-acid-lime font-bold">17.02 — 15.03.2026</div>
+                    <div class="text-white/50 text-xs">ПЕРИОД ПРОВЕДЕНИЯ</div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="bg-white/5 border-l-2 border-acid-lime p-6">
+                    <h3 class="font-display text-lg text-white mb-2">СКОРОСТЬ</h3>
+                    <p class="text-xs text-white/60">Максимальная скорость в моменте.</p>
+                </div>
+                <div class="bg-white/5 border-l-2 border-acid-lime p-6">
+                    <h3 class="font-display text-lg text-white mb-2">МАРАФОН</h3>
+                    <p class="text-xs text-white/60">Кто быстрее пройдет 42 км.</p>
+                </div>
+                <div class="bg-white/5 border-l-2 border-acid-lime p-6">
+                    <h3 class="font-display text-lg text-white mb-2">ФЁДОР КОНЮХОВ</h3>
+                    <p class="text-xs text-white/60">Самый длинный заезд без пауз (survival mode).</p>
+                </div>
+                <div class="bg-white/5 border-l-2 border-acid-lime p-6">
+                    <h3 class="font-display text-lg text-white mb-2">ФОРРЕСТ ГАМП</h3>
+                    <p class="text-xs text-white/60">Сумма всех дистанций за месяц.</p>
+                </div>
+            </div>
+            
+            <div class="mt-8 p-4 border border-white/10 text-center">
+                <p class="text-white/60 text-sm">ГСК ежедневно проверяет треки на "читерство". Протоколы обновляются онлайн. 16 марта — награждение.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-[#0a0a0a] border-b border-white/10">
+        <div class="container mx-auto px-4">
+            <h2 class="font-display text-4xl text-white mb-12 uppercase text-center">ЭКОСИСТЕМА <span class="text-acid-lime">ПРОЕКТА</span></h2>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+                <div class="flex flex-col items-center">
+                    <div class="w-16 h-16 rounded-full border border-acid-lime flex items-center justify-center mb-4 text-acid-lime text-2xl">WEB</div>
+                    <h4 class="text-white font-bold mb-2">САЙТ ГОНКИ</h4>
+                    <p class="text-white/40 text-xs">Общая информация и LIVE-протоколы.</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="w-16 h-16 rounded-full border border-white/20 flex items-center justify-center mb-4 text-white text-2xl">TG</div>
+                    <h4 class="text-white font-bold mb-2">ТЕЛЕГРАМ КАНАЛ</h4>
+                    <p class="text-white/40 text-xs">Общение участников, новости, зрители.</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="w-16 h-16 rounded-full border border-white/20 flex items-center justify-center mb-4 text-white text-2xl">BOT</div>
+                    <h4 class="text-white font-bold mb-2">ТЕЛЕГРАМ БОТ</h4>
+                    <p class="text-white/40 text-xs">Регистрация, прием заявок, арбитраж.</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="w-16 h-16 rounded-full border border-white/20 flex items-center justify-center mb-4 text-white text-2xl">PDF</div>
+                    <h4 class="text-white font-bold mb-2">АТЛЕТ-ГИД</h4>
+                    <p class="text-white/40 text-xs">Полная инструкция и правила участия.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-graphite border-b border-white/10">
+        <div class="container mx-auto px-4">
+            <h2 class="font-display text-4xl text-white mb-12 uppercase">МЕДИА <span class="text-acid-lime">ОХВАТ</span></h2>
+            <div class="border-l border-white/10 pl-8 space-y-12 relative">
+                <div class="relative">
+                    <div class="absolute -left-[37px] top-1 w-4 h-4 bg-acid-lime rounded-full border-4 border-graphite"></div>
+                    <h4 class="text-white font-bold text-lg">АНОНСИРОВАНИЕ</h4>
+                    <p class="text-white/60 text-sm mt-2">СМИ (Фонтанка.ру), ресурсы Спорткомитета СПб, Федерация парусного спорта, тематические TG-каналы.</p>
+                </div>
+                <div class="relative">
+                    <div class="absolute -left-[37px] top-1 w-4 h-4 bg-graphite border border-white rounded-full"></div>
+                    <h4 class="text-white font-bold text-lg">ХОД ГОНКИ (17.02 - 15.03)</h4>
+                    <p class="text-white/60 text-sm mt-2">Ежедневная публикация промежуточных протоколов, дайджесты, упоминания партнеров.</p>
+                </div>
+                <div class="relative">
+                    <div class="absolute -left-[37px] top-1 w-4 h-4 bg-graphite border border-white rounded-full"></div>
+                    <h4 class="text-white font-bold text-lg">ФИНАЛ</h4>
+                    <p class="text-white/60 text-sm mt-2">Освещение церемонии награждения, итоговые статьи, интервью с победителями.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-[#0a0a0a] border-b border-white/10">
+        <div class="container mx-auto px-4">
+            <h2 class="font-display text-4xl text-white mb-12 uppercase text-center">ПАРТНЕРСКИЕ <span class="text-acid-lime">ПАКЕТЫ</span></h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div class="col-span-1 lg:col-span-2 bg-gradient-to-r from-acid-lime/10 to-transparent border border-acid-lime p-8">
+                    <div class="text-acid-lime font-bold tracking-widest text-xs mb-2">МАКСИМАЛЬНЫЙ ОХВАТ</div>
+                    <h3 class="font-display text-3xl text-white mb-4">ГЕНЕРАЛЬНЫЙ ПАРТНЕР</h3>
+                    <ul class="text-white/80 space-y-2 text-sm">
+                        <li>> Логотип и ссылка на всех страницах сайта (сквозной блок).</li>
+                        <li>> Брендирование главной страницы.</li>
+                        <li>> Упоминание во всех пресс-релизах и постах.</li>
+                        <li>> Отдельная страница в Атлет-гиде.</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white/5 border border-white/10 p-6 hover:border-white/30 transition-colors">
+                    <h3 class="font-display text-xl text-white mb-4">СПОНСОР КЛАССА</h3>
+                    <p class="text-white/50 text-xs mb-4">Например: "Лучший Сноукайтер"</p>
+                    <ul class="text-white/70 space-y-2 text-sm">
+                        <li>> Лого на странице описания класса.</li>
+                        <li>> Блок в Атлет-гиде.</li>
+                        <li>> Автоматическая подстановка в протоколы класса.</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white/5 border border-white/10 p-6 hover:border-white/30 transition-colors">
+                    <h3 class="font-display text-xl text-white mb-4">СПОНСОР ДИСЦИПЛИНЫ</h3>
+                    <p class="text-white/50 text-xs mb-4">Например: "Спонсор Марафона"</p>
+                    <ul class="text-white/70 space-y-2 text-sm">
+                        <li>> Брендирование страницы дисциплины.</li>
+                        <li>> Логотип в протоколах дисциплины.</li>
+                    </ul>
+                </div>
+
+                <div class="col-span-1 lg:col-span-2 bg-white/5 border border-white/10 p-6 flex flex-col md:flex-row items-center justify-between gap-6">
+                    <div>
+                        <h3 class="font-display text-xl text-white">СПЕЦИАЛЬНЫЙ ПАРТНЕР</h3>
+                        <p class="text-white/60 text-sm mt-2">Спонсор награждения особой категории (самый необычный трек, воля к победе) и розыгрыша призов.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-32 bg-graphite flex flex-col items-center text-center">
+        <div class="container mx-auto px-4">
+            <h2 class="font-display text-5xl md:text-7xl text-white mb-8 uppercase">
+                СТАНЬТЕ ЧАСТЬЮ<br><span class="text-acid-lime">ЛЕГЕНДЫ</span>
+            </h2>
+            <p class="text-white/60 max-w-2xl mx-auto mb-12">
+                Мы создаем историю зимнего парусного спорта. Присоединяйтесь к проекту "Владыка Ветра" в качестве партнера.
+            </p>
+
+            <a href="mailto:info@lordofthewinds.com" class="group relative inline-flex items-center justify-center px-10 py-5 overflow-hidden font-bold text-acid-lime transition-all duration-300 bg-transparent border-2 border-acid-lime hover:bg-acid-lime hover:text-black focus:outline-none mb-12">
+                <span class="absolute top-0 left-0 w-2 h-2 bg-acid-lime transition-all duration-300 group-hover:bg-black"></span>
+                <span class="absolute bottom-0 right-0 w-2 h-2 bg-acid-lime transition-all duration-300 group-hover:bg-black"></span>
+                <span class="relative uppercase tracking-widest text-lg">
+                    [ СТАТЬ ПАРТНЕРОМ ]
+                </span>
+            </a>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-white/50 text-sm font-mono border-t border-white/10 pt-8 w-full max-w-4xl mx-auto">
+                <div>
+                    EMAIL: info@lordofthewinds.com
+                </div>
+                <div>
+                    TG: @LordOfTheWindsSupport
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
