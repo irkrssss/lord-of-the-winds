@@ -51,7 +51,14 @@
 
         * {
             animation: none !important;
-            transition: none !important;
+            transition: none !important; /* Убираем анимации для PDF, но оставляем transition для веба если нужно, здесь глобально отключено */
+        }
+        
+        /* Включаем плавность только для ховеров, если смотрим в браузере */
+        @media screen {
+            .group img {
+                transition: transform 0.7s ease-out !important;
+            }
         }
 
         @page {
@@ -110,30 +117,40 @@
             </div>
             
             <div class="col-span-8 grid grid-cols-3 gap-6 h-3/4">
-                <div class="bg-white/5 border border-white/10 p-6 flex flex-col h-full justify-end relative overflow-hidden group">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10"></div>
-                    <div class="absolute inset-0 bg-[#222] z-0 flex items-center justify-center text-white/10 font-display text-4xl font-bold uppercase rotate-90">KITE</div>
-                    <div class="relative z-20">
+                
+                <div class="bg-white/5 border border-white/10 flex flex-col h-full justify-end relative overflow-hidden group">
+                    <img src="kite.jpg" class="absolute inset-0 w-full h-full object-cover opacity-60 z-0 group-hover:scale-110 transition-transform duration-700" alt="Snowkiting">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent z-10"></div>
+                    <div class="absolute inset-0 z-0 flex items-center justify-center text-white/5 font-display text-4xl font-bold uppercase rotate-90 mix-blend-overlay">KITE</div>
+                    
+                    <div class="relative z-20 p-6">
                         <h3 class="font-display text-xl text-acid-lime mb-2">СНОУКАЙТИНГ</h3>
-                        <p class="text-xs text-white/70">Движение под куполом (кайтом) на стропах.</p>
+                        <p class="text-xs text-white/90">Движение под куполом (кайтом) на стропах.</p>
                     </div>
                 </div>
-                <div class="bg-white/5 border border-white/10 p-6 flex flex-col h-full justify-end relative overflow-hidden group">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10"></div>
-                    <div class="absolute inset-0 bg-[#222] z-0 flex items-center justify-center text-white/10 font-display text-4xl font-bold uppercase rotate-90">WING</div>
-                    <div class="relative z-20">
+
+                <div class="bg-white/5 border border-white/10 flex flex-col h-full justify-end relative overflow-hidden group">
+                    <img src="wing.jpg" class="absolute inset-0 w-full h-full object-cover opacity-60 z-0 group-hover:scale-110 transition-transform duration-700" alt="Wing">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent z-10"></div>
+                    <div class="absolute inset-0 z-0 flex items-center justify-center text-white/5 font-display text-4xl font-bold uppercase rotate-90 mix-blend-overlay">WING</div>
+
+                    <div class="relative z-20 p-6">
                         <h3 class="font-display text-xl text-acid-lime mb-2">АЙСВИНГ</h3>
-                        <p class="text-xs text-white/70">Движение с надувным крылом (вингом) в руках.</p>
+                        <p class="text-xs text-white/90">Движение с надувным крылом (вингом) в руках.</p>
                     </div>
                 </div>
-                <div class="bg-white/5 border border-white/10 p-6 flex flex-col h-full justify-end relative overflow-hidden group">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10"></div>
-                    <div class="absolute inset-0 bg-[#222] z-0 flex items-center justify-center text-white/10 font-display text-4xl font-bold uppercase rotate-90">SURF</div>
-                    <div class="relative z-20">
+
+                <div class="bg-white/5 border border-white/10 flex flex-col h-full justify-end relative overflow-hidden group">
+                    <img src="surf.jpg" class="absolute inset-0 w-full h-full object-cover opacity-60 z-0 group-hover:scale-110 transition-transform duration-700" alt="Windsurf">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent z-10"></div>
+                    <div class="absolute inset-0 z-0 flex items-center justify-center text-white/5 font-display text-4xl font-bold uppercase rotate-90 mix-blend-overlay">SURF</div>
+
+                    <div class="relative z-20 p-6">
                         <h3 class="font-display text-xl text-acid-lime mb-2">ВИНДСЕРФИНГ</h3>
-                        <p class="text-xs text-white/70">Парус на мачте, закрепленный на доске/коньках.</p>
+                        <p class="text-xs text-white/90">Парус на мачте, закрепленный на доске/коньках.</p>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
@@ -154,6 +171,9 @@
                     <p class="text-white/70 text-sm leading-relaxed mb-4">
                         Нужно выбрать один из 7-ми классов. Классы делятся по типу паруса (кайт, винг, виндсерф) и снаряжению: <span class="text-white font-bold">лыжи, сноуборд, коньки, сноускейт</span>.
                     </p>
+                    <div class="bg-white/5 p-3 text-xs text-white/50 font-mono">
+                        > CLASS_SELECT: [7 VARIANTS]
+                    </div>
                 </div>
 
                 <div class="relative border-t-2 border-white/20 pt-8">
@@ -163,6 +183,9 @@
                         Кататься можно где угодно — главное, чтобы под ногами был снег или лёд.
                         <br><span class="text-acid-lime block mt-2">// ВАЖНО: Скоростные спуски с горы (перепад высот) не идут в зачёт.</span>
                     </p>
+                    <div class="bg-white/5 p-3 text-xs text-white/50 font-mono">
+                        > ELEVATION_CHECK: [FLAT ONLY]
+                    </div>
                 </div>
 
                 <div class="relative border-t-2 border-white/20 pt-8">
@@ -171,6 +194,9 @@
                     <p class="text-white/70 text-sm leading-relaxed mb-4">
                         Система раз в сутки подгружает активности. <span class="text-white font-bold">Один трек даёт результат одновременно во всех 4-х дисциплинах</span> (если выполнены условия).
                     </p>
+                    <div class="bg-white/5 p-3 text-xs text-white/50 font-mono">
+                        > SYNC: [1 TRACK -> 4 MODES]
+                    </div>
                 </div>
             </div>
         </div>
@@ -355,12 +381,12 @@
             </p>
 
             <div class="border-2 border-acid-lime p-8 inline-block bg-black/50 backdrop-blur-md">
-                <div class="text-acid-lime font-bold text-2xl mb-2">+79219460345</div>
+                <div class="text-acid-lime font-bold text-2xl mb-2">info@lordofthewinds.com</div>
                 <div class="text-white font-mono">TG: @LordOfTheWindsSupport</div>
             </div>
 
             <div class="absolute bottom-8 text-white/20 text-xs">
-                © 2026 LORD OF THE WINDS
+                © 2026 LORD OF THE WINDS. ALL RIGHTS RESERVED.
             </div>
         </div>
     </section>
