@@ -51,7 +51,7 @@
 
         * {
             animation: none !important;
-            transition: none !important; /* Убираем анимации для PDF, но оставляем transition для веба если нужно, здесь глобально отключено */
+            transition: none !important;
         }
         
         /* Включаем плавность только для ховеров, если смотрим в браузере */
@@ -61,15 +61,33 @@
             }
         }
 
+        /* --- ВАЖНО: НАСТРОЙКИ ДЛЯ ПЕЧАТИ (PDF) --- */
         @page {
-            size: 1920px 1080px;
+            size: 297mm 210mm; /* А4 Альбомная */
             margin: 0;
         }
 
         @media print {
             body { margin: 0; }
-            .slide { border-bottom: none; height: 100vh; }
+            .slide { 
+                width: 297mm; 
+                height: 210mm; 
+                border: none;
+            }
             ::-webkit-scrollbar { display: none; }
+            
+            /* Увеличиваем шрифты при печати для читаемости */
+            p, li { font-size: 14pt !important; line-height: 1.4 !important; opacity: 1 !important; color: #fff !important; }
+            h2 { font-size: 36pt !important; }
+            h3 { font-size: 20pt !important; color: #fff !important; }
+            h4 { font-size: 18pt !important; color: #fff !important; }
+            .text-xs { font-size: 10pt !important; }
+            .text-sm { font-size: 12pt !important; }
+            
+            /* Делаем серый текст светлее при печати */
+            .text-white\/50, .text-white\/60, .text-white\/70, .text-white\/80, .text-white\/90 {
+                color: #e0e0e0 !important;
+            }
         }
 
         .bg-image {
