@@ -19,7 +19,7 @@
     </script>
 
     <style>
-        /* Глобальные стили для PDF и экрана */
+        /* Глобальные стили */
         body { 
             background-color: #0F0F0F; 
             color: #F0F0F0; 
@@ -29,9 +29,10 @@
             print-color-adjust: exact !important;
         }
 
+        /* На экране слайд занимает весь экран */
         .slide {
             position: relative;
-            width: 100vw;
+            width: 100%;
             height: 100vh;
             overflow: hidden;
             display: flex;
@@ -39,55 +40,67 @@
             justify-content: center;
             background-color: #0F0F0F;
             border-bottom: 1px solid #333;
-            page-break-after: always;
-            break-after: always;
         }
 
-        .slide:last-child {
-            page-break-after: avoid;
-            break-after: avoid;
-            border-bottom: none;
-        }
-
+        /* Отключаем лишние анимации */
         * {
             animation: none !important;
             transition: none !important;
         }
-        
-        /* Включаем плавность только для ховеров, если смотрим в браузере */
+
         @media screen {
-            .group img {
-                transition: transform 0.7s ease-out !important;
-            }
+            .group img { transition: transform 0.7s ease-out !important; }
         }
 
-        /* --- ВАЖНО: НАСТРОЙКИ ДЛЯ ПЕЧАТИ (PDF) --- */
+        /* === ГЛАВНЫЕ НАСТРОЙКИ ДЛЯ ПЕЧАТИ (PDF) === */
         @page {
-            size: 297mm 210mm; /* А4 Альбомная */
+            size: 297mm 210mm; /* Жесткий размер А4 Альбомная */
             margin: 0;
         }
 
         @media print {
-            body { margin: 0; }
-            .slide { 
-                width: 297mm; 
-                height: 210mm; 
+            body, html {
+                width: 297mm;
+                height: 210mm;
+            }
+
+            .slide {
+                width: 297mm !important;
+                height: 210mm !important;
+                page-break-after: always;
                 border: none;
+                /* Важно: отключаем флекс-центрирование, чтобы контент не сплющивался */
+                display: block !important; 
+                padding: 10mm !important; /* Безопасные поля */
+                position: relative;
+                overflow: hidden;
             }
+
+            .slide:last-child {
+                page-break-after: avoid;
+            }
+
+            /* ПРИНУДИТЕЛЬНОЕ УВЕЛИЧЕНИЕ ШРИФТОВ ДЛЯ PDF */
+            h1 { font-size: 42pt !important; line-height: 1 !important; }
+            h2 { font-size: 28pt !important; line-height: 1.1 !important; margin-bottom: 20px !important; }
+            h3 { font-size: 16pt !important; color: #fff !important; margin-bottom: 10px !important; }
+            h4 { font-size: 14pt !important; color: #fff !important; margin-bottom: 5px !important; }
+            
+            p, li { 
+                font-size: 11pt !important; 
+                line-height: 1.4 !important; 
+                color: #e0e0e0 !important; /* Делаем текст ярче для печати */
+            }
+            
+            /* Увеличиваем мелкие подписи */
+            .text-xs { font-size: 9pt !important; }
+            .text-sm { font-size: 11pt !important; }
+            
+            /* Исправляем сетки, чтобы они не ломались */
+            .grid { display: grid !important; }
+            
+            /* Убираем скроллбары */
             ::-webkit-scrollbar { display: none; }
-            
-            /* Увеличиваем шрифты при печати для читаемости */
-            p, li { font-size: 14pt !important; line-height: 1.4 !important; opacity: 1 !important; color: #fff !important; }
-            h2 { font-size: 36pt !important; }
-            h3 { font-size: 20pt !important; color: #fff !important; }
-            h4 { font-size: 18pt !important; color: #fff !important; }
-            .text-xs { font-size: 10pt !important; }
-            .text-sm { font-size: 12pt !important; }
-            
-            /* Делаем серый текст светлее при печати */
-            .text-white\/50, .text-white\/60, .text-white\/70, .text-white\/80, .text-white\/90 {
-                color: #e0e0e0 !important;
-            }
         }
 
         .bg-image {
@@ -104,16 +117,16 @@
 </head>
 <body class="font-mono selection:bg-acid-lime selection:text-black">
 
-    <section class="slide">
+    <section class="slide flex items-center justify-center">
         <img src="bg-cover.jpg" class="bg-image" onerror="this.style.backgroundColor='#1a1a1a'">
         <div class="absolute inset-0 bg-gradient-to-t from-[#0F0F0F] via-transparent to-black/40 z-0"></div>
 
-        <div class="relative z-10 text-center px-4">
+        <div class="relative z-10 text-center px-4 pt-10 print:pt-20">
             <div class="text-acid-lime font-bold tracking-[0.3em] text-xl mb-6">ПАРТНЕРСКОЕ ПРЕДЛОЖЕНИЕ</div>
             <h1 class="font-display font-black text-7xl md:text-9xl text-white mix-blend-difference leading-none mb-6">
                 ВЛАДЫКА<br><span class="text-transparent" style="-webkit-text-stroke: 2px white;">ВЕТРА</span>
             </h1>
-            <p class="text-3xl text-white/90 font-display uppercase tracking-widest">Lord of the Winds</p>
+            <p class="text-3xl text-white/90 font-display uppercase tracking-widest mt-8">Lord of the Winds</p>
             <div class="w-24 h-1 bg-acid-lime mx-auto mt-8"></div>
         </div>
         
@@ -122,8 +135,8 @@
         </div>
     </section>
 
-    <section class="slide px-16">
-        <div class="grid grid-cols-12 gap-12 h-full items-center py-12">
+    <section class="slide px-16 print:px-8">
+        <div class="grid grid-cols-12 gap-8 h-full items-center py-12 print:py-4">
             <div class="col-span-4 flex flex-col justify-center">
                 <h2 class="font-display text-5xl text-white mb-8 uppercase leading-tight">О <span class="text-acid-lime">ГОНКЕ</span></h2>
                 <div class="w-16 h-1 bg-acid-lime mb-8"></div>
@@ -134,7 +147,7 @@
                 </p>
             </div>
             
-            <div class="col-span-8 grid grid-cols-3 gap-6 h-3/4">
+            <div class="col-span-8 grid grid-cols-3 gap-4 h-3/4 print:h-[150mm]">
                 
                 <div class="bg-white/5 border border-white/10 flex flex-col h-full justify-end relative overflow-hidden group">
                     <img src="kite.jpg" class="absolute inset-0 w-full h-full object-cover opacity-60 z-0 group-hover:scale-110 transition-transform duration-700" alt="Snowkiting">
@@ -173,16 +186,16 @@
         </div>
     </section>
 
-    <section class="slide px-16 bg-[#0a0a0a]">
-        <div class="h-full flex flex-col justify-center py-12">
-            <div class="flex justify-between items-end mb-16">
+    <section class="slide px-16 bg-[#0a0a0a] print:px-8">
+        <div class="h-full flex flex-col justify-center py-12 print:block print:py-8">
+            <div class="flex justify-between items-end mb-16 print:mb-8">
                 <h2 class="font-display text-5xl text-white uppercase">АЛГОРИТМ <span class="text-acid-lime">УЧАСТИЯ</span></h2>
                 <div class="text-right text-white/40 font-mono text-sm max-w-md">
                     Участвовать просто: регистрация, привязка трекера и подача заявки.
                 </div>
             </div>
 
-            <div class="grid grid-cols-3 gap-12">
+            <div class="grid grid-cols-3 gap-12 print:gap-6">
                 <div class="relative border-t-2 border-acid-lime pt-8">
                     <div class="text-acid-lime font-display text-6xl font-black opacity-20 absolute top-4 right-0">01</div>
                     <h4 class="text-2xl text-white font-bold mb-4 uppercase">Выбор класса</h4>
@@ -196,7 +209,7 @@
                     <h4 class="text-2xl text-white font-bold mb-4 uppercase">Заезд</h4>
                     <p class="text-white/70 text-sm leading-relaxed mb-4">
                         Кататься можно где угодно — главное, чтобы под ногами был снег или лёд.
-                        <br><span class="text-acid-lime block mt-2">// ВАЖНО: Скоростные спуски с горы (перепад высот) не идут в зачёт.</span>
+                        <br><span class="text-acid-lime block mt-2">// ВАЖНО: Скоростные спуски с горы не идут в зачёт.</span>
                     </p>
                 </div>
 
@@ -204,16 +217,16 @@
                     <div class="text-white font-display text-6xl font-black opacity-10 absolute top-4 right-0">03</div>
                     <h4 class="text-2xl text-white font-bold mb-4 uppercase">4-в-1</h4>
                     <p class="text-white/70 text-sm leading-relaxed mb-4">
-                        Система раз в сутки подгружает активности. <span class="text-white font-bold">Один трек даёт результат одновременно во всех 4-х дисциплинах</span> (если выполнены условия).
+                        Система раз в сутки подгружает активности. <span class="text-white font-bold">Один трек даёт результат одновременно во всех 4-х дисциплинах</span>.
                     </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="slide px-16">
-        <div class="h-full flex flex-col justify-center py-12">
-            <div class="flex items-center justify-between mb-12">
+    <section class="slide px-16 print:px-8">
+        <div class="h-full flex flex-col justify-center py-12 print:block print:py-8">
+            <div class="flex items-center justify-between mb-12 print:mb-8">
                 <h2 class="font-display text-5xl text-white uppercase">ДИСЦИПЛИНЫ</h2>
                 <div class="text-right">
                     <div class="text-acid-lime font-display text-2xl font-bold">17.02 — 15.03.2026</div>
@@ -221,33 +234,33 @@
                 </div>
             </div>
 
-            <div class="grid grid-cols-4 gap-6 mb-12 h-1/2">
-                <div class="border border-white/10 p-6 flex flex-col justify-between hover:bg-white/5">
+            <div class="grid grid-cols-4 gap-6 mb-12 h-1/2 print:h-auto print:mb-8">
+                <div class="border border-white/10 p-6 flex flex-col justify-between hover:bg-white/5 print:p-4">
                     <h3 class="font-display text-2xl text-white">СКОРОСТЬ</h3>
                     <p class="text-white/60 text-sm">Определение максимальной скорости в моменте.</p>
                 </div>
-                <div class="border border-white/10 p-6 flex flex-col justify-between hover:bg-white/5">
+                <div class="border border-white/10 p-6 flex flex-col justify-between hover:bg-white/5 print:p-4">
                     <h3 class="font-display text-2xl text-white">МАРАФОН</h3>
                     <p class="text-white/60 text-sm">Классическая дистанция 42 км — кто быстрее.</p>
                 </div>
-                <div class="border border-white/10 p-6 flex flex-col justify-between hover:bg-white/5">
+                <div class="border border-white/10 p-6 flex flex-col justify-between hover:bg-white/5 print:p-4">
                     <h3 class="font-display text-2xl text-white">ФЁДОР КОНЮХОВ</h3>
-                    <p class="text-white/60 text-sm">Самый большой по расстоянию заезд за один раз без перерыва.</p>
+                    <p class="text-white/60 text-sm">Самый большой по расстоянию заезд за один раз.</p>
                 </div>
-                <div class="border border-white/10 p-6 flex flex-col justify-between hover:bg-white/5">
+                <div class="border border-white/10 p-6 flex flex-col justify-between hover:bg-white/5 print:p-4">
                     <h3 class="font-display text-2xl text-white">ФОРРЕСТ ГАМП</h3>
-                    <p class="text-white/60 text-sm">Наибольшая сумма расстояний всех заездов участника за время соревнований.</p>
+                    <p class="text-white/60 text-sm">Наибольшая сумма расстояний всех заездов.</p>
                 </div>
             </div>
             
-            <div class="grid grid-cols-2 gap-8 border-t border-white/10 pt-8">
+            <div class="grid grid-cols-2 gap-8 border-t border-white/10 pt-8 print:pt-4">
                 <div>
                     <h4 class="text-white font-bold mb-2">КОНТРОЛЬ</h4>
                     <p class="text-white/60 text-sm">ГСК проверяет активности на честность и блокирует за мошенничество.</p>
                 </div>
                 <div>
                     <h4 class="text-white font-bold mb-2">ПРОГРЕСС</h4>
-                    <p class="text-white/60 text-sm">Промежуточные протоколы — ежедневно. Болельщики могут следить за изменением позиций.</p>
+                    <p class="text-white/60 text-sm">Промежуточные протоколы — ежедневно. Болельщики могут следить.</p>
                 </div>
             </div>
             <div class="mt-4 text-acid-lime text-xs font-mono text-right">
@@ -256,12 +269,12 @@
         </div>
     </section>
 
-    <section class="slide px-16 bg-[#0a0a0a]">
-        <div class="h-full flex flex-col justify-center py-12">
-            <h2 class="font-display text-5xl text-white uppercase mb-20 text-center">ЦИФРОВАЯ <span class="text-acid-lime">ЭКОСИСТЕМА</span></h2>
+    <section class="slide px-16 bg-[#0a0a0a] print:px-8">
+        <div class="h-full flex flex-col justify-center py-12 print:block print:py-8">
+            <h2 class="font-display text-5xl text-white uppercase mb-20 text-center print:mb-12">ЦИФРОВАЯ <span class="text-acid-lime">ЭКОСИСТЕМА</span></h2>
             
-            <div class="grid grid-cols-2 gap-12 max-w-5xl mx-auto w-full">
-                <div class="space-y-12">
+            <div class="grid grid-cols-2 gap-12 max-w-5xl mx-auto w-full print:gap-8">
+                <div class="space-y-12 print:space-y-6">
                     <div class="flex gap-6 items-start">
                         <div class="text-acid-lime font-display text-3xl">WEB</div>
                         <div>
@@ -277,12 +290,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="space-y-12">
+                <div class="space-y-12 print:space-y-6">
                     <div class="flex gap-6 items-start">
                         <div class="text-white font-display text-3xl opacity-50">TG</div>
                         <div>
                             <h4 class="text-white font-bold text-xl mb-1">ТЕЛЕГРАМ-КАНАЛ</h4>
-                            <p class="text-white/50 text-sm">Информирование широкой аудитории и <span class="text-white">общение участников</span> и зрителей.</p>
+                            <p class="text-white/50 text-sm">Информирование широкой аудитории и <span class="text-white">общение участников</span>.</p>
                         </div>
                     </div>
                     <div class="flex gap-6 items-start">
@@ -297,9 +310,9 @@
         </div>
     </section>
 
-    <section class="slide px-16">
-        <div class="h-full flex flex-col justify-center py-12">
-            <div class="grid grid-cols-12 gap-12">
+    <section class="slide px-16 print:px-8">
+        <div class="h-full flex flex-col justify-center py-12 print:block print:py-8">
+            <div class="grid grid-cols-12 gap-12 print:gap-6">
                 <div class="col-span-4">
                     <h2 class="font-display text-5xl text-white uppercase leading-tight mb-8">МЕДИА<br><span class="text-acid-lime">ОХВАТ</span></h2>
                     <p class="text-white/60">
@@ -307,8 +320,8 @@
                     </p>
                 </div>
                 
-                <div class="col-span-8 relative border-l border-white/10 pl-12 py-4">
-                    <div class="mb-12 relative">
+                <div class="col-span-8 relative border-l border-white/10 pl-12 py-4 print:py-0">
+                    <div class="mb-12 relative print:mb-8">
                         <div class="absolute -left-[57px] top-1 w-6 h-6 bg-acid-lime rounded-full border-4 border-graphite shadow-[0_0_10px_#00F3FF]"></div>
                         <h4 class="text-2xl text-white font-bold mb-4">АНОНСИРОВАНИЕ</h4>
                         <ul class="text-white/60 text-sm space-y-2">
@@ -319,7 +332,7 @@
                         </ul>
                     </div>
 
-                    <div class="mb-12 relative">
+                    <div class="mb-12 relative print:mb-8">
                         <div class="absolute -left-[57px] top-1 w-6 h-6 bg-graphite border-2 border-white rounded-full"></div>
                         <h4 class="text-2xl text-white font-bold mb-2">ХОД ГОНКИ</h4>
                         <p class="text-white/50 text-sm">Ежедневная публикация промежуточных протоколов на сайте и в ТГ-канале.</p>
@@ -328,19 +341,19 @@
                     <div class="relative">
                         <div class="absolute -left-[57px] top-1 w-6 h-6 bg-graphite border-2 border-white rounded-full"></div>
                         <h4 class="text-2xl text-white font-bold mb-2">ФИНАЛ</h4>
-                        <p class="text-white/50 text-sm">Публикация редакционных материалов в период проведения и освещение церемонии награждения.</p>
+                        <p class="text-white/50 text-sm">Публикация редакционных материалов и освещение церемонии награждения.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="slide px-16 bg-[#0a0a0a]">
-        <div class="h-full flex flex-col justify-center py-12">
+    <section class="slide px-16 bg-[#0a0a0a] print:px-8">
+        <div class="h-full flex flex-col justify-center py-12 print:block print:py-8">
             <h2 class="font-display text-5xl text-white uppercase mb-12 text-center">СПОНСОРСКИЕ <span class="text-acid-lime">ПАКЕТЫ</span></h2>
             
-            <div class="grid grid-cols-2 gap-6 h-3/4">
-                <div class="col-span-2 border border-acid-lime bg-acid-lime/5 p-8 flex flex-col justify-center relative">
+            <div class="grid grid-cols-2 gap-6 h-3/4 print:h-auto print:gap-4">
+                <div class="col-span-2 border border-acid-lime bg-acid-lime/5 p-8 flex flex-col justify-center relative print:p-4">
                     <h3 class="font-display text-4xl text-white mb-4">ГЕНЕРАЛЬНЫЙ ПАРТНЕР</h3>
                     <div class="grid grid-cols-2 gap-8 text-white/80 text-sm">
                         <ul class="space-y-2">
@@ -354,7 +367,7 @@
                     </div>
                 </div>
 
-                <div class="border border-white/10 bg-white/5 p-8 flex flex-col justify-center">
+                <div class="border border-white/10 bg-white/5 p-8 flex flex-col justify-center print:p-4">
                     <h3 class="font-display text-2xl text-white mb-2">СПОНСОР КЛАССА</h3>
                     <p class="text-white/60 text-xs mb-4">Логотип, ссылка и блок информации на странице описания класса.</p>
                     <div class="text-acid-lime text-xs font-mono border border-acid-lime/30 p-2 inline-block">
@@ -362,7 +375,7 @@
                     </div>
                 </div>
 
-                <div class="border border-white/10 bg-white/5 p-8 flex flex-col justify-center">
+                <div class="border border-white/10 bg-white/5 p-8 flex flex-col justify-center print:p-4">
                     <h3 class="font-display text-2xl text-white mb-2">СПОНСОР ДИСЦИПЛИНЫ</h3>
                     <p class="text-white/60 text-xs mb-4">Логотип, ссылка и блок информации на странице дисциплины.</p>
                     <div class="text-acid-lime text-xs font-mono border border-acid-lime/30 p-2 inline-block">
@@ -370,19 +383,19 @@
                     </div>
                 </div>
 
-                <div class="col-span-2 border border-white/10 bg-white/5 p-8">
+                <div class="col-span-2 border border-white/10 bg-white/5 p-8 print:p-4">
                     <h3 class="font-display text-2xl text-white mb-2">СПЕЦИАЛЬНЫЙ ПАРТНЕР</h3>
                     <p class="text-white/70 text-sm">
-                        Спонсор награждения особой категории (например, самый необычный трек) и <span class="text-white font-bold">розыгрыша призов среди всех активных участников, независимо от места в протоколе</span>.
+                        Спонсор награждения особой категории (например, самый необычный трек) и <span class="text-white font-bold">розыгрыша призов среди всех активных участников</span>.
                     </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="slide px-16">
-        <div class="h-full flex flex-col justify-center items-center text-center">
-            <h2 class="font-display text-6xl md:text-8xl text-white mb-8 uppercase leading-none">
+    <section class="slide px-16 print:px-8">
+        <div class="h-full flex flex-col justify-center items-center text-center print:block print:py-20">
+            <h2 class="font-display text-6xl md:text-8xl text-white mb-8 uppercase leading-none print:text-6xl">
                 СПАСИБО ЗА<br><span class="text-transparent" style="-webkit-text-stroke: 2px #00F3FF;">ВНИМАНИЕ</span>
             </h2>
             <p class="text-white/60 max-w-2xl mx-auto mb-16 text-xl">
@@ -394,7 +407,7 @@
                 <div class="text-white font-mono">TG: @LordOfTheWindsSupport</div>
             </div>
 
-            <div class="absolute bottom-8 text-white/20 text-xs">
+            <div class="absolute bottom-8 text-white/20 text-xs w-full text-center">
                 © 2026 LORD OF THE WINDS
             </div>
         </div>
