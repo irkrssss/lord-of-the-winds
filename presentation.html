@@ -303,53 +303,77 @@
 
 
 
-    <section class="slide px-16 bg-acid-lime">
-        <div class="h-full flex flex-col justify-center py-12">
-            <h2 class="font-display text-5xl text-graphite uppercase mb-12 ">ЦИФРОВАЯ <span class="text-white" style="-webkit-text-stroke: 1px #0F0F0F;">ЭКОСИСТЕМА</span></h2>
+   <section class="slide px-16 bg-acid-lime">
+        <div class="absolute inset-0 opacity-10" style="background-image: linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px); background-size: 40px 40px;"></div>
+
+        <div class="h-full flex flex-col justify-center py-12 relative z-10">
+            <h2 class="font-display text-5xl text-black uppercase mb-10 leading-none drop-shadow-sm">
+                ЦИФРОВАЯ<br><span class="text-white" style="-webkit-text-stroke: 2px #000;">ЭКОСИСТЕМА</span>
+            </h2>
             
-            <div class="grid grid-cols-2 gap-x-16 gap-y-12 max-w-6xl mx-auto w-full">
+            <div class="grid grid-cols-2 gap-6 w-full">
                 
-                <div class="flex gap-6 items-start">
-                    <div class="text-graphite font-display text-3xl w-24">WEB</div>
+                <div class="bg-white p-6 border-2 border-black shadow-[8px_8px_0px_0px_rgba(15,15,15,1)] flex flex-col justify-between transition-transform hover:-translate-y-1">
+                    <div class="flex justify-between items-start mb-4">
+                        <h4 class="font-display text-2xl text-black font-bold">WEB</h4>
+                        <div class="bg-black text-acid-lime text-[10px] font-mono px-2 py-1 uppercase">Main Hub</div>
+                    </div>
                     <div>
-                        <h4 class="text-graphite font-bold text-xl mb-1">САЙТ СОРЕВНОВАНИЙ</h4>
-                        <p class="text-graphite/60 text-xs">Общая информация и автоматические протоколы.</p>
-                        <a href="https://lordofthewinds.com" class="btn-link btn-link-dark">Перейти на сайт</a>
+                        <div class="font-bold text-lg mb-1 leading-tight">САЙТ СОРЕВНОВАНИЙ</div>
+                        <p class="text-sm text-gray-600 mb-4 leading-tight">Общая информация, рейтинг и автоматические протоколы.</p>
+                        <a href="https://lordofthewinds.com" class="inline-block border-2 border-black px-4 py-2 text-xs font-bold uppercase hover:bg-black hover:text-acid-lime transition-colors">
+                            Перейти на сайт →
+                        </a>
                     </div>
                 </div>
 
-                <div class="flex gap-6 items-start">
-                    <div class="text-graphite font-display text-3xl opacity-50 w-24">BOT</div>
+                <div class="bg-white p-6 border-2 border-black shadow-[8px_8px_0px_0px_rgba(15,15,15,1)] flex flex-col justify-between transition-transform hover:-translate-y-1">
+                    <div class="flex justify-between items-start mb-4">
+                        <h4 class="font-display text-2xl text-black font-bold">BOT</h4>
+                        <div class="bg-black text-acid-lime text-[10px] font-mono px-2 py-1 uppercase">Service</div>
+                    </div>
                     <div>
-                        <h4 class="text-graphite font-bold text-xl mb-1">ТЕЛЕГРАМ-БОТ</h4>
-                        <p class="text-graphite/60 text-xs">Регистрация, заявки и <span class="text-graphite font-bold">апелляции</span>.</p>
-                        <a href="https://t.me/WindLordBot" class="btn-link btn-link-dark">Запустить</a>
+                        <div class="font-bold text-lg mb-1 leading-tight">ТЕЛЕГРАМ-БОТ</div>
+                        <p class="text-sm text-gray-600 mb-4 leading-tight">Регистрация участников, подача треков и <span class="bg-acid-lime px-1 text-black">апелляции</span>.</p>
+                        <a href="https://t.me/WindLordBot" class="inline-block border-2 border-black px-4 py-2 text-xs font-bold uppercase hover:bg-black hover:text-acid-lime transition-colors">
+                            Запустить →
+                        </a>
                     </div>
                 </div>
 
-                <div class="flex gap-6 items-start">
-                    <div class="text-graphite font-display text-3xl opacity-50 w-24">TG</div>
+                <div class="bg-white p-6 border-2 border-black shadow-[8px_8px_0px_0px_rgba(15,15,15,1)] flex flex-col justify-between transition-transform hover:-translate-y-1">
+                    <div class="flex justify-between items-start mb-4">
+                        <h4 class="font-display text-2xl text-black font-bold">TG</h4>
+                        <div class="bg-black text-acid-lime text-[10px] font-mono px-2 py-1 uppercase">Community</div>
+                    </div>
                     <div>
-                        <h4 class="text-graphite font-bold text-xl mb-1">ТЕЛЕГРАМ-КАНАЛ</h4>
-                        <p class="text-graphite/60 text-xs">Информирование и <span class="text-graphite font-bold">чат участников</span>.</p>
-                        <a href="https://t.me/WindLordChannel" class="btn-link btn-link-dark">Подписаться</a>
+                        <div class="font-bold text-lg mb-1 leading-tight">ТЕЛЕГРАМ-КАНАЛ</div>
+                        <p class="text-sm text-gray-600 mb-4 leading-tight">Оперативное информирование и <span class="bg-acid-lime px-1 text-black">живой чат</span>.</p>
+                        <a href="https://t.me/WindLordChannel" class="inline-block border-2 border-black px-4 py-2 text-xs font-bold uppercase hover:bg-black hover:text-acid-lime transition-colors">
+                            Подписаться →
+                        </a>
                     </div>
                 </div>
 
-                <div class="flex gap-6 items-start">
-                    <div class="text-graphite font-display text-3xl opacity-50 w-24">PDF</div>
-                    <div>
-                        <h4 class="text-graphite font-bold text-xl mb-1">АТЛЕТ-ГИД</h4>
-                        <p class="text-graphite/60 text-xs">Файл с инструкциями и правилами (FAQ).</p>
-                        <a href="#" download class="btn-link btn-link-dark">Скачать</a>
-                    </div>
-                </div>
-
-                <div class="flex gap-6 items-start col-span-2 border-t border-black/10 pt-8 mt-4">
-                    <div class="text-graphite font-display text-3xl opacity-50 w-24">MAIL</div>
-                    <div>
-                        <h4 class="text-graphite font-bold text-xl mb-1">EMAIL-РАССЫЛКА</h4>
-                        <p class="text-graphite/60 text-xs">Регулярное информирование по базе зарегистрированных участников.</p>
+                <div class="bg-black p-6 border-2 border-black shadow-[8px_8px_0px_0px_rgba(255,255,255,1)] flex flex-col justify-between relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-16 h-16 bg-acid-lime blur-xl opacity-20 group-hover:opacity-40 transition-opacity"></div>
+                    
+                    <div class="relative z-10">
+                         <div class="flex gap-4 mb-6 border-b border-white/20 pb-4">
+                            <h4 class="font-display text-2xl text-acid-lime font-bold">PDF</h4>
+                            <div>
+                                <div class="text-white font-bold text-sm">АТЛЕТ-ГИД</div>
+                                <a href="#" class="text-xs text-white/50 hover:text-acid-lime underline decoration-acid-lime">Скачать файл ↗</a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex gap-4">
+                            <h4 class="font-display text-2xl text-white font-bold">MAIL</h4>
+                            <div>
+                                <div class="text-white font-bold text-sm">РАССЫЛКА</div>
+                                <p class="text-xs text-white/50 leading-tight">Дайджесты и результаты на почту.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -404,46 +428,73 @@
         </div>
     </section>
 
-    <section class="slide px-16 bg-acid-lime">
-        <div class="h-full flex flex-col justify-center py-12">
-            <h2 class="font-display text-5xl text-graphite uppercase mb-12 ">СПОНСОРСКИЕ <span class="text-white" style="-webkit-text-stroke: 1px #0F0F0F;">ПАКЕТЫ</span></h2>
+   <section class="slide px-16 bg-acid-lime">
+        <div class="absolute inset-0 opacity-10" style="background-image: linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px); background-size: 40px 40px;"></div>
+
+        <div class="h-full flex flex-col justify-center py-12 relative z-10">
+             <h2 class="font-display text-5xl text-black uppercase mb-10 leading-none drop-shadow-sm">
+                СПОНСОРСКИЕ<br><span class="text-white" style="-webkit-text-stroke: 2px #000;">ПАКЕТЫ</span>
+            </h2>
             
             <div class="grid grid-cols-2 gap-6 h-auto">
-                <div class="col-span-2 border border-black bg-graphite p-8 flex flex-col justify-center relative shadow-xl">
-                    <h3 class="font-display text-4xl text-acid-lime mb-4">ГЕНЕРАЛЬНЫЙ ПАРТНЕР</h3>
-                    <div class="grid grid-cols-2 gap-8 text-white text-sm">
-                        <ul class="space-y-2">
-                            <li>> Логотип и ссылка на всех страницах сайта</li>
-                            <li>> Блок на главной странице</li>
-                        </ul>
-                        <ul class="space-y-2">
-                            <li>> Упоминание во всех публикуемых материалах</li>
-                            <li>> Страница в Атлет-гиде</li>
-                        </ul>
+                <div class="col-span-2 bg-white border-4 border-black p-8 shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] relative">
+                    <div class="absolute -top-4 right-8 bg-black text-acid-lime px-4 py-1 font-display font-bold uppercase tracking-wider transform -rotate-1">
+                        Exclusive
+                    </div>
+                    
+                    <h3 class="font-display text-4xl text-black mb-6 uppercase border-b-4 border-acid-lime inline-block pb-1">ГЕНЕРАЛЬНЫЙ ПАРТНЕР</h3>
+                    
+                    <div class="grid grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="font-bold text-sm mb-3 uppercase bg-black text-white inline-block px-2">Брендинг</h4>
+                            <ul class="text-sm space-y-2 font-mono text-gray-800">
+                                <li class="flex items-start"><span class="text-black mr-2">></span> Логотип на всех страницах сайта</li>
+                                <li class="flex items-start"><span class="text-black mr-2">></span> Выделенный блок на Главной</li>
+                                <li class="flex items-start"><span class="text-black mr-2">></span> Страница в Атлет-гиде</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm mb-3 uppercase bg-black text-white inline-block px-2">Коммуникации</h4>
+                            <ul class="text-sm space-y-2 font-mono text-gray-800">
+                                <li class="flex items-start"><span class="text-black mr-2">></span> Упоминание во всех пресс-релизах</li>
+                                <li class="flex items-start"><span class="text-black mr-2">></span> Интеграция в Email-рассылку</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
 
-                <div class="border border-graphite p-8 flex flex-col justify-center">
-                    <h3 class="font-display text-2xl text-graphite mb-2">СПОНСОР КЛАССА</h3>
-                    <p class="text-graphite/70 text-xs mb-4">Логотип, ссылка и блок информации на странице описания класса.</p>
-                    <div class="text-graphite text-xs font-mono border border-graphite p-2 inline-block font-bold">
-                        > АВТОМАТИЧЕСКАЯ ПОДСТАНОВКА
+                <div class="bg-white border-2 border-black p-6 shadow-[8px_8px_0px_0px_rgba(15,15,15,1)] flex flex-col justify-between">
+                    <div>
+                        <h3 class="font-display text-xl text-black mb-2 uppercase">СПОНСОР КЛАССА</h3>
+                        <p class="text-gray-600 text-xs mb-4 leading-relaxed">
+                            Брендирование страницы конкретного класса (например, кайт-лыжи).
+                        </p>
+                    </div>
+                    <div class="bg-black/5 p-3 border border-black/10 text-[10px] font-mono font-bold text-black leading-tight">
+                        ЛОГОТИП В ПРОТОКОЛАХ КЛАССА
                     </div>
                 </div>
 
-                <div class="border border-graphite p-8 flex flex-col justify-center">
-                    <h3 class="font-display text-2xl text-graphite mb-2">СПОНСОР ДИСЦИПЛИНЫ</h3>
-                    <p class="text-graphite/70 text-xs mb-4">Логотип, ссылка и блок информации на странице дисциплины.</p>
-                    <div class="text-graphite text-xs font-mono border border-graphite p-2 inline-block font-bold">
-                        > БРЕНДИРОВАНИЕ ПРОТОКОЛОВ
+                <div class="bg-white border-2 border-black p-6 shadow-[8px_8px_0px_0px_rgba(15,15,15,1)] flex flex-col justify-between">
+                    <div>
+                        <h3 class="font-display text-xl text-black mb-2 uppercase">СПОНСОР ДИСЦИПЛИНЫ</h3>
+                        <p class="text-gray-600 text-xs mb-4 leading-relaxed">
+                            Брендирование страницы дисциплины (например, Марафон или Скорость).
+                        </p>
+                    </div>
+                    <div class="bg-black/5 p-3 border border-black/10 text-[10px] font-mono font-bold text-black leading-tight">
+                        БРЕНДИРОВАНИЕ РЕЗУЛЬТАТОВ
                     </div>
                 </div>
 
-                <div class="col-span-2 border border-graphite p-8 bg-white/20">
-                    <h3 class="font-display text-2xl text-graphite mb-2">СПЕЦИАЛЬНЫЙ ПАРТНЕР</h3>
-                    <p class="text-graphite/80 text-sm">
-                        Спонсор награждения особой категории и <span class="text-graphite font-bold">розыгрыша призов среди всех активных участников</span>.
-                    </p>
+                <div class="col-span-2 bg-black border-2 border-black p-6 shadow-[8px_8px_0px_0px_rgba(255,255,255,1)] flex items-center justify-between">
+                    <div>
+                        <h3 class="font-display text-2xl text-white mb-1 uppercase">СПЕЦИАЛЬНЫЙ ПАРТНЕР</h3>
+                        <p class="text-white/60 text-sm">Спонсор награждения и <span class="text-acid-lime font-bold">розыгрыша призов</span>.</p>
+                    </div>
+                    <div class="h-10 w-10 bg-acid-lime rounded-full flex items-center justify-center font-bold text-black text-xl animate-pulse">
+                        !
+                    </div>
                 </div>
             </div>
         </div>
