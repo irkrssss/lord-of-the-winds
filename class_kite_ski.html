@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KITE SKI | LORD OF THE WINDS</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100..800&family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'graphite': '#0F0F0F',
+                        'acid-lime': '#00F3FF',
+                        'ice-white': '#F0F0F0',
+                    },
+                    fontFamily: {
+                        'display': ['"Unbounded"', 'sans-serif'],
+                        'mono': ['"JetBrains Mono"', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body { background-color: #0F0F0F; color: #F0F0F0; }
+        /* Скрытие полосы прокрутки для табов */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body>
+
+    <nav class="fixed w-full z-50 mix-blend-difference px-4 py-6">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="index.html" class="font-display font-black text-xl tracking-tighter text-white hover:text-acid-lime transition-colors">
+                LOW 2026
+            </a>
+            <a href="index.html" class="flex items-center gap-2 group">
+                <span class="font-mono text-xs text-white group-hover:text-acid-lime transition-colors uppercase">На главную</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-white group-hover:text-acid-lime group-hover:translate-x-1 transition-transform">
+                    <line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+            </a>
+        </div>
+    </nav>
+
+    <section class="pt-32 pb-12 relative overflow-hidden">
+        <div class="absolute top-0 right-0 font-display text-[20vw] font-black text-white opacity-[0.02] leading-none select-none pointer-events-none">
+            02
+        </div>
+
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="flex items-center gap-4 mb-4">
+                <span class="border border-acid-lime text-acid-lime px-3 py-1 text-xs font-mono font-bold uppercase">Сноукайтинг</span>
+                <span class="text-white/50 text-xs font-mono uppercase">Класс #02</span>
+            </div>
+            
+            <h1 class="font-display text-5xl md:text-8xl text-white uppercase mb-8 leading-none">
+                KITE <span class="text-transparent" style="-webkit-text-stroke: 1px #FFF;">SKI</span>
+            </h1>
+            
+            <p class="text-white/70 max-w-2xl text-sm md:text-base font-mono leading-relaxed border-l-2 border-acid-lime pl-6">
+                Класс для спортсменов, использующих горные или беговые лыжи и кайт (воздушный змей). 
+                Один из самых скоростных классов, где райдеры развивают скорости свыше 100 км/ч.
+            </p>
+        </div>
+    </section>
+
+    <section class="py-8 border-y border-white/10 bg-white/5">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-6">
+                <div class="w-16 h-16 bg-white flex items-center justify-center font-bold text-black text-xs">
+                    LOGO
+                </div>
+                <div>
+                    <div class="text-acid-lime font-mono text-xs font-bold uppercase mb-1">Официальный партнер класса</div>
+                    <h3 class="font-display text-xl text-white uppercase">COMPANY NAME</h3>
+                </div>
+            </div>
+            <div class="text-right hidden md:block">
+                <a href="#" class="text-white/50 text-xs font-mono hover:text-white underline decoration-acid-lime">
+                    Перейти на сайт партнера ->
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            
+            <div class="flex overflow-x-auto no-scrollbar gap-4 mb-8 border-b border-white/10 pb-4">
+                <button onclick="switchTab('speed')" id="btn-speed" class="tab-btn active text-lg font-display uppercase whitespace-nowrap text-acid-lime border-b-2 border-acid-lime pb-2 transition-colors">
+                    Скорость
+                </button>
+                <button onclick="switchTab('marathon')" id="btn-marathon" class="tab-btn text-lg font-display uppercase whitespace-nowrap text-white/50 hover:text-white pb-2 transition-colors">
+                    Марафон
+                </button>
+                <button onclick="switchTab('konyuhov')" id="btn-konyuhov" class="tab-btn text-lg font-display uppercase whitespace-nowrap text-white/50 hover:text-white pb-2 transition-colors">
+                    Ф. Конюхов
+                </button>
+                <button onclick="switchTab('gump')" id="btn-gump" class="tab-btn text-lg font-display uppercase whitespace-nowrap text-white/50 hover:text-white pb-2 transition-colors">
+                    Ф. Гамп
+                </button>
+            </div>
+
+            <div class="flex justify-between items-center mb-8">
+                <div class="flex gap-2 bg-white/5 p-1 rounded">
+                    <button class="px-4 py-1 text-xs font-mono font-bold bg-acid-lime text-black rounded uppercase">Общий</button>
+                    <button class="px-4 py-1 text-xs font-mono font-bold text-white/50 hover:text-white uppercase transition-colors">Мужчины</button>
+                    <button class="px-4 py-1 text-xs font-mono font-bold text-white/50 hover:text-white uppercase transition-colors">Женщины</button>
+                </div>
+                
+                <div class="text-xs font-mono text-white/30 hidden md:block">
+                    LAST UPDATE: 10 MIN AGO
+                </div>
+            </div>
+
+            <div id="tab-speed" class="result-table block">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="text-white/40 text-[10px] font-mono uppercase border-b border-white/10">
+                                <th class="py-4 pl-4 w-12">#</th>
+                                <th class="py-4">Атлет</th>
+                                <th class="py-4 text-right">Скорость (км/ч)</th>
+                                <th class="py-4 pr-4 text-right">Очки</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-sm font-mono text-white">
+                            <tr class="border-b border-white/5 hover:bg-white/5 transition-colors group">
+                                <td class="py-4 pl-4 text-acid-lime font-bold">01</td>
+                                <td class="py-4">
+                                    <div class="font-bold">Алексей Смирнов</div>
+                                    <div class="text-[10px] text-white/50">Санкт-Петербург, RUS</div>
+                                </td>
+                                <td class="py-4 text-right font-display text-lg">94.2</td>
+                                <td class="py-4 pr-4 text-right text-acid-lime">1.0</td>
+                            </tr>
+                            <tr class="border-b border-white/5 hover:bg-white/5 transition-colors">
+                                <td class="py-4 pl-4 text-white/50">02</td>
+                                <td class="py-4">
+                                    <div class="font-bold">Иван Петров</div>
+                                    <div class="text-[10px] text-white/50">Москва, RUS</div>
+                                </td>
+                                <td class="py-4 text-right font-display text-lg">91.8</td>
+                                <td class="py-4 pr-4 text-right text-white/70">2.0</td>
+                            </tr>
+                            <tr class="border-b border-white/5 hover:bg-white/5 transition-colors">
+                                <td class="py-4 pl-4 text-white/50">03</td>
+                                <td class="py-4">
+                                    <div class="font-bold">Елена Волкова</div>
+                                    <div class="text-[10px] text-white/50">Новосибирск, RUS</div>
+                                </td>
+                                <td class="py-4 text-right font-display text-lg">89.5</td>
+                                <td class="py-4 pr-4 text-right text-white/70">3.0</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div id="tab-marathon" class="result-table hidden">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="text-white/40 text-[10px] font-mono uppercase border-b border-white/10">
+                                <th class="py-4 pl-4 w-12">#</th>
+                                <th class="py-4">Атлет</th>
+                                <th class="py-4 text-right">Время (чч:мм:сс)</th>
+                                <th class="py-4 pr-4 text-right">Очки</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-sm font-mono text-white">
+                            <tr class="border-b border-white/5 hover:bg-white/5 transition-colors">
+                                <td class="py-4 pl-4 text-acid-lime font-bold">01</td>
+                                <td class="py-4">
+                                    <div class="font-bold">Дмитрий Орлов</div>
+                                    <div class="text-[10px] text-white/50">Казань, RUS</div>
+                                </td>
+                                <td class="py-4 text-right font-display text-lg">01:12:45</td>
+                                <td class="py-4 pr-4 text-right text-acid-lime">1.0</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div id="tab-konyuhov" class="result-table hidden">
+                 <div class="text-center py-12 text-white/30 font-mono text-xs">
+                     ДАННЫЕ ЗАГРУЖАЮТСЯ...
+                 </div>
+            </div>
+
+            <div id="tab-gump" class="result-table hidden">
+                <div class="text-center py-12 text-white/30 font-mono text-xs">
+                     ДАННЫЕ ЗАГРУЖАЮТСЯ...
+                 </div>
+            </div>
+
+        </div>
+    </section>
+    
+    <footer class="bg-black py-12 border-t border-white/10 text-center">
+        <div class="font-display text-2xl text-white uppercase mb-2">LORD OF THE WINDS</div>
+        <div class="text-white/30 text-xs font-mono">© 2026 OFFICIAL WEBSITE</div>
+    </footer>
+
+    <script>
+        function switchTab(tabName) {
+            // 1. Убираем активный класс у всех кнопок
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('text-acid-lime', 'border-b-2', 'border-acid-lime');
+                btn.classList.add('text-white/50', 'hover:text-white');
+            });
+
+            // 2. Добавляем активный класс нажатой кнопке
+            const activeBtn = document.getElementById('btn-' + tabName);
+            activeBtn.classList.remove('text-white/50', 'hover:text-white');
+            activeBtn.classList.add('text-acid-lime', 'border-b-2', 'border-acid-lime');
+
+            // 3. Скрываем все таблицы
+            document.querySelectorAll('.result-table').forEach(table => {
+                table.classList.add('hidden');
+            });
+
+            // 4. Показываем нужную таблицу
+            document.getElementById('tab-' + tabName).classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
