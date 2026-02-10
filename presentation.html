@@ -190,7 +190,7 @@
 
             <div class="grid grid-cols-12 gap-6 h-[400px]">
                 
-                <div class="col-span-4 tech-border p-8 flex flex-col justify-between">
+                <div class="col-span-4 tech-border p-8 flex flex-col justify-between bg-white/5">
                     <div>
                         <div class="flex justify-between items-start mb-6">
                             <h3 class="text-white font-bold text-xl uppercase tracking-widest">ПОРТРЕТ</h3>
@@ -202,81 +202,63 @@
                             <span class="font-display text-3xl text-white/50">-</span>
                             <span class="font-display text-7xl text-white">45</span>
                         </div>
-                        <div class="text-acid-lime font-mono text-sm tracking-widest uppercase mb-8">Возрастная группа</div>
+                        <div class="text-acid-lime font-mono text-sm tracking-widest uppercase mb-12">Возрастная группа</div>
 
-                        <div class="w-full h-12 border border-white/20 relative flex items-center">
-                            <div class="h-full bg-white w-[85%] flex items-center justify-center text-graphite font-bold font-display text-sm">МУЖЧИНЫ 85%</div>
-                            <div class="h-full bg-transparent w-[15%] flex items-center justify-center text-white/50 text-xs">Ж</div>
+                        <div class="w-full h-14 border border-white/20 relative flex items-center">
+                            <div class="h-full bg-white w-[85%] flex items-center justify-center text-graphite font-bold font-display text-lg">МУЖЧИНЫ 85%</div>
+                            <div class="h-full bg-transparent w-[15%] flex items-center justify-center text-white/50 text-sm">Ж</div>
                         </div>
-                    </div>
-                    <div class="text-white/40 text-[10px] font-mono leading-tight">
-                        ID: ACTIVE_PARTICIPANT<br>
-                        STATUS: VERIFIED
                     </div>
                 </div>
 
-                <div class="col-span-4 tech-border p-8 flex flex-col justify-between">
-                    <div>
-                        <h3 class="text-white font-bold text-xl uppercase tracking-widest mb-8">СТАТУС</h3>
+                <div class="col-span-4 tech-border p-8 flex flex-col justify-between bg-white/5">
+                    <div class="w-full">
+                        <h3 class="text-white font-bold text-xl uppercase tracking-widest mb-12">СТАТУС</h3>
                         
-                        <div class="space-y-6">
-                            <div>
-                                <div class="flex justify-between text-xs font-mono text-white/70 mb-2">
-                                    <span>ПЛАТЕЖЕСПОСОБНОСТЬ</span>
-                                    <span class="text-acid-lime">HIGH</span>
-                                </div>
-                                <div class="flex gap-1">
-                                    <div class="h-3 w-1/5 bg-acid-lime/80 skew-x-[-20deg]"></div>
-                                    <div class="h-3 w-1/5 bg-acid-lime/80 skew-x-[-20deg]"></div>
-                                    <div class="h-3 w-1/5 bg-acid-lime/80 skew-x-[-20deg]"></div>
-                                    <div class="h-3 w-1/5 bg-acid-lime/80 skew-x-[-20deg]"></div>
-                                    <div class="h-3 w-1/5 bg-acid-lime/20 skew-x-[-20deg]"></div>
-                                </div>
+                        <div class="flex flex-col gap-2 mt-8">
+                             <div class="flex justify-between text-xs font-mono text-white/50 mb-1">
+                                <span>LEVEL</span>
+                                <span class="text-acid-lime">HIGH</span>
                             </div>
-
-                            <div>
-                                <div class="flex justify-between text-xs font-mono text-white/70 mb-2">
-                                    <span>СТОИМОСТЬ ЭКИПИРОВКИ</span>
-                                    <span class="text-acid-lime">$$$$</span>
-                                </div>
-                                <div class="w-full bg-white/10 h-1 relative">
-                                    <div class="absolute top-0 left-0 h-full bg-gradient-to-r from-acid-lime to-white w-[90%]"></div>
-                                </div>
-                                <p class="text-white/50 text-[10px] mt-2 leading-tight">
-                                    Владеют собственным дорогостоящим оборудованием для кайтинга и виндсерфинга.
-                                </p>
+                            <div class="flex gap-1 h-6">
+                                <div class="h-full w-1/5 bg-acid-lime skew-x-[-20deg]"></div>
+                                <div class="h-full w-1/5 bg-acid-lime skew-x-[-20deg]"></div>
+                                <div class="h-full w-1/5 bg-acid-lime skew-x-[-20deg]"></div>
+                                <div class="h-full w-1/5 bg-acid-lime skew-x-[-20deg]"></div>
+                                <div class="h-full w-1/5 bg-acid-lime/30 skew-x-[-20deg]"></div>
                             </div>
                         </div>
                     </div>
-                    <div class="text-right">
-                        <span class="text-acid-lime border border-acid-lime px-2 py-1 text-xs font-bold uppercase">Premium Audience</span>
+
+                    <div class="text-right mt-auto">
+                        <span class="text-acid-lime border border-acid-lime px-3 py-2 text-sm font-bold uppercase tracking-wider">Premium Audience</span>
                     </div>
                 </div>
 
-                <div class="col-span-4 tech-border p-8 flex flex-col">
-                    <h3 class="text-white font-bold text-xl uppercase tracking-widest mb-8">ИНТЕРЕСЫ</h3>
+                <div class="col-span-4 tech-border p-8 flex flex-col bg-white/5">
+                    <h3 class="text-white font-bold text-xl uppercase tracking-widest mb-10">ИНТЕРЕСЫ</h3>
                     
                     <div class="flex-grow relative border-l border-white/20 ml-2 space-y-8 py-2">
                         <div class="relative pl-6">
                             <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 bg-graphite border-2 border-acid-lime rounded-full"></div>
-                            <div class="text-white font-display text-lg">СПОРТ-КЭМПЫ</div>
-                            <div class="text-white/50 text-xs">Регулярные выезды</div>
+                            <div class="text-white font-display text-xl">СПОРТ-КЭМПЫ</div>
+                            <div class="text-white/50 text-xs mt-1">Регулярные выезды</div>
                         </div>
                         <div class="relative pl-6">
                             <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 bg-white rounded-full"></div>
-                            <div class="text-white font-bold text-sm">КРАСНОДАРСКИЙ КРАЙ</div>
+                            <div class="text-white font-bold text-sm tracking-wide">КРАСНОДАРСКИЙ КРАЙ</div>
                         </div>
                         <div class="relative pl-6">
                             <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 bg-white rounded-full"></div>
-                            <div class="text-white font-bold text-sm">АЗИЯ / БАЛИ / ВЬЕТНАМ</div>
+                            <div class="text-white font-bold text-sm tracking-wide">АЗИЯ / БАЛИ / ВЬЕТНАМ</div>
                         </div>
                         <div class="relative pl-6">
                             <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 bg-white rounded-full"></div>
-                            <div class="text-white font-bold text-sm">ЕГИПЕТ</div>
+                            <div class="text-white font-bold text-sm tracking-wide">ЕГИПЕТ</div>
                         </div>
                     </div>
                     
-                    <div class="mt-4 pt-4 border-t border-white/10 text-white/60 text-xs text-center font-mono">
+                    <div class="mt-4 pt-4 border-t border-white/10 text-white/40 text-[10px] text-center font-mono">
                         // FREQUENT FLYERS //
                     </div>
                 </div>
