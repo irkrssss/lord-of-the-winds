@@ -176,22 +176,19 @@
         <div class="text-white/30 text-xs font-mono">© 2026 OFFICIAL WEBSITE</div>
     </footer>
 
-    <script>
-        // Текущее состояние
+<script>
         let currentDiscipline = 'speed';
         let currentGender = 'all';
-        const classId = document.body.getAttribute('data-class-id'); // Берем ID из body
+        const classId = document.body.getAttribute('data-class-id'); 
 
-        // Запуск при загрузке
         document.addEventListener('DOMContentLoaded', () => {
             loadResults();
         });
 
-        // Функция переключения вкладок (дисциплин)
         function switchTab(discipline) {
             currentDiscipline = discipline;
-
-            // 1. Стили кнопок
+            
+            // Смена стилей кнопок
             document.querySelectorAll('.tab-btn').forEach(btn => {
                 btn.classList.remove('text-acid-lime', 'border-b-2', 'border-acid-lime');
                 btn.classList.add('text-white/50', 'hover:text-white');
@@ -202,89 +199,75 @@
                 activeBtn.classList.add('text-acid-lime', 'border-b-2', 'border-acid-lime');
             }
 
-            // 2. Показываем нужный контейнер таблицы
+            // Переключение таблиц
             document.querySelectorAll('.result-table').forEach(table => table.classList.add('hidden'));
             const activeTable = document.getElementById('tab-' + discipline);
             if(activeTable) activeTable.classList.remove('hidden');
 
-            // 3. Грузим данные
             loadResults();
         }
 
-        // Функция переключения пола (М/Ж/Общий)
         function switchGender(gender, btnElement) {
             currentGender = gender;
-            
-            // Сброс стилей кнопок пола
             document.querySelectorAll('.gender-btn').forEach(btn => {
-                btn.classList.remove('bg-acid-lime', 'text-black');
+                btn.classList.remove('bg-acid-lime', 'text-black', 'font-bold');
                 btn.classList.add('text-white/50', 'hover:text-white');
-                btn.classList.remove('font-bold'); 
             });
-            
-            // Активная кнопка
             btnElement.classList.remove('text-white/50', 'hover:text-white');
-            btnElement.classList.add('bg-acid-lime', 'text-black', 'font-bold', 'rounded');
-
+            btnElement.classList.add('bg-acid-lime', 'text-black', 'font-bold');
             loadResults();
         }
 
-        // ГЛАВНАЯ ФУНКЦИЯ ЗАГРУЗКИ
         async function loadResults() {
-            const tbody = document.getElementById('tbody-' + currentDiscipline);
+            // Ищем tbody внутри активной вкладки
+            const container = document.getElementById('tab-' + currentDiscipline);
+            const tbody = container.querySelector('tbody');
             if (!tbody) return;
 
-            // Показываем "Загрузку..."
-            tbody.innerHTML = `<tr><td colspan="4" class="py-8 text-center text-white/30 animate-pulse">ЗАГРУЗКА ДАННЫХ...</td></tr>`;
+            tbody.innerHTML = `<tr><td colspan="4" class="py-8 text-center text-white/30 animate-pulse font-mono">ЗАГРУЗКА БАЗЫ...</td></tr>`;
 
             try {
-                // Запрос к PHP API
+                // Запрос к нашему новому API
                 const response = await fetch(`api_results.php?class_id=${classId}&discipline=${currentDiscipline}&gender=${currentGender}`);
                 const json = await response.json();
 
                 if (json.status === 'success') {
                     renderTable(tbody, json.data);
                 } else {
-                    tbody.innerHTML = `<tr><td colspan="4" class="py-8 text-center text-red-500">Ошибка: ${json.message}</td></tr>`;
+                    console.error('API Error:', json.message);
+                    tbody.innerHTML = `<tr><td colspan="4" class="py-8 text-center text-acid-lime/50 font-mono">ПОКА НЕТ ДАННЫХ</td></tr>`;
                 }
             } catch (error) {
                 console.error(error);
-                tbody.innerHTML = `<tr><td colspan="4" class="py-8 text-center text-red-500">Ошибка связи с базой</td></tr>`;
+                tbody.innerHTML = `<tr><td colspan="4" class="py-8 text-center text-red-500 font-mono">ОШИБКА СЕТИ</td></tr>`;
             }
         }
 
-        // Функция отрисовки строк
         function renderTable(tbody, data) {
-            tbody.innerHTML = ''; // Очищаем
+            tbody.innerHTML = ''; 
 
-            if (data.length === 0) {
-                tbody.innerHTML = `<tr><td colspan="4" class="py-8 text-center text-white/30 font-mono text-xs">РЕЗУЛЬТАТОВ ПОКА НЕТ</td></tr>`;
+            if (!data || data.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="4" class="py-12 text-center text-white/30 font-mono text-xs tracking-widest">РЕЗУЛЬТАТОВ ПОКА НЕТ</td></tr>`;
                 return;
             }
 
             data.forEach((row, index) => {
-                // Красивое форматирование места (01, 02...)
                 const rank = (index + 1).toString().padStart(2, '0');
-                
-                // Цвет лидера
                 const rankClass = index === 0 ? 'text-acid-lime font-bold' : 'text-white/50';
-
-                // Форматирование результата (если марафон, то время, иначе число)
-                let displayResult = row.result_value;
-                if (currentDiscipline === 'marathon') {
-                     // Здесь можно добавить функцию перевода секунд в ЧЧ:ММ:СС, если нужно
-                }
+                
+                // Используем display_value, который прислал PHP (там уже км/ч или 00:00:00)
+                const result = row.display_value; 
 
                 const tr = document.createElement('tr');
                 tr.className = 'border-b border-white/5 hover:bg-white/5 transition-colors group';
                 tr.innerHTML = `
                     <td class="py-4 pl-4 ${rankClass}">${rank}</td>
                     <td class="py-4">
-                        <div class="font-bold text-white">${row.first_name} ${row.last_name}</div>
-                        <div class="text-[10px] text-white/50 uppercase">${row.city || ''}, ${row.country || 'RUS'}</div>
+                        <div class="font-bold text-white">${row.first_name || 'Атлет'} ${row.last_name || ''}</div>
+                        <div class="text-[10px] text-white/50 uppercase">${row.city || 'Город'}, ${row.country || 'RUS'}</div>
                     </td>
-                    <td class="py-4 text-right font-display text-lg text-white">${displayResult}</td>
-                    <td class="py-4 pr-4 text-right text-acid-lime">${row.points || 0}</td>
+                    <td class="py-4 text-right font-display text-lg text-white">${result}</td>
+                    <td class="py-4 pr-4 text-right text-acid-lime">${row.points || '-'}</td>
                 `;
                 tbody.appendChild(tr);
             });
