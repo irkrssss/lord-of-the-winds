@@ -80,6 +80,39 @@
                 <div class="text-right text-acid-lime font-bold">
                     СТАТУС: ОТКРЫТА РЕГИСТРАЦИЯ
                 </div>
+                <div class="mb-12">
+                <div class="text-[10px] font-mono text-white/50 uppercase mb-2 tracking-widest pl-1">
+                    ДО СТАРТА ГОНКИ:
+                </div>
+                <div class="flex items-baseline gap-2 md:gap-4 font-mono text-acid-lime select-none">
+                    
+                    <div class="flex flex-col items-center">
+                        <span id="days" class="text-4xl md:text-6xl font-bold leading-none tabular-nums">00</span>
+                        <span class="text-[8px] md:text-[10px] text-white/40 uppercase mt-1">Дней</span>
+                    </div>
+                    
+                    <span class="text-2xl md:text-4xl text-white/20 animate-pulse">:</span>
+                    
+                    <div class="flex flex-col items-center">
+                        <span id="hours" class="text-4xl md:text-6xl font-bold leading-none tabular-nums">00</span>
+                        <span class="text-[8px] md:text-[10px] text-white/40 uppercase mt-1">Часов</span>
+                    </div>
+
+                    <span class="text-2xl md:text-4xl text-white/20 animate-pulse">:</span>
+
+                    <div class="flex flex-col items-center">
+                        <span id="minutes" class="text-4xl md:text-6xl font-bold leading-none tabular-nums">00</span>
+                        <span class="text-[8px] md:text-[10px] text-white/40 uppercase mt-1">Мин</span>
+                    </div>
+
+                    <span class="text-2xl md:text-4xl text-white/20 animate-pulse">:</span>
+
+                    <div class="flex flex-col items-center">
+                        <span id="seconds" class="text-4xl md:text-6xl font-bold leading-none tabular-nums">00</span>
+                        <span class="text-[8px] md:text-[10px] text-white/40 uppercase mt-1">Сек</span>
+                    </div>
+                </div>
+            </div>
                 <div class="flex gap-1 text-[10px] md:text-xs font-bold">
                     <span class="bg-acid-lime text-black px-2 py-1 cursor-default">[ RU ]</span>
                     <a href="index_en.html" class="text-white/50 border border-white/20 px-2 py-1 hover:text-white hover:border-white transition-colors">[ EN ]</a>
@@ -550,6 +583,45 @@
         </div>
     </div>
 </footer>
+<script>
+        // ==========================================
+        // УСТАНОВИ ЗДЕСЬ ДАТУ СТАРТА
+        // Формат: Month Day, Year Hour:Minute:Second
+        // ==========================================
+        const targetDate = new Date("March 1, 2026 09:00:00").getTime();
 
+        const timerInterval = setInterval(function() {
+            // Текущее время пользователя
+            const now = new Date().getTime();
+            
+            // Разница между датой старта и текущим временем
+            const distance = targetDate - now;
+
+            // Расчеты времени
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Функция для добавления нуля (05 вместо 5)
+            const pad = (num) => String(num).padStart(2, '0');
+
+            // Вывод на страницу
+            if (distance > 0) {
+                document.getElementById("days").innerText = pad(days);
+                document.getElementById("hours").innerText = pad(hours);
+                document.getElementById("minutes").innerText = pad(minutes);
+                document.getElementById("seconds").innerText = pad(seconds);
+            } else {
+                // Если время вышло
+                clearInterval(timerInterval);
+                document.getElementById("days").innerText = "00";
+                document.getElementById("hours").innerText = "00";
+                document.getElementById("minutes").innerText = "00";
+                document.getElementById("seconds").innerText = "00";
+                // Можно добавить текст "ГОНКА НАЧАЛАСЬ!"
+            }
+        }, 1000);
+    </script>
 </body>
 </html>
