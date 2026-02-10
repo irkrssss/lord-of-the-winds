@@ -37,7 +37,7 @@
     </style>
 </head>
 <body>
-
+<body data-class-id="2">
     <nav class="fixed w-full z-50 mix-blend-difference px-4 py-6">
         <div class="container mx-auto flex justify-between items-center">
             <a href="index.html" class="font-display font-black text-xl tracking-tighter text-white hover:text-acid-lime transition-colors">
@@ -111,12 +111,11 @@
                 </button>
             </div>
 
-            <div class="flex justify-between items-center mb-8">
-                <div class="flex gap-2 bg-white/5 p-1 rounded">
-                    <button class="px-4 py-1 text-xs font-mono font-bold bg-acid-lime text-black rounded uppercase">Общий</button>
-                    <button class="px-4 py-1 text-xs font-mono font-bold text-white/50 hover:text-white uppercase transition-colors">Мужчины</button>
-                    <button class="px-4 py-1 text-xs font-mono font-bold text-white/50 hover:text-white uppercase transition-colors">Женщины</button>
-                </div>
+       <div class="flex gap-2 bg-white/5 p-1 rounded">
+    <button onclick="switchGender('all', this)" class="gender-btn px-4 py-1 text-xs font-mono font-bold bg-acid-lime text-black rounded uppercase transition-colors">Общий</button>
+    <button onclick="switchGender('male', this)" class="gender-btn px-4 py-1 text-xs font-mono font-bold text-white/50 hover:text-white uppercase transition-colors">Мужчины</button>
+    <button onclick="switchGender('female', this)" class="gender-btn px-4 py-1 text-xs font-mono font-bold text-white/50 hover:text-white uppercase transition-colors">Женщины</button>
+</div>
                 
                 <div class="text-xs font-mono text-white/30 hidden md:block">
                     LAST UPDATE: 10 MIN AGO
@@ -134,35 +133,8 @@
                                 <th class="py-4 pr-4 text-right">Очки</th>
                             </tr>
                         </thead>
-                        <tbody class="text-sm font-mono text-white">
-                            <tr class="border-b border-white/5 hover:bg-white/5 transition-colors group">
-                                <td class="py-4 pl-4 text-acid-lime font-bold">01</td>
-                                <td class="py-4">
-                                    <div class="font-bold">Алексей Смирнов</div>
-                                    <div class="text-[10px] text-white/50">Санкт-Петербург, RUS</div>
-                                </td>
-                                <td class="py-4 text-right font-display text-lg">94.2</td>
-                                <td class="py-4 pr-4 text-right text-acid-lime">1.0</td>
-                            </tr>
-                            <tr class="border-b border-white/5 hover:bg-white/5 transition-colors">
-                                <td class="py-4 pl-4 text-white/50">02</td>
-                                <td class="py-4">
-                                    <div class="font-bold">Иван Петров</div>
-                                    <div class="text-[10px] text-white/50">Москва, RUS</div>
-                                </td>
-                                <td class="py-4 text-right font-display text-lg">91.8</td>
-                                <td class="py-4 pr-4 text-right text-white/70">2.0</td>
-                            </tr>
-                            <tr class="border-b border-white/5 hover:bg-white/5 transition-colors">
-                                <td class="py-4 pl-4 text-white/50">03</td>
-                                <td class="py-4">
-                                    <div class="font-bold">Елена Волкова</div>
-                                    <div class="text-[10px] text-white/50">Новосибирск, RUS</div>
-                                </td>
-                                <td class="py-4 text-right font-display text-lg">89.5</td>
-                                <td class="py-4 pr-4 text-right text-white/70">3.0</td>
-                            </tr>
-                        </tbody>
+                        <tbody id="tbody-speed" class="text-sm font-mono text-white">
+    </tbody>
                     </table>
                 </div>
             </div>
@@ -178,17 +150,8 @@
                                 <th class="py-4 pr-4 text-right">Очки</th>
                             </tr>
                         </thead>
-                        <tbody class="text-sm font-mono text-white">
-                            <tr class="border-b border-white/5 hover:bg-white/5 transition-colors">
-                                <td class="py-4 pl-4 text-acid-lime font-bold">01</td>
-                                <td class="py-4">
-                                    <div class="font-bold">Дмитрий Орлов</div>
-                                    <div class="text-[10px] text-white/50">Казань, RUS</div>
-                                </td>
-                                <td class="py-4 text-right font-display text-lg">01:12:45</td>
-                                <td class="py-4 pr-4 text-right text-acid-lime">1.0</td>
-                            </tr>
-                        </tbody>
+                     <tbody id="tbody-speed" class="text-sm font-mono text-white">
+    </tbody>
                     </table>
                 </div>
             </div>
@@ -214,25 +177,117 @@
     </footer>
 
     <script>
-        function switchTab(tabName) {
-            // 1. Убираем активный класс у всех кнопок
+        // Текущее состояние
+        let currentDiscipline = 'speed';
+        let currentGender = 'all';
+        const classId = document.body.getAttribute('data-class-id'); // Берем ID из body
+
+        // Запуск при загрузке
+        document.addEventListener('DOMContentLoaded', () => {
+            loadResults();
+        });
+
+        // Функция переключения вкладок (дисциплин)
+        function switchTab(discipline) {
+            currentDiscipline = discipline;
+
+            // 1. Стили кнопок
             document.querySelectorAll('.tab-btn').forEach(btn => {
                 btn.classList.remove('text-acid-lime', 'border-b-2', 'border-acid-lime');
                 btn.classList.add('text-white/50', 'hover:text-white');
             });
+            const activeBtn = document.getElementById('btn-' + discipline);
+            if(activeBtn) {
+                activeBtn.classList.remove('text-white/50', 'hover:text-white');
+                activeBtn.classList.add('text-acid-lime', 'border-b-2', 'border-acid-lime');
+            }
 
-            // 2. Добавляем активный класс нажатой кнопке
-            const activeBtn = document.getElementById('btn-' + tabName);
-            activeBtn.classList.remove('text-white/50', 'hover:text-white');
-            activeBtn.classList.add('text-acid-lime', 'border-b-2', 'border-acid-lime');
+            // 2. Показываем нужный контейнер таблицы
+            document.querySelectorAll('.result-table').forEach(table => table.classList.add('hidden'));
+            const activeTable = document.getElementById('tab-' + discipline);
+            if(activeTable) activeTable.classList.remove('hidden');
 
-            // 3. Скрываем все таблицы
-            document.querySelectorAll('.result-table').forEach(table => {
-                table.classList.add('hidden');
+            // 3. Грузим данные
+            loadResults();
+        }
+
+        // Функция переключения пола (М/Ж/Общий)
+        function switchGender(gender, btnElement) {
+            currentGender = gender;
+            
+            // Сброс стилей кнопок пола
+            document.querySelectorAll('.gender-btn').forEach(btn => {
+                btn.classList.remove('bg-acid-lime', 'text-black');
+                btn.classList.add('text-white/50', 'hover:text-white');
+                btn.classList.remove('font-bold'); 
             });
+            
+            // Активная кнопка
+            btnElement.classList.remove('text-white/50', 'hover:text-white');
+            btnElement.classList.add('bg-acid-lime', 'text-black', 'font-bold', 'rounded');
 
-            // 4. Показываем нужную таблицу
-            document.getElementById('tab-' + tabName).classList.remove('hidden');
+            loadResults();
+        }
+
+        // ГЛАВНАЯ ФУНКЦИЯ ЗАГРУЗКИ
+        async function loadResults() {
+            const tbody = document.getElementById('tbody-' + currentDiscipline);
+            if (!tbody) return;
+
+            // Показываем "Загрузку..."
+            tbody.innerHTML = `<tr><td colspan="4" class="py-8 text-center text-white/30 animate-pulse">ЗАГРУЗКА ДАННЫХ...</td></tr>`;
+
+            try {
+                // Запрос к PHP API
+                const response = await fetch(`api_results.php?class_id=${classId}&discipline=${currentDiscipline}&gender=${currentGender}`);
+                const json = await response.json();
+
+                if (json.status === 'success') {
+                    renderTable(tbody, json.data);
+                } else {
+                    tbody.innerHTML = `<tr><td colspan="4" class="py-8 text-center text-red-500">Ошибка: ${json.message}</td></tr>`;
+                }
+            } catch (error) {
+                console.error(error);
+                tbody.innerHTML = `<tr><td colspan="4" class="py-8 text-center text-red-500">Ошибка связи с базой</td></tr>`;
+            }
+        }
+
+        // Функция отрисовки строк
+        function renderTable(tbody, data) {
+            tbody.innerHTML = ''; // Очищаем
+
+            if (data.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="4" class="py-8 text-center text-white/30 font-mono text-xs">РЕЗУЛЬТАТОВ ПОКА НЕТ</td></tr>`;
+                return;
+            }
+
+            data.forEach((row, index) => {
+                // Красивое форматирование места (01, 02...)
+                const rank = (index + 1).toString().padStart(2, '0');
+                
+                // Цвет лидера
+                const rankClass = index === 0 ? 'text-acid-lime font-bold' : 'text-white/50';
+
+                // Форматирование результата (если марафон, то время, иначе число)
+                let displayResult = row.result_value;
+                if (currentDiscipline === 'marathon') {
+                     // Здесь можно добавить функцию перевода секунд в ЧЧ:ММ:СС, если нужно
+                }
+
+                const tr = document.createElement('tr');
+                tr.className = 'border-b border-white/5 hover:bg-white/5 transition-colors group';
+                tr.innerHTML = `
+                    <td class="py-4 pl-4 ${rankClass}">${rank}</td>
+                    <td class="py-4">
+                        <div class="font-bold text-white">${row.first_name} ${row.last_name}</div>
+                        <div class="text-[10px] text-white/50 uppercase">${row.city || ''}, ${row.country || 'RUS'}</div>
+                    </td>
+                    <td class="py-4 text-right font-display text-lg text-white">${displayResult}</td>
+                    <td class="py-4 pr-4 text-right text-acid-lime">${row.points || 0}</td>
+                `;
+                tbody.appendChild(tr);
+            });
         }
     </script>
 </body>
