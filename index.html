@@ -166,12 +166,15 @@
                                 </p>
                             </div>
                         </div>
-                        <div>
+                       <div>
                             <div class="flex items-center gap-3 mb-4">
                                 <h3 class="text-white font-display text-xl uppercase">Награды</h3>
                             </div>
                             <p class="text-white/70 text-sm leading-relaxed mb-4">
-                                Пройди испытание во&nbsp;всех дисциплинах своего класса и&nbsp;получи статус <span class="text-white font-bold">WINDLORD</span> (знак отличия и&nbsp;медаль финишера).
+                                Пройди испытание во&nbsp;всех дисциплинах своего класса и&nbsp;получи статус <span class="text-white font-bold">WINDLORD</span>.
+                            </p>
+                            <p class="text-acid-lime text-sm font-bold leading-relaxed border-l-2 border-acid-lime pl-3">
+                                Победители и&nbsp;призёры в&nbsp;7-ми классах и&nbsp;4-х дисциплинах будут награждены ценными призами.
                             </p>
                         </div>
                     </div>
@@ -182,70 +185,76 @@
 
     <section id="disciplines" class="py-20 bg-graphite relative border-b border-white/10 scroll-mt-16">
         <div class="container mx-auto px-4">
-            <h2 class="font-display text-4xl md:text-6xl text-white mb-12 uppercase text-right md:text-left">
-                ВЫБЕРИ <span class="text-acid-lime">ДИСЦИПЛИНУ</span>
-            </h2>
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+                <h2 class="font-display text-3xl md:text-5xl text-white uppercase text-right md:text-left leading-tight">
+                    ОДИН ЗАЕЗД <br><span class="text-acid-lime">4 ДИСЦИПЛИНЫ</span>
+                </h2>
+                <p class="text-white/50 text-xs md:text-sm max-w-md text-right mt-4 md:mt-0 font-mono">
+                    Каждый ваш трек автоматически попадает в&nbsp;зачет всех четырех дисциплин. Нажмите на&nbsp;дисциплину для подробностей.
+                </p>
+            </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/10 border border-white/10">
-                <div class="group relative bg-graphite p-8 md:p-12 transition-colors hover:bg-white/5 border border-transparent hover:border-acid-lime/50 h-full flex flex-col justify-between">
+                
+                <a href="discipline_speed.html" class="group relative bg-graphite p-8 md:p-12 transition-colors hover:bg-white/5 border border-transparent hover:border-acid-lime/50 h-full flex flex-col justify-between cursor-pointer">
                     <div>
                         <div class="flex justify-between items-start mb-6">
                             <h3 class="font-display text-2xl md:text-3xl text-white group-hover:text-acid-lime transition-colors">GPS-SPEED</h3>
-                            <span class="text-xs border border-white/20 px-2 py-1 rounded text-white/50">РЕЖИМ 1</span>
+                            <span class="text-xs border border-white/20 px-2 py-1 rounded text-white/50 group-hover:border-acid-lime group-hover:text-acid-lime transition-colors">ПОДРОБНЕЕ ></span>
                         </div>
                         <p class="text-white/70 text-sm mb-4 text-justify hyphens-auto leading-relaxed">
-                            Определение максимальной скорости на&nbsp;участке 50&nbsp;метров. Рассчитывается внутренним алгоритмом гоночной системы по&nbsp;формуле <span class="text-acid-lime bg-white/10 px-1">V&nbsp;=&nbsp;50&nbsp;/&nbsp;t</span>, где t&nbsp;=&nbsp;t2&nbsp;-&nbsp;t1, время t1 и&nbsp;t2 берется из&nbsp;всех загруженных файлов активности участника, подходящих по&nbsp;типу заявки участника.
+                            Определение максимальной скорости на&nbsp;участке 50&nbsp;метров.
                         </p>
                     </div>
                     <div class="mt-8 font-mono text-xs text-acid-lime">
                         > ЛИМИТ СКОРОСТИ: СНЯТ
                     </div>
-                </div>
+                </a>
 
-                <div class="group relative bg-graphite p-8 md:p-12 transition-colors hover:bg-white/5 border border-transparent hover:border-acid-lime/50 h-full flex flex-col justify-between">
+                <a href="discipline_marathon.html" class="group relative bg-graphite p-8 md:p-12 transition-colors hover:bg-white/5 border border-transparent hover:border-acid-lime/50 h-full flex flex-col justify-between cursor-pointer">
                     <div>
                         <div class="flex justify-between items-start mb-6">
                             <h3 class="font-display text-2xl md:text-3xl text-white group-hover:text-acid-lime transition-colors">MARATHON</h3>
-                            <span class="text-xs border border-white/20 px-2 py-1 rounded text-white/50">РЕЖИМ 2</span>
+                            <span class="text-xs border border-white/20 px-2 py-1 rounded text-white/50 group-hover:border-acid-lime group-hover:text-acid-lime transition-colors">ПОДРОБНЕЕ ></span>
                         </div>
                         <p class="text-white/70 text-sm mb-4 text-justify hyphens-auto leading-relaxed">
-                            Определение минимального времени преодоления дистанции 42&nbsp;километра. Количество разворотов и&nbsp;траектория не&nbsp;имеют значения. Время и&nbsp;расстояние (длина пути) определяются от&nbsp;начала активности. Расстояние активности может быть больше 42&nbsp;км, в&nbsp;зачет гоночной системы будет автоматически записано время преодоления дистанции 42&nbsp;км. Активность с&nbsp;дистанцией менее 42.000&nbsp;км не&nbsp;будет принята в&nbsp;зачет.
+                            Определение минимального времени преодоления дистанции 42&nbsp;километра.
                         </p>
                     </div>
                     <div class="mt-8 font-mono text-xs text-acid-lime">
                         > ДИСТАНЦИЯ: 42.0 КМ
                     </div>
-                </div>
+                </a>
 
-                <div class="group relative bg-graphite p-8 md:p-12 transition-colors hover:bg-white/5 border border-transparent hover:border-acid-lime/50 h-full flex flex-col justify-between">
+                <a href="discipline_konyuhov.html" class="group relative bg-graphite p-8 md:p-12 transition-colors hover:bg-white/5 border border-transparent hover:border-acid-lime/50 h-full flex flex-col justify-between cursor-pointer">
                     <div>
                         <div class="flex justify-between items-start mb-6">
                             <h3 class="font-display text-2xl md:text-3xl text-white group-hover:text-acid-lime transition-colors">FEDOR KONYUHOV</h3>
-                            <span class="text-xs border border-white/20 px-2 py-1 rounded text-white/50">РЕЖИМ 3</span>
+                            <span class="text-xs border border-white/20 px-2 py-1 rounded text-white/50 group-hover:border-acid-lime group-hover:text-acid-lime transition-colors">ПОДРОБНЕЕ ></span>
                         </div>
                         <p class="text-white/70 text-sm mb-4 text-justify hyphens-auto leading-relaxed">
-                            Определение максимальной пройденной дистанции (длина пути) за&nbsp;один заезд. Траектория не&nbsp;имеет значения. Активность не&nbsp;должна прерываться паузами на&nbsp;запись, а&nbsp;время без движения не&nbsp;должно превышать 25% активности.
+                            Определение максимальной пройденной дистанции (длина пути) за&nbsp;один заезд.
                         </p>
                     </div>
                     <div class="mt-8 font-mono text-xs text-acid-lime">
                         > РЕЖИМ: ВЫЖИВАНИЕ
                     </div>
-                </div>
+                </a>
 
-                <div class="group relative bg-graphite p-8 md:p-12 transition-colors hover:bg-white/5 border border-transparent hover:border-acid-lime/50 h-full flex flex-col justify-between">
+                <a href="discipline_gump.html" class="group relative bg-graphite p-8 md:p-12 transition-colors hover:bg-white/5 border border-transparent hover:border-acid-lime/50 h-full flex flex-col justify-between cursor-pointer">
                     <div>
                         <div class="flex justify-between items-start mb-6">
                             <h3 class="font-display text-2xl md:text-3xl text-white group-hover:text-acid-lime transition-colors">FORREST GAMP</h3>
-                            <span class="text-xs border border-white/20 px-2 py-1 rounded text-white/50">РЕЖИМ 4</span>
+                            <span class="text-xs border border-white/20 px-2 py-1 rounded text-white/50 group-hover:border-acid-lime group-hover:text-acid-lime transition-colors">ПОДРОБНЕЕ ></span>
                         </div>
                         <p class="text-white/70 text-sm mb-4 text-justify hyphens-auto leading-relaxed">
-                            Определение максимальной суммарной пройденной дистанции за&nbsp;время проведения соревнования. Рассчитывается как сумма дистанций (длины пути) активностей участника с&nbsp;момента подачи заявки до&nbsp;15&nbsp;марта включительно.
+                            Определение максимальной суммарной пройденной дистанции за&nbsp;время проведения соревнования.
                         </p>
                     </div>
                     <div class="mt-8 font-mono text-xs text-acid-lime">
                         > ДИСТАНЦИЯ: СУММА ВСЕХ ЗАЕЗДОВ
                     </div>
-                </div>
+                </a>
             </div>
         </div>
     </section>
