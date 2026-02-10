@@ -65,78 +65,75 @@
 
     <div class="noise-overlay"></div>
 
-   <section class="relative h-screen w-full flex flex-col justify-center items-center overflow-hidden border-b border-white/10">
+ <section class="relative h-screen w-full flex flex-col justify-center items-center overflow-hidden border-b border-white/10">
         
         <div class="absolute inset-0 z-0 bg-black">
              <video autoplay muted loop playsinline class="video-bg">
-                <source src="Snowkiter-Video.mp4" type="video/mp4">
+                <source src="kitesurfing_bg.mp4" type="video/mp4">
             </video>
             <div class="absolute inset-0 bg-gradient-to-t from-[#0F0F0F] via-black/40 to-black/20"></div>
             <div class="absolute inset-0 bg-grain opacity-20 pointer-events-none mix-blend-overlay"></div>
         </div>
 
-        <div class="relative z-10 container mx-auto px-4 flex flex-col h-full justify-center py-8 md:py-12">
+        <div class="relative z-10 container mx-auto px-4 flex flex-col h-full justify-center items-center text-center py-8 md:py-12">
             
             <div class="absolute top-8 right-4 md:right-8 flex gap-1 text-[10px] md:text-xs font-bold z-20">
                 <span class="bg-acid-lime text-black px-2 py-1 cursor-default">[ RU ]</span>
                 <a href="index_en.html" class="text-white/50 border border-white/20 px-2 py-1 hover:text-white hover:border-white transition-colors">[ EN ]</a>
             </div>
 
-            <div class="flex flex-col items-start text-left w-full pl-0 md:pl-4">
-                
-                <div class="inline-flex items-center gap-2 border  px-4 py-2 mb-6 backdrop-blur-sm">
-                    <span class="w-2 h-2 rounded-full bg-acid-lime animate-pulse"></span>
-                    <span class="text-acid-lime font-mono text-xs uppercase font-bold tracking-widest">Статус: Открыта регистрация</span>
-                </div>
-
-                <div class="mb-8 pl-1"> 
-                    <div class="text-[10px] font-mono text-white/50 uppercase mb-1 tracking-widest">
-                        ДО СТАРТА ГОНКИ:
-                    </div>
-                    <div class="flex items-baseline gap-3 font-mono text-acid-lime select-none">
-                        <div class="flex flex-col items-start">
-                            <span id="days" class="text-3xl md:text-5xl font-bold leading-none tabular-nums">00</span>
-                            <span class="text-[8px] text-white/40 uppercase">Дней</span>
-                        </div>
-                        <span class="text-xl md:text-3xl text-white/20 animate-pulse">:</span>
-                        <div class="flex flex-col items-start">
-                            <span id="hours" class="text-3xl md:text-5xl font-bold leading-none tabular-nums">00</span>
-                            <span class="text-[8px] text-white/40 uppercase">Часов</span>
-                        </div>
-                        <span class="text-xl md:text-3xl text-white/20 animate-pulse">:</span>
-                        <div class="flex flex-col items-start">
-                            <span id="minutes" class="text-3xl md:text-5xl font-bold leading-none tabular-nums">00</span>
-                            <span class="text-[8px] text-white/40 uppercase">Мин</span>
-                        </div>
-                        <span class="text-xl md:text-3xl text-white/20 animate-pulse">:</span>
-                        <div class="flex flex-col items-start">
-                            <span id="seconds" class="text-3xl md:text-5xl font-bold leading-none tabular-nums">00</span>
-                            <span class="text-[8px] text-white/40 uppercase">Сек</span>
-                        </div>
-                    </div>
-                </div>
-
-                <h1 class="font-display font-black text-5xl md:text-8xl lg:text-[10rem] leading-[0.85] tracking-tighter text-white mix-blend-difference mb-6 text-center">
-                    ВЛАДЫКА<br>
-                    <span class="text-transparent stroke-text" style="-webkit-text-stroke: 1px white;">ВЕТРА</span>
-                </h1>
-                
-                <div class="mt-4 mb-10 max-w-2xl border-l-2 border-acid-lime pl-6 text-center backdrop-blur-sm">
-                    <p class="text-acid-lime font-bold uppercase tracking-wider mb-2 text-xs md:text-base">17.02 — 15.03 • ВЕСЬ МИР</p>
-                    <p class="text-white/80 text-sm md:text-base">
-                        Гонка без границ.
-                    </p>
-                </div>
-
-                <a href="#algorithm" class="group relative inline-flex items-center justify-center px-6 py-3 md:px-8 overflow-hidden font-bold text-acid-lime transition-all text-center duration-300 bg-transparent border-2 border-acid-lime shadow-[0_0_15px_rgba(0,243,255,0.5)] hover:shadow-[0_0_25px_rgba(0,243,255,0.8)] hover:bg-acid-lime hover:text-black focus:outline-none">
-                    <span class="absolute top-0 left-0 w-2 h-2 bg-acid-lime transition-all duration-300 group-hover:bg-black"></span>
-                    <span class="absolute bottom-0 right-0 w-2 h-2 bg-acid-lime transition-all duration-300 group-hover:bg-black"></span>
-                    <span class="relative uppercase tracking-widest text-sm md:text-base">
-                        [ ЗАРЕГИСТРИРОВАТЬСЯ ]
-                    </span>
-                </a>
-
+            <div class="inline-flex items-center gap-2 border border-acid-lime/30 bg-acid-lime/5 px-4 py-2 mb-6 backdrop-blur-sm mx-auto">
+                <span class="w-2 h-2 rounded-full bg-acid-lime animate-pulse"></span>
+                <span class="text-acid-lime font-mono text-xs uppercase font-bold tracking-widest">Статус: Открыта регистрация</span>
             </div>
+
+            <div class="mb-8 mx-auto"> 
+                <div class="text-[10px] font-mono text-white/50 uppercase mb-1 tracking-widest">
+                    ДО СТАРТА ГОНКИ:
+                </div>
+                <div class="flex items-baseline justify-center gap-3 font-mono text-acid-lime select-none">
+                    <div class="flex flex-col items-center">
+                        <span id="days" class="text-3xl md:text-5xl font-bold leading-none tabular-nums">00</span>
+                        <span class="text-[8px] text-white/40 uppercase">Дней</span>
+                    </div>
+                    <span class="text-xl md:text-3xl text-white/20 animate-pulse">:</span>
+                    <div class="flex flex-col items-center">
+                        <span id="hours" class="text-3xl md:text-5xl font-bold leading-none tabular-nums">00</span>
+                        <span class="text-[8px] text-white/40 uppercase">Часов</span>
+                    </div>
+                    <span class="text-xl md:text-3xl text-white/20 animate-pulse">:</span>
+                    <div class="flex flex-col items-center">
+                        <span id="minutes" class="text-3xl md:text-5xl font-bold leading-none tabular-nums">00</span>
+                        <span class="text-[8px] text-white/40 uppercase">Мин</span>
+                    </div>
+                    <span class="text-xl md:text-3xl text-white/20 animate-pulse">:</span>
+                    <div class="flex flex-col items-center">
+                        <span id="seconds" class="text-3xl md:text-5xl font-bold leading-none tabular-nums">00</span>
+                        <span class="text-[8px] text-white/40 uppercase">Сек</span>
+                    </div>
+                </div>
+            </div>
+
+            <h1 class="font-display font-black text-5xl md:text-8xl lg:text-[10rem] leading-[0.85] tracking-tighter text-white mix-blend-difference mb-6 text-center">
+                ВЛАДЫКА<br>
+                <span class="text-transparent stroke-text" style="-webkit-text-stroke: 1px white;">ВЕТРА</span>
+            </h1>
+            
+            <div class="mt-4 mb-10 max-w-2xl border-b-2 border-acid-lime pb-6 mx-auto text-center backdrop-blur-sm">
+                <p class="text-acid-lime font-bold uppercase tracking-wider mb-2 text-xs md:text-base">17.02 — 15.03 • ВЕСЬ МИР</p>
+                <p class="text-white/80 text-sm md:text-base">
+                    Гонка без границ. Присоединись в любой момент.
+                </p>
+            </div>
+
+            <a href="#algorithm" class="group relative inline-flex items-center justify-center px-6 py-3 md:px-8 overflow-hidden font-bold text-acid-lime transition-all duration-300 bg-transparent border-2 border-acid-lime shadow-[0_0_15px_rgba(0,243,255,0.5)] hover:shadow-[0_0_25px_rgba(0,243,255,0.8)] hover:bg-acid-lime hover:text-black focus:outline-none mx-auto">
+                <span class="absolute top-0 left-0 w-2 h-2 bg-acid-lime transition-all duration-300 group-hover:bg-black"></span>
+                <span class="absolute bottom-0 right-0 w-2 h-2 bg-acid-lime transition-all duration-300 group-hover:bg-black"></span>
+                <span class="relative uppercase tracking-widest text-sm md:text-base">
+                    [ ЗАРЕГИСТРИРОВАТЬСЯ ]
+                </span>
+            </a>
+
         </div>
     </section>
 
@@ -540,7 +537,7 @@
                     </p>
                 </a>
 
-                <a href="https://t.me/LordOfTheWindsBot" target="_blank" class="group bg-graphite p-10 flex flex-col items-center justify-center text-center hover:bg-white/5 transition-colors cursor-pointer h-64">
+                <a href="https://t.me/LordOfTheWinds_bot" target="_blank" class="group bg-graphite p-10 flex flex-col items-center justify-center text-center hover:bg-white/5 transition-colors cursor-pointer h-64">
                     <div class="w-12 h-12 mb-6 text-white/50 group-hover:text-acid-lime transition-colors">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="11" width="18" height="10" rx="2" /><circle cx="12" cy="5" r="2" /><path d="M12 7v4" /><line x1="8" y1="16" x2="8" y2="16" /><line x1="16" y1="16" x2="16" y2="16" /></svg>
                     </div>
