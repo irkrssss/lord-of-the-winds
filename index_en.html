@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LORD OF THE WINDS | GLOBAL CHALLENGE</title>
+    <title>LORD OF THE WINDS | GLOBAL RACE</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -50,9 +50,6 @@
         ::-webkit-scrollbar-thumb { background: #333; }
         ::-webkit-scrollbar-thumb:hover { background: #00F3FF; }
 
-        .cursor-blink { animation: blink 1s step-end infinite; }
-        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
-
         .video-bg {
             position: absolute; right: 0; bottom: 0;
             min-width: 100%; min-height: 100%; width: auto; height: auto;
@@ -65,50 +62,74 @@
 
     <div class="noise-overlay"></div>
 
-    <section class="relative h-screen w-full flex flex-col justify-center items-center overflow-hidden border-b border-white/10">
+ <section class="relative h-screen w-full flex flex-col justify-center items-center overflow-hidden border-b border-white/10">
         
         <div class="absolute inset-0 z-0 bg-black">
              <video autoplay muted loop playsinline class="video-bg">
                 <source src="Snowkiter-Video.mp4" type="video/mp4">
             </video>
             <div class="absolute inset-0 bg-gradient-to-t from-[#0F0F0F] via-black/40 to-black/20"></div>
+            <div class="absolute inset-0 bg-grain opacity-20 pointer-events-none mix-blend-overlay"></div>
         </div>
 
-        <div class="relative z-10 container mx-auto px-4 flex flex-col h-full justify-between py-8 md:py-12">
+        <div class="relative z-10 container mx-auto px-4 flex flex-col h-full justify-center items-center text-center py-8 md:py-12">
             
-            <div class="flex justify-between items-start text-[10px] md:text-xs uppercase tracking-widest font-bold opacity-70">
-                <div class="text-right text-acid-lime font-bold drop-shadow-[0_0_8px_rgba(0,243,255,0.8)]">
-                    STATUS: REGISTRATION OPEN
+            <div class="absolute top-8 right-4 md:right-8 flex gap-1 text-[10px] md:text-xs font-bold z-20">
+                <a href="index.html" class="text-white/50 border border-white/20 px-2 py-1 hover:text-white hover:border-white transition-colors">[ RU ]</a>
+                <span class="bg-acid-lime text-black px-2 py-1 cursor-default">[ EN ]</span>
+            </div>
+
+            <div class="inline-flex items-center gap-2 self-start">
+                <span class="w-2 h-2 rounded-full bg-acid-lime animate-pulse"></span>
+                <span class="text-acid-lime font-mono text-xs uppercase font-bold tracking-widest">Status: Registration Open</span>
+            </div>
+
+            <div class="mb-8 self-start text-left"> 
+                <div class="text-[10px] font-mono text-white/50 uppercase mb-1 tracking-widest">
+                    RACE STARTS IN:
                 </div>
-                <div class="flex gap-1 text-[10px] md:text-xs font-bold">
-                    <a href="index.html" class="text-white/50 border border-white/20 px-2 py-1 hover:text-white hover:border-white transition-colors">[ RU ]</a>
-                    <span class="bg-acid-lime text-black px-2 py-1 cursor-default">[ EN ]</span>
+                <div class="flex items-baseline justify-start gap-3 font-mono text-acid-lime select-none">
+                    <div class="flex flex-col items-center">
+                        <span id="days" class="text-3xl md:text-5xl font-bold leading-none tabular-nums">00</span>
+                        <span class="text-[8px] text-white/40 uppercase">Days</span>
+                    </div>
+                    <span class="text-xl md:text-3xl text-white/20 animate-pulse">:</span>
+                    <div class="flex flex-col items-center">
+                        <span id="hours" class="text-3xl md:text-5xl font-bold leading-none tabular-nums">00</span>
+                        <span class="text-[8px] text-white/40 uppercase">Hours</span>
+                    </div>
+                    <span class="text-xl md:text-3xl text-white/20 animate-pulse">:</span>
+                    <div class="flex flex-col items-center">
+                        <span id="minutes" class="text-3xl md:text-5xl font-bold leading-none tabular-nums">00</span>
+                        <span class="text-[8px] text-white/40 uppercase">Min</span>
+                    </div>
+                    <span class="text-xl md:text-3xl text-white/20 animate-pulse">:</span>
+                    <div class="flex flex-col items-center">
+                        <span id="seconds" class="text-3xl md:text-5xl font-bold leading-none tabular-nums">00</span>
+                        <span class="text-[8px] text-white/40 uppercase">Sec</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="flex flex-col items-center text-center w-full pb-1 md:pb-2">
-                <h1 class="font-display font-black text-5xl md:text-8xl lg:text-[10rem] leading-[0.85] tracking-tighter text-white mix-blend-difference">
-                    LORD OF<br>
-                    <span class="text-transparent stroke-text" style="-webkit-text-stroke: 1px white;">THE WINDS</span>
-                </h1>
-                
-                <div class="mt-8 mb-10 max-w-2xl border-l-2 border-acid-lime pl-6 text-left backdrop-blur-sm">
-                    <p class="text-acid-lime font-bold uppercase tracking-wider mb-2 text-xs md:text-base">17.02 — 15.03 • WORLDWIDE</p>
-                    <p class="text-white/80 text-sm md:text-base">
-                        Race without borders
-                    </p>
-                </div>
-
-                <a href="#algorithm" class="group relative inline-flex items-center justify-center px-6 py-3 md:px-8 overflow-hidden font-bold text-acid-lime transition-all duration-300 bg-transparent border-2 border-acid-lime hover:bg-acid-lime hover:text-black focus:outline-none">
-                    <span class="absolute top-0 left-0 w-2 h-2 bg-acid-lime transition-all duration-300 group-hover:bg-black"></span>
-                    <span class="absolute bottom-0 right-0 w-2 h-2 bg-acid-lime transition-all duration-300 group-hover:bg-black"></span>
-                    <span class="relative uppercase tracking-widest text-sm md:text-base">
-                        [ REGISTER NOW ]
-                    </span>
-                </a>
+            <div class="font-display font-bold text-acid-lime text-xs md:text-lg tracking-[0.2em] uppercase mb-2 pl-1">
+                LORD OF THE WINDS
+            </div>
+            <h1 class="font-display font-black text-5xl md:text-8xl lg:text-[10rem] leading-[0.85] tracking-tighter text-white mix-blend-difference mb-6 text-center">
+                LORD OF THE<br>
+                <span class="text-transparent stroke-text" style="-webkit-text-stroke: 1px white;">WINDS</span>
+            </h1>
+            
+            <div class="mt-4 mb-10 max-w-2xl pb-6 mx-auto text-center backdrop-blur-sm">
+                <p class="text-acid-lime font-bold uppercase tracking-wider mb-2 text-xs md:text-base">FEB 17 — MAR 15 • WORLDWIDE</p>
             </div>
 
-            <div class="w-full h-12"></div>
+            <a href="#algorithm" class="group relative inline-flex items-center justify-center px-6 py-3 md:px-8 overflow-hidden font-bold text-acid-lime transition-all duration-300 bg-transparent border-2 border-acid-lime shadow-[0_0_15px_rgba(0,243,255,0.5)] hover:shadow-[0_0_25px_rgba(0,243,255,0.8)] hover:bg-acid-lime hover:text-black focus:outline-none mx-auto">
+                <span class="absolute top-0 left-0 w-2 h-2 bg-acid-lime transition-all duration-300 group-hover:bg-black"></span>
+                <span class="absolute bottom-0 right-0 w-2 h-2 bg-acid-lime transition-all duration-300 group-hover:bg-black"></span>
+                <span class="relative uppercase tracking-widest text-sm md:text-base">
+                    [ REGISTER NOW ]
+                </span>
+            </a>
 
         </div>
     </section>
@@ -117,133 +138,152 @@
         <div class="container mx-auto px-4 h-full flex items-center justify-between">
             
             <a href="#" class="text-white hover:text-acid-lime transition-colors font-bold uppercase tracking-widest text-xs md:text-sm">
-                MENU
+                HOME
             </a>
 
             <div class="hidden md:flex gap-8 text-xs font-bold uppercase tracking-widest text-white/60">
-                <a href="#about" class="hover:text-acid-lime transition-colors">About</a>
-                <a href="#disciplines" class="hover:text-acid-lime transition-colors">Modes</a>
+                <a href="#about" class="text-acid-lime drop-shadow-[0_0_5px_rgba(0,243,255,0.5)] transition-colors">About</a>
+                  <a href="#gallery" class="hover:text-acid-lime transition-colors">Gallery</a>
                 <a href="#classes" class="hover:text-acid-lime transition-colors">Classes</a>
+                <a href="#disciplines" class="hover:text-acid-lime transition-colors">Disciplines</a>              
                 <a href="#algorithm" class="hover:text-acid-lime transition-colors">Register</a>
                 <a href="#rules" class="hover:text-acid-lime transition-colors">Rules</a>
+                <a href="#contacts" class="hover:text-acid-lime transition-colors">Contacts</a>
             </div>
         </div>
     </nav>
 
     <section id="about" class="py-24 bg-graphite border-b border-white/10 scroll-mt-16">
         <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            
+            <div class="grid grid-cols-1 xl:grid-cols-2 gap-16 items-start">
                 
-                <div class="lg:col-span-4">
-                    <h2 class="font-display text-4xl md:text-5xl text-white uppercase leading-none mb-6">
-                        RACE<br>
-                        <span class="text-acid-lime">PHILOSOPHY</span>
-                    </h2>
-                    <div class="w-16 h-1 bg-acid-lime mb-6"></div>
-                </div>
+                <div class="flex flex-col justify-between h-full">
+                    <div>
+                        <h2 class="font-display text-4xl md:text-5xl text-white uppercase leading-none mb-6">
+                            RACE<br>
+                            <span class="text-acid-lime">PHILOSOPHY</span>
+                        </h2>
+                        <div class="w-16 h-1 bg-acid-lime mb-10"></div>
 
-                <div class="lg:col-span-8 space-y-10 lg:pl-4">
-                    <p class="text-lg md:text-xl text-white font-light leading-relaxed">
-                        <span class="font-bold text-white">Lord of the Winds</span> is an opportunity to compete with riders from all over the world without leaving your home spot. You ride, upload tracks, and compete for real rewards in the overall ranking.
-                    </p>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 border-t border-white/10 pt-8">
-                        <div>
-                            <div class="flex items-center gap-3 mb-4">
-                                <h3 class="text-white font-display text-xl uppercase">Where to ride?</h3>
+                        <p class="text-lg md:text-xl text-white font-light leading-relaxed mb-10">
+                            <span class="font-bold text-white">Lord of the Winds</span> is an opportunity to compete with riders from all over the world without leaving your home spot. You ride, upload tracks, and fight for real awards in the global ranking.
+                        </p>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 border-t border-white/10 pt-8">
+                            <div>
+                                <div class="flex items-center gap-3 mb-4">
+                                    <h3 class="text-white font-display text-xl uppercase">Where to ride?</h3>
+                                </div>
+                                <p class="text-white/70 text-sm leading-relaxed mb-2 font-bold">
+                                    LOCATION: WORLDWIDE
+                                </p>
+                                <p class="text-white/70 text-sm leading-relaxed mb-4">
+                                    Any frozen water body or snow field.
+                                </p>
+                                <p class="text-acid-lime text-sm font-bold leading-relaxed border-l-2 border-acid-lime pl-3">
+                                    Flat snow or ice surface. Elevation change no more than 2m per 100m distance.
+                                </p>
                             </div>
-                            <p class="text-white/70 text-sm leading-relaxed mb-2 font-bold">
-                                LOCATION: WORLDWIDE
-                            </p>
-                            <p class="text-white/60 text-sm leading-relaxed">
-                                Any frozen water body or snow field.
-                            </p>
-                            <div class="mt-4 p-4 bg-white/5 border-l-2 border-acid-lime">
-                                <p class="text-white/80 text-xs font-mono leading-relaxed">
-                                    <span class="text-acid-lime uppercase font-bold">Mandatory condition:</span><br>
-                                    Flat snow or ice surface. Elevation difference <span class="text-white">not more than 2m per 100m distance</span>.
+
+                            <div>
+                                <div class="flex items-center gap-3 mb-4">
+                                    <h3 class="text-white font-display text-xl uppercase">Awards</h3>
+                                </div>
+                                <p class="text-white/70 text-sm leading-relaxed mb-4">
+                                    Winners and runners-up in 7 classes and 4 disciplines will be awarded valuable prizes.
                                 </p>
                             </div>
                         </div>
-                        <div>
-                            <div class="flex items-center gap-3 mb-4">
-                                <h3 class="text-white font-display text-xl uppercase">Rewards</h3>
-                            </div>
-                            <p class="text-white/70 text-sm leading-relaxed mb-4">
-                                Complete the challenge in all disciplines of your class and earn the <span class="text-white font-bold">WINDLORD</span> status (insignia and finisher medal).
+                    </div>
+                </div>
+
+              <div class="grid grid-cols-3 gap-2 sm:gap-4 h-[500px] xl:h-[600px] w-full">
+                    
+                    <div class="relative group overflow-hidden border border-white/10 hover:border-acid-lime transition-all duration-500">
+                        <img src="kite.jpg" alt="Snowkiting" class="w-full h-full object-cover brightness-75 grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700">
+                        
+                        <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black via-black/90 to-transparent p-3 pb-4 flex flex-col justify-end items-start">
+                            <h3 class="font-display text-xs md:text-sm font-black text-acid-lime uppercase leading-none mb-1 break-all md:break-normal">
+                                SNOWKITING
+                            </h3>
+                            <p class="text-white/60 text-[8px] md:text-[10px] font-mono uppercase leading-tight max-w-full">
+                                Movement under a kite.
                             </p>
                         </div>
                     </div>
+
+                    <div class="relative group overflow-hidden border border-white/10 hover:border-acid-lime transition-all duration-500">
+                        <img src="wing.jpg" alt="Icewing" class="w-full h-full object-cover brightness-75 grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700">
+                        
+                        <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black via-black/90 to-transparent p-3 pb-4 flex flex-col justify-end items-start">
+                            <h3 class="font-display text-xs md:text-sm font-black text-acid-lime uppercase leading-none mb-1 break-all md:break-normal">
+                                ICE WING
+                            </h3>
+                            <p class="text-white/60 text-[8px] md:text-[10px] font-mono uppercase leading-tight max-w-full">
+                                Movement with a wing.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="relative group overflow-hidden border border-white/10 hover:border-acid-lime transition-all duration-500">
+                        <img src="surf.jpg" alt="Winter Windsurf" class="w-full h-full object-cover brightness-75 grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700">
+                        
+                        <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black via-black/90 to-transparent p-3 pb-4 flex flex-col justify-end items-start">
+                            <h3 class="font-display text-xs md:text-sm font-black text-acid-lime uppercase leading-none mb-1 break-all md:break-normal">
+                                WINDSURF
+                            </h3>
+                            <p class="text-white/60 text-[8px] md:text-[10px] font-mono uppercase leading-tight max-w-full">
+                                Sail on a mast.
+                            </p>
+                        </div>
+                    </div>
+
                 </div>
+
             </div>
         </div>
     </section>
 
-    <section id="disciplines" class="py-20 bg-graphite relative border-b border-white/10 scroll-mt-16">
+    <section id="gallery" class="py-20 bg-graphite border-b border-white/10">
         <div class="container mx-auto px-4">
-            <h2 class="font-display text-4xl md:text-6xl text-white mb-12 uppercase text-right md:text-left">
-                CHOOSE <span class="text-acid-lime">MODE</span>
-            </h2>
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+                <h2 class="font-display text-4xl md:text-5xl text-white uppercase">
+                    RIDERS <span class="text-acid-lime">IN FRAME</span>
+                </h2>
+            </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/10 border border-white/10">
-                <div class="group relative bg-graphite p-8 md:p-12 transition-colors hover:bg-white/5 border border-transparent hover:border-acid-lime/50 h-full flex flex-col justify-between">
-                    <div>
-                        <div class="flex justify-between items-start mb-6">
-                            <h3 class="font-display text-2xl md:text-3xl text-white group-hover:text-acid-lime transition-colors">GPS-SPEED</h3>
-                            <span class="text-xs border border-white/20 px-2 py-1 rounded text-white/50">MODE 1</span>
-                        </div>
-                        <p class="text-white/70 text-sm mb-4 text-justify hyphens-auto leading-relaxed">
-                            Determination of maximum speed on a 50-meter section. Calculated by the internal race algorithm using the formula <span class="text-acid-lime bg-white/10 px-1">V = 50 / t</span>, where t = t2 - t1, taking time t1 and t2 from all uploaded activity files matching the participant's application type.
-                        </p>
-                    </div>
-                    <div class="mt-8 font-mono text-xs text-acid-lime">
-                        > SPEED LIMIT: REMOVED
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="aspect-square bg-white/5 border border-white/10 relative group overflow-hidden">
+                    <div class="absolute inset-0 bg-white/10 animate-pulse"></div> <div class="absolute bottom-0 left-0 w-full p-2 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                        <div class="text-acid-lime text-xs font-bold font-display">ALEX_RIDER</div>
+                        <div class="text-white/50 text-[10px] font-mono">KITE SKI</div>
                     </div>
                 </div>
-
-                <div class="group relative bg-graphite p-8 md:p-12 transition-colors hover:bg-white/5 border border-transparent hover:border-acid-lime/50 h-full flex flex-col justify-between">
-                    <div>
-                        <div class="flex justify-between items-start mb-6">
-                            <h3 class="font-display text-2xl md:text-3xl text-white group-hover:text-acid-lime transition-colors">MARATHON</h3>
-                            <span class="text-xs border border-white/20 px-2 py-1 rounded text-white/50">MODE 2</span>
-                        </div>
-                        <p class="text-white/70 text-sm mb-4 text-justify hyphens-auto leading-relaxed">
-                            Determination of the minimum time to cover 42 kilometers. Number of turns and trajectory do not matter. Time and distance are calculated from the start of the activity. Distance can exceed 42 km; the system will automatically record the time for 42 km. Activities under 42.000 km will not be counted.
-                        </p>
-                    </div>
-                    <div class="mt-8 font-mono text-xs text-acid-lime">
-                        > DISTANCE: 42.0 KM
-                    </div>
+                <div class="aspect-square bg-white/5 border border-white/10 relative group overflow-hidden">
+                     <div class="absolute inset-0 bg-white/5"></div>
                 </div>
-
-                <div class="group relative bg-graphite p-8 md:p-12 transition-colors hover:bg-white/5 border border-transparent hover:border-acid-lime/50 h-full flex flex-col justify-between">
-                    <div>
-                        <div class="flex justify-between items-start mb-6">
-                            <h3 class="font-display text-2xl md:text-3xl text-white group-hover:text-acid-lime transition-colors">FEDOR KONYUHOV</h3>
-                            <span class="text-xs border border-white/20 px-2 py-1 rounded text-white/50">MODE 3</span>
-                        </div>
-                        <p class="text-white/70 text-sm mb-4 text-justify hyphens-auto leading-relaxed">
-                            Determination of the maximum distance covered in a single heat. Trajectory does not matter. The activity must not be interrupted by recording pauses, and stationary time must not exceed 25% of the activity.
-                        </p>
-                    </div>
-                    <div class="mt-8 font-mono text-xs text-acid-lime">
-                        > STATUS: SURVIVAL
-                    </div>
+                <div class="aspect-square bg-white/5 border border-white/10 relative group overflow-hidden md:col-span-2">
+                     <div class="absolute inset-0 bg-white/5"></div>
                 </div>
-
-                <div class="group relative bg-graphite p-8 md:p-12 transition-colors hover:bg-white/5 border border-transparent hover:border-acid-lime/50 h-full flex flex-col justify-between">
-                    <div>
-                        <div class="flex justify-between items-start mb-6">
-                            <h3 class="font-display text-2xl md:text-3xl text-white group-hover:text-acid-lime transition-colors">FORREST GAMP</h3>
-                            <span class="text-xs border border-white/20 px-2 py-1 rounded text-white/50">MODE 4</span>
-                        </div>
-                        <p class="text-white/70 text-sm mb-4 text-justify hyphens-auto leading-relaxed">
-                            Determination of the maximum total distance covered during the competition. Calculated as the sum of distances of the participant's activities from the moment of application submission until March 15th inclusive.
-                        </p>
-                    </div>
-                    <div class="mt-8 font-mono text-xs text-acid-lime">
-                        > DISTANCE: DEPENDS ONLY ON YOU
-                    </div>
+                 <div class="aspect-square bg-white/5 border border-white/10 relative group overflow-hidden">
+                     <div class="absolute inset-0 bg-white/5"></div>
                 </div>
+                 <div class="aspect-square bg-white/5 border border-white/10 relative group overflow-hidden">
+                     <div class="absolute inset-0 bg-white/5"></div>
+                </div>
+                 <div class="aspect-square bg-white/5 border border-white/10 relative group overflow-hidden">
+                     <div class="absolute inset-0 bg-white/5"></div>
+                </div>
+                 <div class="aspect-square bg-white/5 border border-white/10 relative group overflow-hidden">
+                     <div class="absolute inset-0 bg-white/5"></div>
+                </div>
+            </div>
+            
+            <div class="mt-8 text-center">
+                <a href="https://t.me/Lord_of_the_Winds" target="_blank" class="inline-block border-b border-acid-lime text-acid-lime text-xs font-mono pb-1 hover:text-white hover:border-white transition-colors">
+                    SEE ALL PHOTOS ON TELEGRAM ->
+                </a>
             </div>
         </div>
     </section>
@@ -256,34 +296,158 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                 
-                <div class="group bg-white/5 border border-white/10 p-6 flex flex-col justify-between h-48 hover:bg-acid-lime hover:text-black transition-all duration-300 cursor-default">
-                    <div class="text-xs font-bold opacity-50">CLASS 01</div>
-                    <div class="font-display text-xl uppercase leading-none">LOW KITE<br>SNOWBOARD</div>
-                </div>
-                <div class="group bg-white/5 border border-white/10 p-6 flex flex-col justify-between h-48 hover:bg-acid-lime hover:text-black transition-all duration-300 cursor-default">
-                    <div class="text-xs font-bold opacity-50">CLASS 02</div>
-                    <div class="font-display text-xl uppercase leading-none">LOW KITE<br>SKI</div>
-                </div>
-                <div class="group bg-white/5 border border-white/10 p-6 flex flex-col justify-between h-48 hover:bg-acid-lime hover:text-black transition-all duration-300 cursor-default">
-                    <div class="text-xs font-bold opacity-50">CLASS 03</div>
-                    <div class="font-display text-xl uppercase leading-none">LOW WING<br>SNOWBOARD</div>
-                </div>
-                <div class="group bg-white/5 border border-white/10 p-6 flex flex-col justify-between h-48 hover:bg-acid-lime hover:text-black transition-all duration-300 cursor-default">
-                    <div class="text-xs font-bold opacity-50">CLASS 04</div>
-                    <div class="font-display text-xl uppercase leading-none">LOW WING<br>SKI</div>
-                </div>
-                <div class="group bg-white/5 border border-white/10 p-6 flex flex-col justify-between h-48 hover:bg-acid-lime hover:text-black transition-all duration-300 cursor-default">
-                    <div class="text-xs font-bold opacity-50">CLASS 05</div>
-                    <div class="font-display text-xl uppercase leading-none">LOW WING<br>BLADES</div>
-                </div>
-                 <div class="group bg-white/5 border border-white/10 p-6 flex flex-col justify-between h-48 hover:bg-acid-lime hover:text-black transition-all duration-300 cursor-default">
-                    <div class="text-xs font-bold opacity-50">CLASS 06</div>
-                    <div class="font-display text-xl uppercase leading-none">LOW WING<br>SNOWSKATE</div>
-                </div>
-                <div class="md:col-span-2 group bg-white/5 border border-white/10 p-6 flex flex-col justify-between h-48 hover:bg-acid-lime hover:text-black transition-all duration-300 cursor-default">
-                    <div class="text-xs font-bold opacity-50">CLASS 07</div>
-                    <div class="font-display text-xl uppercase leading-none">LOW WINTER<br>WINDSURFING</div>
-                </div>
+                <a href="class_kite_snowboard.html" class="group bg-white/5 border border-white/10 p-6 flex flex-col justify-between h-56 hover:bg-white/10 hover:border-acid-lime transition-all duration-300 cursor-pointer">
+                    <div>
+                        <div class="text-xs font-bold text-white/30 mb-2">CLASS 01</div>
+                        <div class="font-display text-xl text-white uppercase leading-none mb-1 group-hover:text-acid-lime transition-colors">KITE<br>SNOWBOARD</div>
+                    </div>
+                    <div class="text-acid-lime text-xs font-mono border-t border-white/10 pt-4 mt-2 group-hover:border-acid-lime/50 transition-colors flex justify-between items-center">
+                        <span>VIEW RESULTS</span>
+                        <span class="group-hover:translate-x-2 transition-transform">-></span>
+                    </div>
+                </a>
+                
+                <a href="class_kite_ski.html" class="group bg-white/5 border border-white/10 p-6 flex flex-col justify-between h-56 hover:bg-white/10 hover:border-acid-lime transition-all duration-300 cursor-pointer">
+                    <div>
+                        <div class="text-xs font-bold text-white/30 mb-2">CLASS 02</div>
+                        <div class="font-display text-xl text-white uppercase leading-none mb-1 group-hover:text-acid-lime transition-colors">KITE<br>SKI</div>
+                    </div>
+                    <div class="text-acid-lime text-xs font-mono border-t border-white/10 pt-4 mt-2 group-hover:border-acid-lime/50 transition-colors flex justify-between items-center">
+                        <span>VIEW RESULTS</span>
+                        <span class="group-hover:translate-x-2 transition-transform">-></span>
+                    </div>
+                </a>
+                
+                <a href="class_wing_snowboard.html" class="group bg-white/5 border border-white/10 p-6 flex flex-col justify-between h-56 hover:bg-white/10 hover:border-acid-lime transition-all duration-300 cursor-pointer">
+                    <div>
+                        <div class="text-xs font-bold text-white/30 mb-2">CLASS 03</div>
+                        <div class="font-display text-xl text-white uppercase leading-none mb-1 group-hover:text-acid-lime transition-colors">WING<br>SNOWBOARD</div>
+                    </div>
+                    <div class="text-acid-lime text-xs font-mono border-t border-white/10 pt-4 mt-2 group-hover:border-acid-lime/50 transition-colors flex justify-between items-center">
+                        <span>VIEW RESULTS</span>
+                        <span class="group-hover:translate-x-2 transition-transform">-></span>
+                    </div>
+                </a>
+                
+                <a href="class_wing_ski.html" class="group bg-white/5 border border-white/10 p-6 flex flex-col justify-between h-56 hover:bg-white/10 hover:border-acid-lime transition-all duration-300 cursor-pointer">
+                    <div>
+                        <div class="text-xs font-bold text-white/30 mb-2">CLASS 04</div>
+                        <div class="font-display text-xl text-white uppercase leading-none mb-1 group-hover:text-acid-lime transition-colors">WING<br>SKI</div>
+                    </div>
+                    <div class="text-acid-lime text-xs font-mono border-t border-white/10 pt-4 mt-2 group-hover:border-acid-lime/50 transition-colors flex justify-between items-center">
+                        <span>VIEW RESULTS</span>
+                        <span class="group-hover:translate-x-2 transition-transform">-></span>
+                    </div>
+                </a>
+                
+                <a href="class_wing_blades.html" class="group bg-white/5 border border-white/10 p-6 flex flex-col justify-between h-56 hover:bg-white/10 hover:border-acid-lime transition-all duration-300 cursor-pointer">
+                    <div>
+                        <div class="text-xs font-bold text-white/30 mb-2">CLASS 05</div>
+                        <div class="font-display text-xl text-white uppercase leading-none mb-1 group-hover:text-acid-lime transition-colors">WING<br>BLADES</div>
+                    </div>
+                    <div class="text-acid-lime text-xs font-mono border-t border-white/10 pt-4 mt-2 group-hover:border-acid-lime/50 transition-colors flex justify-between items-center">
+                        <span>VIEW RESULTS</span>
+                        <span class="group-hover:translate-x-2 transition-transform">-></span>
+                    </div>
+                </a>
+                
+                <a href="class_wing_snowskate.html" class="group bg-white/5 border border-white/10 p-6 flex flex-col justify-between h-56 hover:bg-white/10 hover:border-acid-lime transition-all duration-300 cursor-pointer">
+                    <div>
+                        <div class="text-xs font-bold text-white/30 mb-2">CLASS 06</div>
+                        <div class="font-display text-xl text-white uppercase leading-none mb-1 group-hover:text-acid-lime transition-colors">WING<br>SNOWSKATE</div>
+                    </div>
+                    <div class="text-acid-lime text-xs font-mono border-t border-white/10 pt-4 mt-2 group-hover:border-acid-lime/50 transition-colors flex justify-between items-center">
+                        <span>VIEW RESULTS</span>
+                        <span class="group-hover:translate-x-2 transition-transform">-></span>
+                    </div>
+                </a>
+                
+                <a href="class_winter_windsurfing.html" class="md:col-span-2 group bg-white/5 border border-white/10 p-6 flex flex-col justify-between h-56 hover:bg-white/10 hover:border-acid-lime transition-all duration-300 cursor-pointer">
+                    <div>
+                        <div class="text-xs font-bold text-white/30 mb-2">CLASS 07</div>
+                        <div class="font-display text-xl text-white uppercase leading-none mb-1 group-hover:text-acid-lime transition-colors">WINTER<br>WINDSURF</div>
+                    </div>
+                    <div class="text-acid-lime text-xs font-mono border-t border-white/10 pt-4 mt-2 group-hover:border-acid-lime/50 transition-colors flex justify-between items-center">
+                        <span>VIEW RESULTS</span>
+                        <span class="group-hover:translate-x-2 transition-transform">-></span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="disciplines" class="py-20 bg-graphite relative border-b border-white/10 scroll-mt-16">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+                <h2 class="font-display text-3xl md:text-5xl text-white uppercase text-right md:text-left leading-tight">
+                    ONE RIDE <br><span class="text-acid-lime">4 DISCIPLINES</span>
+                </h2>
+                <p class="text-white/50 text-xs md:text-sm max-w-md text-right mt-4 md:mt-0 font-mono">
+                    Every track automatically counts towards all four disciplines. Click on a discipline for details.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/10 border border-white/10">
+                
+                <a href="discipline_speed.html" class="group relative bg-graphite p-8 md:p-12 transition-colors hover:bg-white/5 border border-transparent hover:border-acid-lime/50 h-full flex flex-col justify-between cursor-pointer">
+                    <div>
+                        <div class="flex justify-between items-start mb-6">
+                            <h3 class="font-display text-2xl md:text-3xl text-white group-hover:text-acid-lime transition-colors">SPEED</h3>
+                            <span class="text-xs border border-white/20 px-2 py-1 rounded text-white/50 group-hover:border-acid-lime group-hover:text-acid-lime transition-colors">VIEW RESULTS ></span>
+                        </div>
+                        <p class="text-white/70 text-sm mb-4 text-justify hyphens-auto leading-relaxed">
+                            Determining maximum speed during the ride. The value is automatically selected from all uploaded activity files.
+                        </p>
+                    </div>
+                    <div class="mt-8 font-mono text-xs text-acid-lime">
+                        > SPEED LIMIT: NONE
+                    </div>
+                </a>
+
+                <a href="discipline_marathon.html" class="group relative bg-graphite p-8 md:p-12 transition-colors hover:bg-white/5 border border-transparent hover:border-acid-lime/50 h-full flex flex-col justify-between cursor-pointer">
+                    <div>
+                        <div class="flex justify-between items-start mb-6">
+                            <h3 class="font-display text-2xl md:text-3xl text-white group-hover:text-acid-lime transition-colors">MARATHON</h3>
+                            <span class="text-xs border border-white/20 px-2 py-1 rounded text-white/50 group-hover:border-acid-lime group-hover:text-acid-lime transition-colors">VIEW RESULTS ></span>
+                        </div>
+                        <p class="text-white/70 text-sm mb-4 text-justify hyphens-auto leading-relaxed">
+                            Determining the minimum time to cover a distance of 42 kilometers.
+                        </p>
+                    </div>
+                    <div class="mt-8 font-mono text-xs text-acid-lime">
+                        > DISTANCE: 42.0 KM
+                    </div>
+                </a>
+
+                <a href="discipline_konyuhov.html" class="group relative bg-graphite p-8 md:p-12 transition-colors hover:bg-white/5 border border-transparent hover:border-acid-lime/50 h-full flex flex-col justify-between cursor-pointer">
+                    <div>
+                        <div class="flex justify-between items-start mb-6">
+                            <h3 class="font-display text-2xl md:text-3xl text-white group-hover:text-acid-lime transition-colors">KONYUHOV</h3>
+                            <span class="text-xs border border-white/20 px-2 py-1 rounded text-white/50 group-hover:border-acid-lime group-hover:text-acid-lime transition-colors">VIEW RESULTS >&nbsp;</span>
+                        </div>
+                        <p class="text-white/70 text-sm mb-4 text-justify hyphens-auto leading-relaxed">
+                            Determining the maximum distance covered in a single ride session.
+                        </p>
+                    </div>
+                    <div class="mt-8 font-mono text-xs text-acid-lime">
+                        > MODE: SURVIVAL
+                    </div>
+                </a>
+
+                <a href="discipline_gump.html" class="group relative bg-graphite p-8 md:p-12 transition-colors hover:bg-white/5 border border-transparent hover:border-acid-lime/50 h-full flex flex-col justify-between cursor-pointer">
+                    <div>
+                        <div class="flex justify-between items-start mb-6">
+                            <h3 class="font-display text-2xl md:text-3xl text-white group-hover:text-acid-lime transition-colors">FORREST GUMP</h3>
+                            <span class="text-xs border border-white/20 px-2 py-1 rounded text-white/50 group-hover:border-acid-lime group-hover:text-acid-lime transition-colors">VIEW RESULTS ></span>
+                        </div>
+                        <p class="text-white/70 text-sm mb-4 text-justify hyphens-auto leading-relaxed">
+                            Determining the maximum total distance covered during the entire competition period.
+                        </p>
+                    </div>
+                    <div class="mt-8 font-mono text-xs text-acid-lime">
+                        > DISTANCE: SUM OF ALL RIDES
+                    </div>
+                </a>
             </div>
         </div>
     </section>
@@ -291,7 +455,7 @@
     <section id="algorithm" class="py-20 bg-[#0a0a0a] border-b border-white/10 overflow-hidden scroll-mt-16">
         <div class="container mx-auto px-4">
             <h2 class="font-display text-4xl md:text-5xl text-white mb-16 uppercase text-right">
-                ACTION <span class="text-transparent stroke-text" style="-webkit-text-stroke: 1px white;">ALGORITHM</span>
+                HOW IT <span class="text-transparent stroke-text" style="-webkit-text-stroke: 1px white;">WORKS</span>
             </h2>
 
             <div class="relative">
@@ -307,7 +471,7 @@
                         <p class="text-white/60 text-sm mb-6 h-10 leading-relaxed text-xs">Register via the Telegram bot.</p>
                         
                         <a href="http://t.me/LordOfTheWinds_bot" target="_blank" class="flex items-center justify-center w-full py-4 border border-acid-lime text-acid-lime font-bold uppercase tracking-widest hover:bg-acid-lime hover:text-black transition-all duration-300 shadow-[0_0_20px_rgba(204,255,0,0.1)] hover:shadow-[0_0_30px_rgba(204,255,0,0.4)] text-xs">
-                            <span class="mr-2">></span> START
+                            <span class="mr-2">></span> GO
                         </a>
                     </div>
 
@@ -317,15 +481,15 @@
                         <h4 class="text-xl text-white/80 font-bold mb-4">GARMIN / STRAVA</h4>
                         <p class="text-white/40 text-sm mb-6 h-10 leading-relaxed text-xs">Link your Garmin or Strava account to the racing system.</p>
                         <div class="font-mono text-[10px] text-acid-lime/70 mt-8 pt-4 border-t border-white/10">
-                            // DATES: 17.02-15.03
+                            // WHEN: FEB 17 - MAR 15
                         </div>
                     </div>
 
                     <div class="relative pt-6 md:pt-12">
                         <div class="hidden md:block absolute top-4 left-0 w-4 h-4 bg-[#1a1a1a] border border-white/30 rounded-full z-10"></div>
                         <div class="text-white/50 text-sm font-bold mb-2">STEP 3 // APPLY</div>
-                        <h4 class="text-xl text-white/80 font-bold mb-4">CLASS SELECTION</h4>
-                        <p class="text-white/40 text-sm mb-6 h-10 leading-relaxed text-xs">Submit an application for the race selecting a specific class.</p>
+                        <h4 class="text-xl text-white/80 font-bold mb-4">CHOOSE CLASS</h4>
+                        <p class="text-white/40 text-sm mb-6 h-10 leading-relaxed text-xs">Submit an application selecting your racing class.</p>
                         <div class="font-mono text-[10px] text-acid-lime/70 mt-8 pt-4 border-t border-white/10">
                             // 7 CLASSES
                         </div>
@@ -337,7 +501,7 @@
                         <h4 class="text-xl text-white/80 font-bold mb-4">RIDE</h4>
                         <p class="text-white/40 text-sm mb-6 h-10 leading-relaxed text-xs">Complete a ride on snow or ice in one of the classes.</p>
                         <div class="font-mono text-[10px] text-acid-lime/70 mt-8 pt-4 border-t border-white/10">
-                            // AUTO SYNCHRONIZATION 
+                            // AUTO SYNC
                         </div>
                     </div>
 
@@ -347,7 +511,7 @@
                         <h4 class="text-xl text-acid-lime font-bold mb-4">AWARDS</h4>
                         <p class="text-white/40 text-sm mb-6 h-10 leading-relaxed text-xs">Receive WINDLORD status and valuable prizes.</p>
                         <div class="font-mono text-[10px] text-acid-lime/70 mt-8 pt-4 border-t border-white/10">
-                            // DATE: 15.03
+                            // WHEN: MAR 16
                         </div>
                     </div>
                 </div>
@@ -355,42 +519,202 @@
         </div>
     </section>
 
-    <section id="rules" class="py-24 bg-graphite border-b border-white/10 relative overflow-hidden">
-        <div class="absolute inset-0 opacity-[0.03]" style="background-image: linear-gradient(45deg, #ffffff 1px, transparent 1px); background-size: 30px 30px;"></div>
-        <div class="container mx-auto px-4 flex flex-col items-center text-center relative z-10">
-            <div class="mb-8 p-4 border border-white/10 rounded-full bg-white/5">
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#00F3FF" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+    <section id="rules" class="py-20 bg-graphite border-t border-white/10">
+        <div class="container mx-auto px-4">
+            
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+                <div>
+                    <h2 class="font-display text-3xl md:text-5xl text-white uppercase leading-none">
+                        RACE <span class="text-transparent" style="-webkit-text-stroke: 1px white;">MATERIALS</span>
+                    </h2>
+                </div>
+                <div class="hidden md:block text-right">
+                    <p class="text-white/50 text-xs font-mono max-w-xs">
+                        Read the official documents before registration.
+                    </p>
+                </div>
             </div>
-            <h2 class="font-display text-3xl md:text-4xl text-white uppercase mb-6">
-                COMPETITION <span class="text-acid-lime">REGULATIONS</span>
-            </h2>
-            <p class="text-white/60 text-sm md:text-base max-w-xl mx-auto font-mono mb-10 leading-relaxed">
-                Read more about admission rules, scoring system, and track requirements in the official Competition Regulations.
-            </p>
-            <a href="rules.pdf" download class="group relative inline-flex items-center gap-4 px-10 py-5 bg-transparent border border-acid-lime/30 hover:border-acid-lime hover:bg-acid-lime/5 transition-all duration-300">
-                <span class="absolute top-0 left-0 w-1.5 h-1.5 border-t border-l border-acid-lime"></span>
-                <span class="absolute top-0 right-0 w-1.5 h-1.5 border-t border-r border-acid-lime"></span>
-                <span class="absolute bottom-0 right-0 w-1.5 h-1.5 border-b border-r border-acid-lime"></span>
-                <span class="absolute bottom-0 left-0 w-1.5 h-1.5 border-b border-l border-acid-lime"></span>
-                <span class="font-bold text-acid-lime uppercase tracking-widest text-sm">DOWNLOAD RULES</span>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00F3FF" stroke-width="2" class="group-hover:translate-y-1 transition-transform"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-            </a>
-            <div class="mt-6 text-[10px] text-white/30 uppercase tracking-widest font-mono">
-                FILE: RULES.PDF // SIZE: 2.4 MB
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                
+                <a href="rules.pdf" target="_blank" class="group relative bg-white/5 border border-white/10 p-6 md:p-8 flex items-center justify-between hover:bg-white/10 hover:border-acid-lime transition-all duration-300">
+                    <div class="flex items-center gap-6">
+                        <div class="w-12 h-12 bg-black border border-white/20 flex items-center justify-center text-white/50 group-hover:text-acid-lime group-hover:border-acid-lime transition-colors">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                        </div>
+                        <div>
+                            <h3 class="font-display text-lg md:text-xl text-white uppercase group-hover:text-acid-lime transition-colors">RIDER GUIDE</h3>
+                        </div>
+                    </div>
+                    <div class="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-acid-lime group-hover:border-acid-lime transition-all">
+                        <svg class="w-4 h-4 text-white group-hover:text-black -rotate-45 transition-transform group-hover:rotate-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </div>
+                </a>
+
+                <a href="regulation.pdf" target="_blank" class="group relative bg-white/5 border border-white/10 p-6 md:p-8 flex items-center justify-between hover:bg-white/10 hover:border-acid-lime transition-all duration-300">
+                    <div class="flex items-center gap-6">
+                        <div class="w-12 h-12 bg-black border border-white/20 flex items-center justify-center text-white/50 group-hover:text-acid-lime group-hover:border-acid-lime transition-colors">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3v18h18"/><path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"/></svg>
+                        </div>
+                        <div>
+                            <h3 class="font-display text-lg md:text-xl text-white uppercase group-hover:text-acid-lime transition-colors">OFFICIAL REGULATIONS</h3>
+                        </div>
+                    </div>
+                    <div class="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-acid-lime group-hover:border-acid-lime transition-all">
+                        <svg class="w-4 h-4 text-white group-hover:text-black -rotate-45 transition-transform group-hover:rotate-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </div>
+                </a>
+
+                <a href="personal_data.pdf" target="_blank" class="group relative bg-white/5 border border-white/10 p-6 md:p-8 flex items-center justify-between hover:bg-white/10 hover:border-acid-lime transition-all duration-300">
+                    <div class="flex items-center gap-6">
+                        
+                        <div class="w-12 h-12 bg-black border border-white/20 flex items-center justify-center text-white/50 group-hover:text-acid-lime group-hover:border-acid-lime transition-colors">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                        </div>
+                        <div>
+                            <h3 class="font-display text-lg md:text-xl text-white uppercase group-hover:text-acid-lime transition-colors">DATA PROCESSING CONSENT</h3>
+                        </div>
+                    </div>
+                    <div class="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-acid-lime group-hover:border-acid-lime transition-all">
+                        <svg class="w-4 h-4 text-white group-hover:text-black -rotate-45 transition-transform group-hover:rotate-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </div>
+                </a>
+
+                <a href="presentation.html" target="_blank" class="group relative bg-white/5 border border-white/10 p-6 md:p-8 flex items-center justify-between hover:bg-white/10 hover:border-acid-lime transition-all duration-300">
+                    <div class="flex items-center gap-6">
+                        <div class="w-12 h-12 bg-black border border-white/20 flex items-center justify-center text-white/50 group-hover:text-acid-lime group-hover:border-acid-lime transition-colors">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+                        </div>
+                        <div>
+                            <h3 class="font-display text-lg md:text-xl text-white uppercase group-hover:text-acid-lime transition-colors">FOR PARTNERS</h3>
+                        </div>
+                    </div>
+                    <div class="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-acid-lime group-hover:border-acid-lime transition-all">
+                        <svg class="w-4 h-4 text-white group-hover:text-black -rotate-45 transition-transform group-hover:rotate-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </div>
+                </a>
+
             </div>
         </div>
     </section>
 
-    <footer class="bg-graphite border-t border-white/10 py-12 text-xs md:text-sm">
-        <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6 text-white/40">
-            <div class="uppercase tracking-wider">
-                TELEGRAM SUPPORT: <a href="#" class="text-white hover:text-acid-lime">@LordOfTheWindsSupport</a>
+    <section class="py-20 bg-white text-black border-y border-black/10">
+        <div class="container mx-auto px-4">
+            
+            <div class="text-center mb-12">
+                <h2 class="font-display text-3xl md:text-4xl uppercase font-black tracking-tight">
+                    RACE <span class="text-transparent" style="-webkit-text-stroke: 1px black;">PARTNERS</span>
+                </h2>
             </div>
-            <div class="text-center md:text-right">
-                © 2026 Lord of the Winds.<br>St. Petersburg / Worldwide.
+
+            <div class="flex flex-wrap justify-center items-center gap-12 md:gap-24 transition-all duration-500">
+                <div class="group w-32 md:w-48 h-20 flex items-center justify-center">
+                    <img src="logo-1.png" alt="Partner 1" class="max-h-full max-w-full object-contain opacity-80 group-hover:opacity-100 transition-opacity">
+                </div>
+                
+                <div class="group w-32 md:w-48 h-20 flex items-center justify-center">
+                    <img src="logo-2.png" alt="Partner 2" class="max-h-full max-w-full object-contain opacity-80 group-hover:opacity-100 transition-opacity">
+                </div>
+                
+                <div class="group w-32 md:w-48 h-20 flex items-center justify-center">
+                    <img src="logo-3.png" alt="Partner 3" class="max-h-full max-w-full object-contain opacity-80 group-hover:opacity-100 transition-opacity">
+                </div>
+                
+                <div class="group w-32 md:w-48 h-20 flex items-center justify-center">
+                    <img src="logo-4.png" alt="Partner 4" class="max-h-full max-w-full object-contain opacity-80 group-hover:opacity-100 transition-opacity">
+                </div>
             </div>
         </div>
-    </footer>
+    </section>
 
+    <section id="contacts" class="py-20 bg-[#050505] border-t border-white/10">
+        <div class="container mx-auto px-4">
+            <h2 class="font-display text-3xl md:text-5xl text-white uppercase mb-12 text-center">
+                CONTACT <span class="text-acid-lime">US</span>
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-white/10 border border-white/10">
+                
+                <a href="https://t.me/Lord_of_the_Winds" target="_blank" class="group bg-graphite p-10 flex flex-col items-center justify-center text-center hover:bg-white/5 transition-colors cursor-pointer h-64">
+                    <div class="w-12 h-12 mb-6 text-white/50 group-hover:text-acid-lime transition-colors">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 2L11 13"/><path d="M22 2L15 22L11 13L2 9L22 2Z"/></svg>
+                    </div>
+                    <h3 class="font-display text-xl text-white uppercase mb-2 group-hover:text-acid-lime transition-colors">TG CHANNEL</h3>
+                    <p class="text-white/40 font-mono text-xs uppercase tracking-widest">
+                        News & Media
+                    </p>
+                </a>
+
+                <a href="https://t.me/LordOfTheWinds_bot" target="_blank" class="group bg-graphite p-10 flex flex-col items-center justify-center text-center hover:bg-white/5 transition-colors cursor-pointer h-64">
+                    <div class="w-12 h-12 mb-6 text-white/50 group-hover:text-acid-lime transition-colors">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="11" width="18" height="10" rx="2" /><circle cx="12" cy="5" r="2" /><path d="M12 7v4" /><line x1="8" y1="16" x2="8" y2="16" /><line x1="16" y1="16" x2="16" y2="16" /></svg>
+                    </div>
+                    <h3 class="font-display text-xl text-white uppercase mb-2 group-hover:text-acid-lime transition-colors">TG BOT</h3>
+                    <p class="text-white/40 font-mono text-xs uppercase tracking-widest">
+                        Registration & Results
+                    </p>
+                </a>
+
+                <a href="mailto:lordofthewinds2026@gmail.com" class="group bg-graphite p-10 flex flex-col items-center justify-center text-center hover:bg-white/5 transition-colors cursor-pointer h-64">
+                    <div class="w-12 h-12 mb-6 text-white/50 group-hover:text-acid-lime transition-colors">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                    </div>
+                    <h3 class="font-display text-xl text-white uppercase mb-2 group-hover:text-acid-lime transition-colors">E-MAIL</h3>
+                    <p class="text-white/40 font-mono text-xs uppercase tracking-widest">
+                        Cooperation
+                    </p>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+<footer class="bg-graphite py-12 text-xs md:text-sm">
+    <div class="container mx-auto px-4 flex flex-col md:flex-row justify-center items-center gap-6 text-white/40">
+
+        <div class="text-center">
+            © 2026 Lord of the Winds.<br>St. Petersburg / Worldwide.
+        </div>
+    </div>
+</footer>
+
+<script>
+        // ==========================================
+        // SET START DATE HERE
+        // Format: Month Day, Year Hour:Minute:Second
+        // ==========================================
+        const targetDate = new Date("February 17, 2026 09:00:00").getTime();
+
+        const timerInterval = setInterval(function() {
+            // Current user time
+            const now = new Date().getTime();
+            
+            // Difference
+            const distance = targetDate - now;
+
+            // Calculation
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Pad with zero
+            const pad = (num) => String(num).padStart(2, '0');
+
+            // Output
+            if (distance > 0) {
+                document.getElementById("days").innerText = pad(days);
+                document.getElementById("hours").innerText = pad(hours);
+                document.getElementById("minutes").innerText = pad(minutes);
+                document.getElementById("seconds").innerText = pad(seconds);
+            } else {
+                clearInterval(timerInterval);
+                document.getElementById("days").innerText = "00";
+                document.getElementById("hours").innerText = "00";
+                document.getElementById("minutes").innerText = "00";
+                document.getElementById("seconds").innerText = "00";
+            }
+        }, 1000);
+    </script>
 </body>
 </html>
