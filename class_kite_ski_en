@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KITE SKI | LORD OF THE WINDS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100..800&family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
+    <script>tailwind.config = { theme: { extend: { colors: { 'graphite': '#0F0F0F', 'acid-lime': '#00F3FF', 'ice-white': '#F0F0F0', }, fontFamily: { 'display': ['"Unbounded"', 'sans-serif'], 'mono': ['"JetBrains Mono"', 'monospace'], } } } }</script>
+    <style>body { background-color: #0F0F0F; color: #F0F0F0; } .no-scrollbar::-webkit-scrollbar { display: none; } .tab-content { display: none; } .tab-content.active { display: block; }</style>
+</head>
+<body data-class-id="9"> 
+    <a href="index_en.html" class="fixed top-40 left-4 z-50 -rotate-90 origin-left font-display font-black text-2xl tracking-tighter text-white hover:text-acid-lime transition-colors mix-blend-difference py-2">LOW 2026</a>
+    <nav class="fixed w-full z-50 mix-blend-difference px-4 py-6">
+        <div class="container mx-auto flex justify-end items-center">
+            <a href="index_en.html" class="flex items-center gap-2 group"><span class="font-mono text-xs text-white group-hover:text-acid-lime transition-colors uppercase">Home</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-white group-hover:text-acid-lime group-hover:translate-x-1 transition-transform"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg></a>
+        </div>
+    </nav>
+    <section class="pt-32 pb-12 relative overflow-hidden">
+        <div class="absolute top-0 right-0 font-display text-[20vw] font-black text-white opacity-[0.02] leading-none select-none pointer-events-none">02</div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="flex items-center gap-4 mb-4"><span class="border border-acid-lime text-acid-lime px-3 py-1 text-xs font-mono font-bold uppercase">Class</span></div>
+            <h1 class="font-display text-4xl md:text-7xl lg:text-8xl text-white uppercase mb-8 leading-none">KITE <span class="text-transparent" style="-webkit-text-stroke: 1px #FFF;">SKI</span></h1>
+            <p class="text-white/70 max-w-2xl text-sm md:text-base font-mono leading-relaxed border-l-2 border-acid-lime pl-6">The fastest class. Alpine or cross-country skis + kite. High speeds and marathon distances.</p>
+        </div>
+    </section>
+    <section class="py-8 border-y border-white/10 bg-white/5"><div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-6"><div class="flex items-center gap-6"><div class="w-16 h-16 border border-white/20 bg-black flex items-center justify-center font-bold text-white/30 text-[10px] uppercase text-center p-2">LOGO</div><div><div class="text-acid-lime font-mono text-[10px] font-bold uppercase mb-1">Official Class Partner</div><h3 class="font-display text-xl text-white uppercase">COMPANY NAME</h3></div></div><div class="text-right hidden md:block"><a href="#" class="text-white/50 text-xs font-mono hover:text-white underline decoration-acid-lime">Visit Partner Website -></a></div></div></section>
+    <section class="py-16 min-h-[600px]">
+        <div class="container mx-auto px-4">
+            <div class="flex overflow-x-auto no-scrollbar gap-8 mb-8 border-b border-white/10 pb-4">
+                <button onclick="switchTab('speed')" id="btn-speed" class="tab-btn active text-lg md:text-2xl font-display uppercase whitespace-nowrap text-acid-lime transition-colors">Speed</button>
+                <button onclick="switchTab('marathon')" id="btn-marathon" class="tab-btn text-lg md:text-2xl font-display uppercase whitespace-nowrap text-white/30 hover:text-white transition-colors">Marathon</button>
+                <button onclick="switchTab('konyuhov')" id="btn-konyuhov" class="tab-btn text-lg md:text-2xl font-display uppercase whitespace-nowrap text-white/30 hover:text-white transition-colors">Konyuhov</button>
+                <button onclick="switchTab('gump')" id="btn-gump" class="tab-btn text-lg md:text-2xl font-display uppercase whitespace-nowrap text-white/30 hover:text-white transition-colors">Forrest Gump</button>
+            </div>
+            <div class="flex justify-between items-center mb-12"><div class="flex gap-1 bg-white/5 p-1"><button class="px-4 py-2 text-xs font-mono font-bold bg-acid-lime text-black uppercase transition-colors">Overall</button><button class="px-4 py-2 text-xs font-mono font-bold text-white/50 hover:text-white hover:bg-white/10 uppercase transition-colors">Men</button><button class="px-4 py-2 text-xs font-mono font-bold text-white/50 hover:text-white hover:bg-white/10 uppercase transition-colors">Women</button></div></div>
+            <div id="tab-speed" class="tab-content active"><div class="w-full h-64 border border-white/10 bg-white/5 flex flex-col items-center justify-center text-center p-8"><div class="font-display text-2xl text-white mb-2 uppercase">Season 2026 Open!</div><p class="text-white/50 font-mono text-sm max-w-md">First speed protocols will appear here after track processing.</p><div class="mt-6 text-acid-lime font-mono text-xs">> WAITING FOR DATA...</div></div></div>
+            <div id="tab-marathon" class="tab-content"><div class="w-full h-64 border border-white/10 bg-white/5 flex flex-col items-center justify-center text-center p-8"><div class="font-display text-2xl text-white mb-2 uppercase">Distance 42 KM</div><p class="text-white/50 font-mono text-sm max-w-md">Marathon results table is forming. Get ready to show your best time!</p></div></div>
+            <div id="tab-konyuhov" class="tab-content"><div class="w-full h-64 border border-white/10 bg-white/5 flex flex-col items-center justify-center text-center p-8"><div class="font-display text-2xl text-white mb-2 uppercase">Maximum Distance</div><p class="text-white/50 font-mono text-sm max-w-md">Here will be the names of heroes who covered the longest distance in one go.</p></div></div>
+            <div id="tab-gump" class="tab-content"><div class="w-full h-64 border border-white/10 bg-white/5 flex flex-col items-center justify-center text-center p-8"><div class="font-display text-2xl text-white mb-2 uppercase">Cumulative Standing</div><p class="text-white/50 font-mono text-sm max-w-md">Ranking of the most persistent riders by sum of all season distances.</p></div></div>
+        </div>
+    </section>
+    <footer class="bg-black py-12 border-t border-white/10 text-center"><div class="text-white/30 text-xs font-mono">© 2026 LORD OF THE WINDS</div></footer>
+    <script>
+        function switchTab(tabId) { document.querySelectorAll('.tab-btn').forEach(btn => { btn.classList.remove('text-acid-lime'); btn.classList.add('text-white/30'); }); document.getElementById('btn-' + tabId).classList.remove('text-white/30'); document.getElementById('btn-' + tabId).classList.add('text-acid-lime'); document.querySelectorAll('.tab-content').forEach(content => { content.classList.remove('active'); }); document.getElementById('tab-' + tabId).classList.add('active'); }
+    </script>
+</body>
+</html>
