@@ -41,7 +41,6 @@
             justify-content: center;
             align-items: center;
             box-shadow: 0 0 50px rgba(0,0,0,0.5);
-            /* Радиальный градиент для объема */
             background: radial-gradient(circle at center, #2a2a2a 0%, #050505 100%);
         }
 
@@ -51,10 +50,15 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            /* ВАЖНО: object-position управляет тем, какая часть картинки будет по центру */
+            object-position: center center; 
             z-index: 0; 
             opacity: 0.5; 
             filter: grayscale(100%) contrast(1.2) brightness(0.8); 
-            mix-blend-mode: overlay; 
+            mix-blend-mode: overlay;
+            
+            /* ЗУМ ЗДЕСЬ: Изменяй 1.5 на большее число, чтобы приблизить еще сильнее */
+            transform: scale(1.5); 
         }
         
         .noise {
@@ -65,13 +69,12 @@
             z-index: 1;
         }
 
-        /* Визуальный круг, чтобы ты видела, как обрежет Телеграм (он исчезнет, если убрать border) */
-        /* Для финального скриншота этот круг не помешает, т.к. он будет за пределами кропа ТГ, или просто для ориентира */
+        /* Safe Zone для ориентира (не видно на финальном аватаре в круге) */
         .safe-zone {
             position: absolute;
             width: 800px;
             height: 800px;
-            border: 1px dashed rgba(0, 243, 255, 0.2); /* Еле заметная граница круга */
+            border: 1px dashed rgba(0, 243, 255, 0.2);
             border-radius: 50%;
             pointer-events: none;
             z-index: 20;
@@ -85,18 +88,15 @@
         <img src="bg-cover.jpg" class="avatar-bg-img" onerror="this.style.display='none'">
         
         <div class="noise"></div>
-        
         <div class="safe-zone"></div>
         
         <div class="relative z-10 text-center flex flex-col items-center justify-center p-4">
-            
             <h1 class="font-display font-black text-7xl md:text-8xl leading-[0.9] text-white drop-shadow-2xl tracking-tighter">
                 ВЛАДЫКА<br>
                 <span class="text-acid-lime drop-shadow-[0_0_35px_rgba(0,243,255,0.6)]">ВЕТРА</span>
             </h1>
             
             <div class="w-24 h-3 bg-acid-lime mt-8 shadow-[0_0_30px_#00F3FF]"></div>
-            
         </div>
     
     </div>
