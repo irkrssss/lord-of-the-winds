@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AVATAR GENERATOR</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100..800&family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { 'graphite': '#0F0F0F', 'acid-lime': '#00F3FF' },
+                    fontFamily: { 'display': ['"Unbounded"', 'sans-serif'], 'mono': ['"JetBrains Mono"', 'monospace'] }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { 
+            background-color: #222; 
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+
+        /* Квадратный контейнер аватара */
+        .avatar {
+            width: 800px;
+            height: 800px;
+            background-color: #0F0F0F;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 0 50px rgba(0,0,0,0.5);
+            /* Радиальный градиент для глубины */
+            background: radial-gradient(circle at center, #2a2a2a 0%, #050505 100%);
+        }
+
+        /* Фон (картинка) */
+        .avatar-bg-img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0; 
+            opacity: 0.6; 
+            filter: grayscale(100%) contrast(1.2) brightness(0.8); 
+            mix-blend-mode: overlay; 
+        }
+        
+        /* Зернистость для текстуры */
+        .noise {
+            position: absolute; inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.15'/%3E%3C/svg%3E");
+            opacity: 0.4;
+            pointer-events: none;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="avatar">
+        
+        <img src="bg-cover.jpg" class="avatar-bg-img" onerror="this.style.display='none'">
+        
+        <div class="noise"></div>
+        
+        <div class="relative z-10 text-center flex flex-col items-center justify-center">
+            
+            <h1 class="font-display font-black text-[9rem] leading-[0.85] text-white drop-shadow-2xl tracking-tighter">
+                ВЛАДЫКА<br>
+                <span class="text-transparent" style="-webkit-text-stroke: 4px #00F3FF; filter: drop-shadow(0 0 30px rgba(0,243,255,0.5));">ВЕТРА</span>
+            </h1>
+            
+            <div class="w-40 h-2 bg-acid-lime mt-10 shadow-[0_0_40px_#00F3FF]"></div>
+            
+        </div>
+    
+    </div>
+
+</body>
+</html>
