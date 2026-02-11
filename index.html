@@ -156,50 +156,88 @@
         </div>
     </nav>
 
-    <section id="about" class="py-24 bg-graphite border-b border-white/10 scroll-mt-16">
+<section id="about" class="py-24 bg-graphite border-b border-white/10 scroll-mt-16">
         <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+            
+            <div class="grid grid-cols-1 xl:grid-cols-2 gap-16 items-start">
                 
-                <div class="lg:col-span-4">
-                    <h2 class="font-display text-4xl md:text-5xl text-white uppercase leading-none mb-6">
-                        ФИЛОСОФИЯ<br>
-                        <span class="text-acid-lime">ГОНКИ</span>
-                    </h2>
-                    <div class="w-16 h-1 bg-acid-lime mb-6"></div>
-                </div>
+                <div class="flex flex-col justify-between h-full">
+                    <div>
+                        <h2 class="font-display text-4xl md:text-5xl text-white uppercase leading-none mb-6">
+                            ФИЛОСОФИЯ<br>
+                            <span class="text-acid-lime">ГОНКИ</span>
+                        </h2>
+                        <div class="w-16 h-1 bg-acid-lime mb-10"></div>
 
-                <div class="lg:col-span-8 space-y-10 lg:pl-4">
-                    <p class="text-lg md:text-xl text-white font-light leading-relaxed">
-                        <span class="font-bold text-white">Lord of the Winds</span> — это возможность соревноваться с&nbsp;райдерами со&nbsp;всего мира, не&nbsp;выезжая за&nbsp; пределы своего домашнего спота. Вы&nbsp;катаетесь, загружаете треки и&nbsp;боретесь за&nbsp; реальные награды в&nbsp;общем зачете.
-                    </p>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 border-t border-white/10 pt-8">
-                        <div>
-                            <div class="flex items-center gap-3 mb-4">
-                                <h3 class="text-white font-display text-xl uppercase">Где кататься?</h3>
+                        <p class="text-lg md:text-xl text-white font-light leading-relaxed mb-10">
+                            <span class="font-bold text-white">Lord of the Winds</span> — это возможность соревноваться с&nbsp;райдерами со&nbsp;всего мира, не&nbsp;выезжая за&nbsp; пределы своего домашнего спота. Вы&nbsp;катаетесь, загружаете треки и&nbsp;боретесь за&nbsp; реальные награды в&nbsp;общем зачете.
+                        </p>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 border-t border-white/10 pt-8">
+                            <div>
+                                <div class="flex items-center gap-3 mb-4">
+                                    <h3 class="text-white font-display text-xl uppercase">Где кататься?</h3>
+                                </div>
+                                <p class="text-white/70 text-sm leading-relaxed mb-2 font-bold">
+                                    ЛОКАЦИЯ: ВЕСЬ МИР
+                                </p>
+                                <p class="text-white/70 text-sm leading-relaxed mb-4">
+                                    Любая замерзшая акватория или&nbsp;снежное поле.
+                                </p>
+                                <p class="text-acid-lime text-sm font-bold leading-relaxed border-l-2 border-acid-lime pl-3">
+                                    Ровная снежная или&nbsp;ледяная поверхность. Перепад высот не&nbsp;более 2м на&nbsp;100м дистанции.
+                                </p>
                             </div>
-                            <p class="text-white/70 text-sm leading-relaxed mb-2 font-bold">
-                                ЛОКАЦИЯ: ВЕСЬ МИР
-                            </p>
-                            <p class="text-white/70 text-sm leading-relaxed mb-4">
-                                Любая замерзшая акватория или&nbsp;снежное поле.
-                            </p>
-                            <p class="text-acid-lime text-sm font-bold leading-relaxed border-l-2 border-acid-lime pl-3">
-                                Ровная снежная или&nbsp;ледяная поверхность. Перепад высот не&nbsp;более 2м на&nbsp;100м дистанции.
-                            </p>
-                        </div>
-                       <div>
-                            <div class="flex items-center gap-3 mb-4">
-                                <h3 class="text-white font-display text-xl uppercase">Награды</h3>
+
+                            <div>
+                                <div class="flex items-center gap-3 mb-4">
+                                    <h3 class="text-white font-display text-xl uppercase">Награды</h3>
+                                </div>
+                                <p class="text-white/70 text-sm leading-relaxed mb-4">
+                                    Пройди испытание во&nbsp;всех дисциплинах своего класса и&nbsp;получи статус <span class="text-white font-bold">WINDLORD - ВЛАДЫКА ВЕТРА</span>.
+                                </p>
+                                <p class="text-acid-lime text-sm font-bold leading-relaxed border-l-2 border-acid-lime pl-3">
+                                    Победители и&nbsp;призёры в&nbsp;7-ми классах и&nbsp;4-х дисциплинах будут награждены ценными призами.
+                                </p>
                             </div>
-                            <p class="text-white/70 text-sm leading-relaxed mb-4">
-                                Пройди испытание во&nbsp;всех дисциплинах своего класса и&nbsp;получи статус <span class="text-white font-bold">WINDLORD - ВЛАДЫКА ВЕТРА</span>.
-                            </p>
-                            <p class="text-acid-lime text-sm font-bold leading-relaxed border-l-2 border-acid-lime pl-3">
-                                Победители и&nbsp;призёры в&nbsp;7-ми классах и&nbsp;4-х дисциплинах будут награждены ценными призами.
-                            </p>
                         </div>
                     </div>
                 </div>
+
+                <div class="grid grid-cols-3 gap-2 sm:gap-4 h-[500px] xl:h-[600px] w-full">
+                    
+                    <div class="relative group overflow-hidden border border-white/10 hover:border-acid-lime transition-all duration-500">
+                        <img src="kite.png" alt="Сноукайтинг" class="w-full h-full object-cover brightness-75 grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700">
+                        <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/90 to-transparent p-3 md:p-6 pt-12">
+                            <h3 class="font-display text-xs md:text-lg text-acid-lime uppercase mb-1 md:mb-2 leading-none">СНОУКАЙТИНГ</h3>
+                            <p class="text-white/60 text-[8px] md:text-[10px] font-mono uppercase leading-tight hidden sm:block">
+                                Движение под куполом (кайтом) на стропах.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="relative group overflow-hidden border border-white/10 hover:border-acid-lime transition-all duration-500">
+                        <img src="wing.png" alt="Айсвинг" class="w-full h-full object-cover brightness-75 grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700">
+                        <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/90 to-transparent p-3 md:p-6 pt-12">
+                            <h3 class="font-display text-xs md:text-lg text-acid-lime uppercase mb-1 md:mb-2 leading-none">АЙСВИНГ</h3>
+                            <p class="text-white/60 text-[8px] md:text-[10px] font-mono uppercase leading-tight hidden sm:block">
+                                Движение с надувным крылом (вингом).
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="relative group overflow-hidden border border-white/10 hover:border-acid-lime transition-all duration-500">
+                        <img src="surf.png" alt="Винсдерфинг" class="w-full h-full object-cover brightness-75 grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700">
+                        <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/90 to-transparent p-3 md:p-6 pt-12">
+                            <h3 class="font-display text-xs md:text-lg text-acid-lime uppercase mb-1 md:mb-2 leading-none">ВИНДСЕРФИНГ</h3>
+                            <p class="text-white/60 text-[8px] md:text-[10px] font-mono uppercase leading-tight hidden sm:block">
+                                Парус на мачте, закрепленный на доске.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
             </div>
         </div>
     </section>
