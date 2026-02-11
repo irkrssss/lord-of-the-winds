@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPS SPEED | LORD OF THE WINDS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100..800&family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
+    <script>tailwind.config = { theme: { extend: { colors: { 'graphite': '#0F0F0F', 'acid-lime': '#00F3FF', 'ice-white': '#F0F0F0', }, fontFamily: { 'display': ['"Unbounded"', 'sans-serif'], 'mono': ['"JetBrains Mono"', 'monospace'], } } } }</script>
+    <style>body { background-color: #0F0F0F; color: #F0F0F0; } .no-scrollbar::-webkit-scrollbar { display: none; } .fade-in { animation: fadeIn 0.5s ease-in-out; } @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }</style>
+</head>
+<body data-discipline-id="1"> 
+    <a href="index_en.html" class="fixed top-40 left-4 z-50 -rotate-90 origin-left font-display font-black text-2xl tracking-tighter text-white hover:text-acid-lime transition-colors mix-blend-difference py-2">LOW 2026</a>
+    <nav class="fixed w-full z-50 mix-blend-difference px-4 py-6">
+        <div class="container mx-auto flex justify-end items-center">
+            <a href="index_en.html" class="flex items-center gap-2 group"><span class="font-mono text-xs text-white group-hover:text-acid-lime transition-colors uppercase">Home</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-white group-hover:text-acid-lime group-hover:translate-x-1 transition-transform"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg></a>
+        </div>
+    </nav>
+    <section class="pt-32 pb-12 relative overflow-hidden">
+        <div class="container mx-auto px-4 relative z-10 pl-16 md:pl-4"> 
+            <div class="flex items-center gap-4 mb-4"><span class="border border-acid-lime text-acid-lime px-3 py-1 text-xs font-mono font-bold uppercase">Discipline</span></div>
+            <h1 class="font-display text-4xl md:text-7xl lg:text-8xl text-white uppercase mb-8 leading-none">GPS <span class="text-transparent" style="-webkit-text-stroke: 1px #FFF;">SPEED</span></h1>
+            <p class="text-white/70 max-w-2xl text-sm md:text-base font-mono leading-relaxed border-l-2 border-acid-lime pl-6">Determining maximum speed during the ride. No limits, just you and the wind.</p>
+        </div>
+    </section>
+    <section class="py-8 border-y border-white/10 bg-white/5">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-6 pl-16 md:pl-4">
+            <div class="flex items-center gap-6">
+                <div class="w-16 h-16 border border-white/20 bg-black flex items-center justify-center font-bold text-white/30 text-[10px] uppercase text-center p-2">LOGO</div>
+                <div><div class="text-acid-lime font-mono text-[10px] font-bold uppercase mb-1">Discipline Sponsor</div><h3 class="font-display text-xl text-white uppercase">COMPANY NAME</h3></div>
+            </div>
+            <div class="text-right hidden md:block"><a href="#" class="text-white/50 text-xs font-mono hover:text-white underline decoration-acid-lime">Visit Partner Website -></a></div>
+        </div>
+    </section>
+    <section class="py-16 min-h-[600px]">
+        <div class="container mx-auto px-4 pl-16 md:pl-4">
+            <div class="text-[10px] font-mono text-white/40 uppercase mb-2">Choose Class:</div>
+            <div class="flex overflow-x-auto no-scrollbar gap-2 mb-8 pb-4 border-b border-white/10">
+                <button onclick="switchClass(8)" id="btn-class-8" class="class-btn active shrink-0 border border-acid-lime bg-acid-lime text-black px-4 py-3 font-display text-xs uppercase font-bold transition-all hover:bg-white">Kite Snowboard</button>
+                <button onclick="switchClass(9)" id="btn-class-9" class="class-btn shrink-0 border border-white/20 text-white/50 px-4 py-3 font-display text-xs uppercase font-bold transition-all hover:border-white hover:text-white">Kite Ski</button>
+                <button onclick="switchClass(10)" id="btn-class-10" class="class-btn shrink-0 border border-white/20 text-white/50 px-4 py-3 font-display text-xs uppercase font-bold transition-all hover:border-white hover:text-white">Wing Snowboard</button>
+                <button onclick="switchClass(11)" id="btn-class-11" class="class-btn shrink-0 border border-white/20 text-white/50 px-4 py-3 font-display text-xs uppercase font-bold transition-all hover:border-white hover:text-white">Wing Ski</button>
+                <button onclick="switchClass(12)" id="btn-class-12" class="class-btn shrink-0 border border-white/20 text-white/50 px-4 py-3 font-display text-xs uppercase font-bold transition-all hover:border-white hover:text-white">Wing Blades</button>
+                <button onclick="switchClass(13)" id="btn-class-13" class="class-btn shrink-0 border border-white/20 text-white/50 px-4 py-3 font-display text-xs uppercase font-bold transition-all hover:border-white hover:text-white">Wing Snowskate</button>
+                <button onclick="switchClass(14)" id="btn-class-14" class="class-btn shrink-0 border border-white/20 text-white/50 px-4 py-3 font-display text-xs uppercase font-bold transition-all hover:border-white hover:text-white">Winter Windsurf</button>
+            </div>
+            <div class="flex justify-between items-center mb-8"><div class="flex gap-1 bg-white/5 p-1"><button class="px-4 py-2 text-xs font-mono font-bold bg-acid-lime text-black uppercase transition-colors">Overall</button><button class="px-4 py-2 text-xs font-mono font-bold text-white/50 hover:text-white hover:bg-white/10 uppercase transition-colors">Men</button><button class="px-4 py-2 text-xs font-mono font-bold text-white/50 hover:text-white hover:bg-white/10 uppercase transition-colors">Women</button></div></div>
+            <div id="results-container" class="fade-in"><div class="w-full h-64 border border-white/10 bg-white/5 flex flex-col items-center justify-center text-center p-8"><div class="font-display text-2xl text-white mb-2 uppercase">Class Results</div><p class="text-white/50 font-mono text-sm max-w-md mb-6">Select a class above to see the leaders in this discipline.</p><div class="text-acid-lime font-mono text-xs animate-pulse">> WAITING FOR TRACKS...</div></div></div>
+        </div>
+    </section>
+    <footer class="bg-black py-12 border-t border-white/10 text-center pl-12 md:pl-0"><div class="text-white/30 text-xs font-mono">© 2026 LORD OF THE WINDS</div></footer>
+    <script>function switchClass(classId) { document.querySelectorAll('.class-btn').forEach(btn => { btn.classList.remove('bg-acid-lime', 'text-black', 'border-acid-lime'); btn.classList.add('border-white/20', 'text-white/50'); }); document.getElementById('btn-class-' + classId).classList.remove('border-white/20', 'text-white/50'); document.getElementById('btn-class-' + classId).classList.add('bg-acid-lime', 'text-black', 'border-acid-lime'); const container = document.getElementById('results-container'); container.style.opacity = '0.5'; setTimeout(() => { container.style.opacity = '1'; }, 300); }</script>
+</body>
+</html>
